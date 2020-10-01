@@ -2,7 +2,7 @@
 left to right direction
 actor "Leietaker" as fc
 rectangle Booking {
-  usecase "Booke parkering" as UC1
+  usecase "Reservere parkering" as UC1
   usecase "Se tilgjengelige parkeringsplasser" as UC2
   usecase "Se tidligere bookinger" as UC3
   usecase "Betale" as UC4
