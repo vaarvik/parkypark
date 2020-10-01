@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+actor "Administrator" as fc
+rectangle Moderering {
+  usecase "Godkjenne utleiers dokumenter" as UC1
+  usecase "Utestenge brukere" as UC2
+  usecase "Bekrefte identiteter" as UC3
+  usecase "Endre beskrivelser" as UC4
+  usecase "Slette bilder" as UC5
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+@enduml
