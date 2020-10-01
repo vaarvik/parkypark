@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Leietaker" as fc
+rectangle Booking {
+  usecase "Reservere parkering" as UC1
+  usecase "Se tilgjengelige parkeringsplasser" as UC2
+  usecase "Se tidligere bookinger" as UC3
+  usecase "Betale" as UC4
+  usecase "Gi tilbakemelding" as UC5
+  usecase "Se tilbakemeldinger" as UC6
+  usecase "Avslutte en booking" as UC7
+  usecase "Avbestille en booking" as UC8
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+fc --> UC6
+fc --> UC7
+fc --> UC8
+@enduml
