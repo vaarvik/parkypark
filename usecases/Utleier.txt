@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor "Utleier" as fc
+rectangle Utleie {
+  usecase "Sette opp parkeringsplasser" as UC1
+  usecase "Sette et tidspunkt" as UC2
+  usecase "Sette en pris" as UC3
+  usecase "Motta penger" as UC4
+  usecase "Motta en beskjed når noen booker" as UC5
+  usecase "Se tilbakemeldinger på en leietaker" as UC6
+  usecase "Fjerne sin egne parkeringsplasser" as UC7
+  usecase "Oversikt over egne parkeringsplasser" as UC8
+  usecase "Legge inn detaljer" as UC9
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+fc --> UC4
+fc --> UC5
+fc --> UC6
+fc --> UC7
+fc --> UC8
+fc --> UC9
+@enduml
