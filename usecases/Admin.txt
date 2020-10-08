@@ -6,7 +6,7 @@ rectangle Moderering {
   usecase "Utestenge brukere" as UC2
   usecase "Bekrefte identiteter" as UC3
   usecase "Endre beskrivelser" as UC4
-  usecase "Kan slette bilder" as UC5
+  usecase "Slette bilder" as UC5
 }
 fc --> UC1
 fc --> UC2
