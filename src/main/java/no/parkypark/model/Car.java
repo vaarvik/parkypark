@@ -1,4 +1,4 @@
-package parkypark.model;
+package no.parkypark.model;
 
 public class Car {
     private String licenseNumber;

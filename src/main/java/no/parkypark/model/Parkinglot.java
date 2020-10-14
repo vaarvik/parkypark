@@ -1,7 +1,13 @@
-package parkypark.model;
+package no.parkypark.model;
 
 public class Parkinglot {
     private String name;
+    private String address;
+
+    public Parkinglot(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
 
     public String getName() {
         return name;
@@ -16,13 +22,6 @@ public class Parkinglot {
     }
 
     public void setAddress(String address) {
-        this.address = address;
-    }
-
-    private String address;
-
-    public Parkinglot(String name, String address) {
-        this.name = name;
         this.address = address;
     }
 }

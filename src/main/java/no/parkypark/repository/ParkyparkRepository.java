@@ -1,6 +1,6 @@
-package parkypark.repository;
+package no.parkypark.repository;
 
-import parkypark.model.Parkinglot;
+import no.parkypark.model.Parkinglot;
 
 import java.util.ArrayList;
 
