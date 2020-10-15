@@ -11,6 +11,9 @@ public interface IParkyparkRepository {
     //hente en spesifikk parkeringsplass
     Parkinglot getParkinglot(String name);
 
+    //hente en spesifikk parkeringsplass basert på ID
+    Parkinglot getParkinglotById(String name);
+
     //read a file with json data
     ArrayList<Parkinglot> readJSONFile();
 }

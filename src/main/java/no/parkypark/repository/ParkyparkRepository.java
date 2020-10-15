@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 
 public class ParkyparkRepository implements IParkyparkRepository {
+    private ArrayList<Parkinglot> parkinglots = null;
+
     @Override
     public ArrayList<Parkinglot> getParkinglots() {
-        return null;
+        return this.parkinglots;
     }
 
     @Override
@@ -17,9 +19,13 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
-    public ArrayList<Parkinglot> readJSONFile() {
+    public Parkinglot getParkinglotById(String name) {
         return null;
     }
 
+    @Override
+    public ArrayList<Parkinglot> readJSONFile() {
+        return null;
+    }
 
 }
