@@ -13,8 +13,16 @@ import java.util.List;
 public class ParkyparkRepository implements IParkyparkRepository {
     private List<Parkinglot> parkinglots = new ArrayList<>();
 
+    public ParkyparkRepository(List<Parkinglot> parkinglots) {
+        this.parkinglots = parkinglots;
+    }
+
+    public ParkyparkRepository(String filePath) {
+        this.readJSONFile(filePath);
+    }
+
     @Override
-    public List<Parkinglot> getParkinglots() {
+    public List<Parkinglot> getAllParkinglots() {
         return this.parkinglots;
     }
 
@@ -41,8 +49,7 @@ public class ParkyparkRepository implements IParkyparkRepository {
      * @param filePath The path that the data should be fetched from.
      * @return The data that is fetched. A List object.
      */
-    @Override
-    public List<Parkinglot> readJSONFile(String filePath) {
+    private List<Parkinglot> readJSONFile(String filePath) {
         //create the mapper that we use to create the data into an object
         ObjectMapper mapper = new ObjectMapper();
 

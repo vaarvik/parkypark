@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IParkyparkRepository {
     //hente alle parkeringsplasser, Arraylist foreløpig?
-    List<Parkinglot> getParkinglots();
+    List<Parkinglot> getAllParkinglots();
 
     //hente en spesifikk parkeringsplass
     Parkinglot getParkinglot(String name);
@@ -17,6 +17,4 @@ public interface IParkyparkRepository {
     //hente en spesifikk parkeringsplass basert på ID
     Parkinglot getParkinglotById(String name);
 
-    //read a file with json data
-    List<Parkinglot> readJSONFile(String filePath);
 }

@@ -33,7 +33,7 @@ public class When_fetching_data {
     @MethodSource("parkinglotsDataReceived")
     public void parkinglots_are_received(List<Parkinglot> expectedLots, String filePath) {
 
-        List<Parkinglot> resultLots = new ParkyparkRepository().readJSONFile(filePath);
+        List<Parkinglot> resultLots = new ParkyparkRepository(filePath).getAllParkinglots();
 
         //loop through all the objects and confirm that the file contains the same information as the expected data
         for (int i=0; i<expectedLots.size(); i++){
