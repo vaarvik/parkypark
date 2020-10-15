@@ -1,4 +1,4 @@
-package parkypark.model;
+package no.parkypark.model;
 
 public abstract class User {
     private String name;
