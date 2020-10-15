@@ -6,13 +6,15 @@ import no.parkypark.model.Parkinglot;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ParkyparkRepository implements IParkyparkRepository {
-    private ArrayList<Parkinglot> parkinglots = null;
+    private List<Parkinglot> parkinglots = new ArrayList<>();
 
     @Override
-    public ArrayList<Parkinglot> getParkinglots() {
+    public List<Parkinglot> getParkinglots() {
         return this.parkinglots;
     }
 
@@ -31,17 +33,29 @@ public class ParkyparkRepository implements IParkyparkRepository {
         return null;
     }
 
+    /**
+     * Read JSON File
+     * ----------
+     * Reads a JSON file and attaches the data that is received to a instance variable in this repository.
+     *
+     * @param filePath The path that the data should be fetched from.
+     * @return The data that is fetched. A List object.
+     */
     @Override
-    public Parkinglot readJSONFile(String filePath) {
+    public List<Parkinglot> readJSONFile(String filePath) {
+        //create the mapper that we use to create the data into an object
         ObjectMapper mapper = new ObjectMapper();
-        Parkinglot parkinglot = null;
+
         try {
             // JSON file to Java object
-            parkinglot = mapper.readValue(new File(filePath), Parkinglot.class);
+            Parkinglot[] parkinglots = mapper.readValue(new File(filePath), Parkinglot[].class);
+            //store the data in the instance variable that stores the data
+            this.parkinglots = Arrays.asList(parkinglots);
         } catch (IOException e) {
+            //if there's an error fetching the data...
             e.printStackTrace();
         }
-        return parkinglot;
+        return this.parkinglots;
     }
 
 

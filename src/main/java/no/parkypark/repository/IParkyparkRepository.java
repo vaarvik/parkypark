@@ -2,11 +2,11 @@ package no.parkypark.repository;
 
 import no.parkypark.model.Parkinglot;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IParkyparkRepository {
     //hente alle parkeringsplasser, Arraylist foreløpig?
-    ArrayList<Parkinglot> getParkinglots();
+    List<Parkinglot> getParkinglots();
 
     //hente en spesifikk parkeringsplass
     Parkinglot getParkinglot(String name);
@@ -18,5 +18,5 @@ public interface IParkyparkRepository {
     Parkinglot getParkinglotById(String name);
 
     //read a file with json data
-    Parkinglot readJSONFile(String filePath);
+    List<Parkinglot> readJSONFile(String filePath);
 }
