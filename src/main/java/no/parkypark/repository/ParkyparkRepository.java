@@ -16,4 +16,10 @@ public class ParkyparkRepository implements IParkyparkRepository {
         return null;
     }
 
+    @Override
+    public ArrayList<Parkinglot> readJSONFile() {
+        return null;
+    }
+
+
 }

@@ -10,4 +10,7 @@ public interface IParkyparkRepository {
 
     //hente en spesifikk parkeringsplass
     Parkinglot getParkinglot(String name);
+
+    //read a file with json data
+    ArrayList<Parkinglot> readJSONFile();
 }

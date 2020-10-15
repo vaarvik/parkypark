@@ -4,7 +4,6 @@ public class Parkinglot {
     private String name;
     private String address;
 
-
     public Parkinglot(){
 
     }
