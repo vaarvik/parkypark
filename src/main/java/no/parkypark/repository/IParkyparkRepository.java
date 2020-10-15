@@ -18,5 +18,5 @@ public interface IParkyparkRepository {
     Parkinglot getParkinglotById(String name);
 
     //read a file with json data
-    ArrayList<Parkinglot> readJSONFile();
+    Parkinglot readJSONFile(String filePath);
 }

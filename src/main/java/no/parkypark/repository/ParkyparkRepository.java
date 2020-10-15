@@ -1,7 +1,10 @@
 package no.parkypark.repository;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import no.parkypark.model.Parkinglot;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -29,8 +32,30 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
-    public ArrayList<Parkinglot> readJSONFile() {
-        return null;
+    public Parkinglot readJSONFile(String filePath) {
+        ObjectMapper mapper = new ObjectMapper();
+        Parkinglot parkinglot = null;
+        try {
+            // JSON file to Java object
+            parkinglot = mapper.readValue(new File(filePath), Parkinglot.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return parkinglot;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
