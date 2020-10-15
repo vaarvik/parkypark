@@ -11,7 +11,7 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 
 public class When_handling_a_parkinglot {
 
-    private static Stream<Arguments> parkinglotChanges(){
+    private static Stream<Arguments> parkinglotChanges() {
         return Stream.of(
                 of(
                         new Parkinglot("Jans parkeringsplass", "Byåsen, Trondheim"),
@@ -30,5 +30,4 @@ public class When_handling_a_parkinglot {
         Assertions.assertEquals(expectedLot.getName(), inputLot.getName());
         Assertions.assertEquals(expectedLot.getAddress(), inputLot.getAddress());
     }
-
 }
