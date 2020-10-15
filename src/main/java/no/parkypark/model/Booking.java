@@ -9,14 +9,14 @@ public class Booking {
     private Car car;
     private Date checkIn;
     private Date checkOut;
-    private String paymentCardNumber;
+    private long paymentCardNumber;
     private String paymentOption;
     private String creditCardName;
     private boolean carCharging;
     private int creditCardExpiryMonth;
     private int creditCardExpiryYear;
 
-    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, String paymentCardNumber, String paymentOption, String creditCardName, boolean carCharging, int creditCardExpiryMonth, int creditCardExpiryYear) {
+    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, long paymentCardNumber, String paymentOption, String creditCardName, boolean carCharging, int creditCardExpiryMonth, int creditCardExpiryYear) {
 
         this.user = user;
         this.parkinglot = parkinglot;
@@ -71,11 +71,11 @@ public class Booking {
         this.checkOut = checkOut;
     }
 
-    public String getPaymentCardNumber() {
+    public long getPaymentCardNumber() {
         return paymentCardNumber;
     }
 
-    public void setPaymentCardNumber(String paymentCardNumber) {
+    public void setPaymentCardNumber(long paymentCardNumber) {
         this.paymentCardNumber = paymentCardNumber;
     }
 
