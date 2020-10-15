@@ -6,5 +6,9 @@
   {
     "name":"John",
     "address":"Matrix Street"
+  },
+  {
+    "name":"Annen data",
+    "address":"For Jørgen"
   }
 ]
