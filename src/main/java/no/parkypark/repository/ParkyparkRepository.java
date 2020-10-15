@@ -19,6 +19,11 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
+    public Parkinglot addParkinglot(Parkinglot parkinglot) {
+        return null;
+    }
+
+    @Override
     public Parkinglot getParkinglotById(String name) {
         return null;
     }
