@@ -9,26 +9,26 @@ public class Booking {
     private Car car;
     private Date checkIn;
     private Date checkOut;
-    private long paymentCardNumber;
-    private String paymentOption;
-    private String creditCardName;
-    private boolean carCharging;
-    private int creditCardExpiryMonth;
-    private int creditCardExpiryYear;
+    private Payment payment;
 
-    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, long paymentCardNumber, String paymentOption, String creditCardName, boolean carCharging, int creditCardExpiryMonth, int creditCardExpiryYear) {
+
+    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, Payment payment) {
 
         this.user = user;
         this.parkinglot = parkinglot;
         this.car = car;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        this.paymentCardNumber = paymentCardNumber;
-        this.paymentOption = paymentOption;
-        this.creditCardName = creditCardName;
-        this.carCharging = carCharging;
-        this.creditCardExpiryMonth = creditCardExpiryMonth;
-        this.creditCardExpiryYear = creditCardExpiryYear;
+        this.payment = payment;
+
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public User getUser() {
@@ -71,51 +71,5 @@ public class Booking {
         this.checkOut = checkOut;
     }
 
-    public long getPaymentCardNumber() {
-        return paymentCardNumber;
-    }
 
-    public void setPaymentCardNumber(long paymentCardNumber) {
-        this.paymentCardNumber = paymentCardNumber;
-    }
-
-    public String getPaymentOption() {
-        return paymentOption;
-    }
-
-    public void setPaymentOption(String paymentOption) {
-        this.paymentOption = paymentOption;
-    }
-
-    public String getCreditCardName() {
-        return creditCardName;
-    }
-
-    public void setCreditCardName(String creditCardName) {
-        this.creditCardName = creditCardName;
-    }
-
-    public boolean isCarCharging() {
-        return carCharging;
-    }
-
-    public void setCarCharging(boolean carCharging) {
-        this.carCharging = carCharging;
-    }
-
-    public int getCreditCardExpiryMonth() {
-        return creditCardExpiryMonth;
-    }
-
-    public void setCreditCardExpiryMonth(int creditCardExpiryMonth) {
-        this.creditCardExpiryMonth = creditCardExpiryMonth;
-    }
-
-    public int getCreditCardExpiryYear() {
-        return creditCardExpiryYear;
-    }
-
-    public void setCreditCardExpiryYear(int creditCardExpiryYear) {
-        this.creditCardExpiryYear = creditCardExpiryYear;
-    }
 }
