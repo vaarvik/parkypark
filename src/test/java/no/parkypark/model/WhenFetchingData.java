@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.of;
 
-public class When_fetching_data {
+public class WhenFetchingData {
 
     private static Stream<Arguments> parkinglotsDataReceived(){
 
@@ -31,7 +31,7 @@ public class When_fetching_data {
 
     @ParameterizedTest()
     @MethodSource("parkinglotsDataReceived")
-    public void parkinglots_are_received(List<Parkinglot> expectedLots, String filePath) {
+    public void parkinglotsAreReceived(List<Parkinglot> expectedLots, String filePath) {
 
         List<Parkinglot> resultLots = new ParkyparkRepository(filePath).getAllParkinglots();
 
