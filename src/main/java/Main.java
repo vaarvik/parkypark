@@ -1,4 +1,5 @@
 import io.javalin.Javalin;
+import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.repository.ParkyparkRepository;
 
 public class Main {
@@ -11,10 +12,10 @@ public class Main {
         app.config.enableWebjars();
 
         //Pages
-        app.get("/", ctx -> ctx.html("<h1>Halla</h1>"));
+        app.get("/", new VueComponent("index"));
 
         //APIs
-        app.get("/api/parkinglots", ctx -> ctx.json(new ParkyparkRepository("src/main/resources/parkinglots.json")));
+        app.get("/api/parkinglots", ctx -> ctx.json(new ParkyparkRepository("src/main/resources/data/parkinglots.json")));
 
     }
 
