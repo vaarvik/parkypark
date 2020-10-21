@@ -64,19 +64,4 @@ public class ParkyparkRepository implements IParkyparkRepository {
         }
         return this.parkinglots;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
