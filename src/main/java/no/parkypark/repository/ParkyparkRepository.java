@@ -37,7 +37,12 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
-    public Parkinglot getParkinglotById(String name) {
+    public Parkinglot getParkinglotById(String id) {
+        for (Parkinglot i: this.parkinglots) {
+            if(i.getId().equals(id)) {
+                return i;
+            }
+        }
         return null;
     }
 

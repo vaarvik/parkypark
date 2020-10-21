@@ -15,6 +15,6 @@ public interface IParkyparkRepository {
     Parkinglot addParkinglot(Parkinglot parkinglot);
 
     //hente en spesifikk parkeringsplass basert på ID
-    Parkinglot getParkinglotById(String name);
+    Parkinglot getParkinglotById(String id);
 
 }
