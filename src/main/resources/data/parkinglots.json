@@ -1,10 +1,14 @@
 [
   {
-    "name":"Smith",
+    "name":"Fin parkeringsplass på buran",
     "address":"21 2nd Street"
   },
   {
     "name":"John",
     "address":"Matrix Street"
+  },
+  {
+    "name":"Jonas",
+    "address":"Killer Street"
   }
 ]

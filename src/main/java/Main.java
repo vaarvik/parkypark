@@ -6,10 +6,13 @@ public class Main {
     public static void main(String[] args) {
 
         //App startup
-        Javalin app = Javalin.create().start(7001);
+        Javalin app = Javalin.create(config -> {
+            //Allows us to use gradle type dependencies for web dependencies
+            config.enableWebjars();
 
-        //Allows us to use gradle type dependencies for web dependencies
-        app.config.enableWebjars();
+            //Adds the stylesheet to the site
+            config.addSinglePageRoot("/assets/styles/style", "vue/assets/styles/style.css");
+        }).start(7001);
 
         //Pages
         app.get("/", new VueComponent("index"));
