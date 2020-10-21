@@ -11,6 +11,10 @@ public class Parkinglot {
         this.id = id;
     }
 
+    public Parkinglot(){
+
+    }
+
     public Parkinglot(String name, String address) {
         this.name = name;
         this.address = address;
@@ -38,5 +42,13 @@ public class Parkinglot {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Parkinglot{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
