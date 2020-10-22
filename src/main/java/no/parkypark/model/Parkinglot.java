@@ -17,6 +17,12 @@ public class Parkinglot {
 
     }
 
+    public Parkinglot(String name, String address, String id) {
+        this.name = name;
+        this.address = address;
+        this.id = id;
+    }
+
     public Parkinglot(String name, String address) {
         this.name = name;
         this.address = address;
