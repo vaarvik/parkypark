@@ -4,12 +4,14 @@ public class Parkinglot {
     private String name;
     private String address;
     private String id;
+    private int userId;
     private double price;
 
-    public Parkinglot(String name, String address, String id, double price) {
+    public Parkinglot(String name, String address, String id, int userId, double price) {
         this.name = name;
         this.address = address;
         this.id = id;
+        this.userId = userId;
         this.price = price;
     }
 
@@ -58,6 +60,14 @@ public class Parkinglot {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
