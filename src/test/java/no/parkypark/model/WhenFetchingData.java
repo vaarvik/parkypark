@@ -25,7 +25,6 @@ public class WhenFetchingData {
                 of(
                         parkinglots,"src\\test\\resources\\parkinglots.json"
                 )
-
         );
     }
 
