@@ -1,0 +1,16 @@
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+li{
+	list-style: none;
+	margin: 0;
+	width: 200px;
+	height: 200px;
+	background-color: lightgray;
+}
