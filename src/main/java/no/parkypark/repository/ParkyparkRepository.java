@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 
 public class ParkyparkRepository implements IParkyparkRepository {
@@ -32,12 +33,22 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
-    public Parkinglot addParkinglot(Parkinglot parkinglot) {
-        return null;
+    public Parkinglot createParkinglot(String name, String adress) throws Exception {
+        if (name == null || adress == null) {
+            throw new Exception("Adress and name can not be null!");
+        }
+        Parkinglot addedParkinglot = new Parkinglot(name, adress, UUID.randomUUID().toString());
+        this.parkinglots.add(addedParkinglot);
+        return addedParkinglot;
     }
 
     @Override
-    public Parkinglot getParkinglotById(String name) {
+    public Parkinglot getParkinglotById(String id) {
+        for (Parkinglot i: this.parkinglots) {
+            if(i.getId().equals(id)) {
+                return i;
+            }
+        }
         return null;
     }
 
@@ -64,19 +75,4 @@ public class ParkyparkRepository implements IParkyparkRepository {
         }
         return this.parkinglots;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
