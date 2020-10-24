@@ -66,10 +66,16 @@ public class Main {
         app.get("/parkinglot/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
 
         //APIs
+        BookingController bookingController = new BookingController();
+
+
         app.get("/api/parkinglots", ctx ->
-                ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots()
-                )
+                ctx.json(new ParkyparkRepository("src/main/resources/data/parkinglots.json").getAllParkinglots())
         );
+
+        app.post("/api/booking/book", ctx -> bookingController::bookParkinglot);
+
+
 
     }
 

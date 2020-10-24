@@ -1,26 +1,26 @@
 package no.parkypark.model;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Booking {
 
-    private User user;
-    private Parkinglot parkinglot;
-    private Car car;
+    private String userId;
+    private UUID parkinglotId;
+    private String carLicenceNumber;
     private Date checkIn;
     private Date checkOut;
     private Payment payment;
 
 
-    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, Payment payment) {
+    public Booking(String userId, UUID parkinglotId, String carLicenceNumber, Date checkIn, Date checkOut, Payment payment) {
 
-        this.user = user;
-        this.parkinglot = parkinglot;
-        this.car = car;
+        this.userId = userId;
+        this.parkinglotId = parkinglotId;
+        this.carLicenceNumber = carLicenceNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.payment = payment;
-
     }
 
     public Payment getPayment() {
@@ -31,28 +31,28 @@ public class Booking {
         this.payment = payment;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Parkinglot getParkinglot() {
-        return parkinglot;
+    public UUID getParkinglot() {
+        return this.parkinglotId;
     }
 
-    public void setParkinglot(Parkinglot parkinglot) {
-        this.parkinglot = parkinglot;
+    public void setParkinglot(UUID parkinglotId) {
+        this.parkinglotId = parkinglotId;
     }
 
-    public Car getCar() {
-        return car;
+    public String getCar() {
+        return this.carLicenceNumber;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCar(String carLicenceNumber) {
+        this.carLicenceNumber = carLicenceNumber;
     }
 
     public Date getCheckIn() {
