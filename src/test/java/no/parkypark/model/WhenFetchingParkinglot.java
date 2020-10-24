@@ -1,6 +1,6 @@
 package no.parkypark.model;
 
-import no.parkypark.repository.ParkyparkRepository;
+import no.parkypark.repository.ParkinglotsRepository;
 import no.parkypark.utils.GetStaticID;
 import no.parkypark.utils.JSONFile;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,21 +37,21 @@ public class WhenFetchingParkinglot {
 
 	@Test
 	public void parkinglotIsReceivedById() {
-		Parkinglot resultLot = new ParkyparkRepository(file.getFile()).getParkinglotById(file.getUserId(0));
+		Parkinglot resultLot = new ParkinglotsRepository(file.getFile()).getParkinglotById(file.getUserId(0));
 		//compare the name
 		assertEquals(expectedLots.get(0).toString(), resultLot.toString());
 	}
 
 	@Test
 	public void parkinglotShouldNotBeIsReceivedById() {
-		Parkinglot resultLot = new ParkyparkRepository(file.getFile()).getParkinglotById("ak3223-43");
+		Parkinglot resultLot = new ParkinglotsRepository(file.getFile()).getParkinglotById("ak3223-43");
 
 		assertNull(resultLot);
 	}
 
 	@Test
 	public void allParkinglotsCanBeReceived() {
-		List<Parkinglot> resultLots = new ParkyparkRepository(file.getFile()).getAllParkinglots();
+		List<Parkinglot> resultLots = new ParkinglotsRepository(file.getFile()).getAllParkinglots();
 
 		//loop through all the objects and confirm that the file contains the same information as the expected data
 		for (int i=0; i<expectedLots.size(); i++){

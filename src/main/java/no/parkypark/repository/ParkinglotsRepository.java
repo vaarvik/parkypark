@@ -10,11 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class ParkyparkRepository implements IParkyparkRepository {
+public class ParkinglotsRepository implements IParkinglotsRepository {
     private String parkinglotsFile = "";
     private List<Parkinglot> parkinglots = new ArrayList<>();
 
-    public ParkyparkRepository(String filePath) {
+    public ParkinglotsRepository(String filePath) {
         this.readJSONFile(filePath);
     }
 

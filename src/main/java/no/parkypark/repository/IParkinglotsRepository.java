@@ -4,7 +4,7 @@ import no.parkypark.model.Parkinglot;
 
 import java.util.List;
 
-public interface IParkyparkRepository {
+public interface IParkinglotsRepository {
     //hente alle parkeringsplasser, Arraylist foreløpig?
     List<Parkinglot> getAllParkinglots();
 

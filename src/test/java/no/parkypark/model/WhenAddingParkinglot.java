@@ -1,6 +1,6 @@
 package no.parkypark.model;
 
-import no.parkypark.repository.ParkyparkRepository;
+import no.parkypark.repository.ParkinglotsRepository;
 import no.parkypark.utils.GetStaticID;
 import no.parkypark.utils.JSONFile;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +39,7 @@ public class WhenAddingParkinglot {
 	public void newParkinglotIsAddedToJSON() {
 		expectedLots.add(new Parkinglot("Hedda", "Bogstadveien 19", idRepo.getStaticId(2, true), 20));
 
-		ParkyparkRepository repo = new ParkyparkRepository(file.getFile());
+		ParkinglotsRepository repo = new ParkinglotsRepository(file.getFile());
 		repo.addParkinglot(new Parkinglot("Hedda","Bogstadveien 19", idRepo.getStaticId(2), 20));
 		List<Parkinglot> resultLots = repo.getAllParkinglots();
 

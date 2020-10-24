@@ -1,6 +1,6 @@
 package no.parkypark.model;
 
-import no.parkypark.repository.ParkyparkRepository;
+import no.parkypark.repository.ParkinglotsRepository;
 import no.parkypark.utils.GetStaticID;
 import no.parkypark.utils.JSONFile;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,7 +37,7 @@ public class WhenFetchingData {
 
     @Test
     public void parkinglotsAreReceived() {
-        List<Parkinglot> resultLots = new ParkyparkRepository(file.getFile()).getAllParkinglots();
+        List<Parkinglot> resultLots = new ParkinglotsRepository(file.getFile()).getAllParkinglots();
 
         //loop through all the objects and confirm that the file contains the same information as the expected data
         for (int i=0; i<expectedLots.size(); i++){

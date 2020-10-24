@@ -1,19 +1,13 @@
 [ {
   "name" : "Smith",
   "address" : "21 2nd Street",
-  "id" : "302d0f5e-d5aa-4b59-9ed2-40c2053b581a",
-  "userId" : "f44f6db0-ac51-4eff-b9bb-5c307af6cd7f",
+  "id" : "43ebfcc1-3c31-427f-9989-40221239975c",
+  "userId" : "8dc2c9b9-9edd-4d31-bfb6-802384b07414",
   "price" : 50.0
 }, {
   "name" : "John",
   "address" : "Matrix Street",
-  "id" : "0e7d4811-a8fb-4c35-acc4-9dc066b663a3",
-  "userId" : "aa431f34-d74c-4a13-bbeb-bbe97f949535",
+  "id" : "c000ae47-b549-4b08-93cd-01e9cdc84085",
+  "userId" : "5211f106-4e79-4047-8bd4-ea0348b79c80",
   "price" : 30.0
-}, {
-  "name" : "Hedda",
-  "address" : "Bogstadveien 19",
-  "id" : "0d58733b-dc7a-4c43-b1ba-d997012fdbd6",
-  "userId" : "f368c00f-1be4-4ccc-8f77-cacfd2a3fb49",
-  "price" : 20.0
 } ]
