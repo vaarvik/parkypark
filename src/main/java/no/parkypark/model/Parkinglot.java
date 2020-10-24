@@ -1,33 +1,24 @@
 package no.parkypark.model;
 
+import java.util.UUID;
+
 public class Parkinglot {
     private String name;
     private String address;
     private String id;
-    private int userId;
+    private String userId;
     private double price;
 
-    public Parkinglot(String name, String address, String id, int userId, double price) {
+    public Parkinglot(String name, String address, String userId, double price) {
         this.name = name;
         this.address = address;
-        this.id = id;
+        this.id = UUID.randomUUID().toString();
         this.userId = userId;
         this.price = price;
     }
 
     public Parkinglot(){
 
-    }
-
-    public Parkinglot(String name, String address, String id) {
-        this.name = name;
-        this.address = address;
-        this.id = id;
-    }
-
-    public Parkinglot(String name, String address) {
-        this.name = name;
-        this.address = address;
     }
 
     public String getName() {
@@ -62,11 +53,11 @@ public class Parkinglot {
         this.price = price;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

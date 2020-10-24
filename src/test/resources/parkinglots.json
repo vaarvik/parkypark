@@ -1,10 +1,19 @@
-[
-  {
-    "name":"Smith",
-    "address":"21 2nd Street"
-  },
-  {
-    "name":"John",
-    "address":"Matrix Street"
-  }
-]
+[ {
+  "name" : "Smith",
+  "address" : "21 2nd Street",
+  "id" : "302d0f5e-d5aa-4b59-9ed2-40c2053b581a",
+  "userId" : "f44f6db0-ac51-4eff-b9bb-5c307af6cd7f",
+  "price" : 50.0
+}, {
+  "name" : "John",
+  "address" : "Matrix Street",
+  "id" : "0e7d4811-a8fb-4c35-acc4-9dc066b663a3",
+  "userId" : "aa431f34-d74c-4a13-bbeb-bbe97f949535",
+  "price" : 30.0
+}, {
+  "name" : "Hedda",
+  "address" : "Bogstadveien 19",
+  "id" : "0d58733b-dc7a-4c43-b1ba-d997012fdbd6",
+  "userId" : "f368c00f-1be4-4ccc-8f77-cacfd2a3fb49",
+  "price" : 20.0
+} ]

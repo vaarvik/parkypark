@@ -12,7 +12,7 @@ public interface IParkyparkRepository {
     Parkinglot getParkinglot(String name);
 
     //hente en spesifikk parkeringsplass
-    Parkinglot createParkinglot(String name, String adress) throws Exception;
+    Parkinglot addParkinglot(Parkinglot parkinglot) throws Exception;
 
     //hente en spesifikk parkeringsplass basert på ID
     Parkinglot getParkinglotById(String id);

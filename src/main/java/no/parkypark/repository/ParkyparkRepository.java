@@ -8,15 +8,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 
 public class ParkyparkRepository implements IParkyparkRepository {
+    private String parkinglotsFile = "";
     private List<Parkinglot> parkinglots = new ArrayList<>();
-
-    public ParkyparkRepository(List<Parkinglot> parkinglots) {
-        this.parkinglots = parkinglots;
-    }
 
     public ParkyparkRepository(String filePath) {
         this.readJSONFile(filePath);
@@ -33,16 +29,6 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     @Override
-    public Parkinglot createParkinglot(String name, String adress) throws Exception {
-        if (name == null || adress == null) {
-            throw new Exception("Adress and name can not be null!");
-        }
-        Parkinglot addedParkinglot = new Parkinglot(name, adress, UUID.randomUUID().toString());
-        this.parkinglots.add(addedParkinglot);
-        return addedParkinglot;
-    }
-
-    @Override
     public Parkinglot getParkinglotById(String id) {
         for (Parkinglot i: this.parkinglots) {
             if(i.getId().equals(id)) {
@@ -53,17 +39,52 @@ public class ParkyparkRepository implements IParkyparkRepository {
     }
 
     /**
+     * Add Parkinglot
+     * ----------
+     * Adds a parkinglot to the repository and in the JSON file.
+     *
+     * @param parkinglot The parkinglot to be added
+     * @return The parkinglot that was added. Returns what it
+     */
+    @Override
+    public Parkinglot addParkinglot(Parkinglot parkinglot) {
+        this.parkinglots = new ArrayList<>(readJSONFile(this.parkinglotsFile));
+        this.parkinglots.add(parkinglot);
+        writeToJSONFile(this.parkinglotsFile, this.parkinglots);
+        return parkinglot;
+    }
+
+    /**
+     * Write to JSON File
+     * ----------
+     * Writes to a JSON file and attach the updated data to an instance variable in this repository.
+     *
+     * @param filePath The path that the data should be fetched from.
+     * @return The data that is fetched. A List object.
+     */
+    private List<Parkinglot> writeToJSONFile(String filePath, List<Parkinglot> parkinglots) {
+        //create the mapper that we use to create the data into an object
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), parkinglots);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return this.parkinglots;
+    }
+
+    /**
      * Read JSON File
      * ----------
-     * Reads a JSON file and attaches the data that is received to a instance variable in this repository.
+     * Reads a JSON file and attaches the data that is received to an instance variable in this repository.
      *
      * @param filePath The path that the data should be fetched from.
      * @return The data that is fetched. A List object.
      */
     private List<Parkinglot> readJSONFile(String filePath) {
         //create the mapper that we use to create the data into an object
+        this.parkinglotsFile = filePath;
         ObjectMapper mapper = new ObjectMapper();
-
         try {
             // JSON file to Java object
             Parkinglot[] parkinglots = mapper.readValue(new File(filePath), Parkinglot[].class);

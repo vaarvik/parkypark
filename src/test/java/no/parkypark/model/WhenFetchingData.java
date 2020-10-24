@@ -1,46 +1,54 @@
 package no.parkypark.model;
 
 import no.parkypark.repository.ParkyparkRepository;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import no.parkypark.utils.GetStaticID;
+import no.parkypark.utils.JSONFile;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
-import static org.junit.jupiter.params.provider.Arguments.of;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class WhenFetchingData {
+    //create a static array with IDs for the userIds
+    private static final GetStaticID idRepo = new GetStaticID();
 
-    private static Stream<Arguments> parkinglotsDataReceived(){
+    //Responsible for generating the data in the JSON file which the expected data needs to be based on
+    private final JSONFile file = new JSONFile(idRepo, "src\\test\\resources\\parkinglots.json");
 
-        //create an array with the expected data
-        List<Parkinglot> parkinglots = new ArrayList<>();
-        parkinglots.add(new Parkinglot("Smith", "21 2nd Street"));
-        parkinglots.add(new Parkinglot("John", "Matrix Street"));
+    private List<Parkinglot> expectedLots;
 
-        return Stream.of(
-                of(
-                        parkinglots,"src\\test\\resources\\parkinglots.json"
-                )
-        );
+    private void setUpExpectedParkinglots() {
+        expectedLots = new ArrayList<>();
+        expectedLots.add(new Parkinglot("Smith", "21 2nd Street", idRepo.getStaticId(0, true), 20));
+        expectedLots.add(new Parkinglot("John", "Matrix Street", idRepo.getStaticId(1, true), 20));
     }
 
-    @ParameterizedTest()
-    @MethodSource("parkinglotsDataReceived")
-    public void parkinglotsAreReceived(List<Parkinglot> expectedLots, String filePath) {
+    @BeforeEach
+    private void setup() {
+        setUpExpectedParkinglots();
 
-        List<Parkinglot> resultLots = new ParkyparkRepository(filePath).getAllParkinglots();
+        //clean the JSON file to have the exact content that is passed in the writer.write method
+        file.prepare();
+    }
+
+    @Test
+    public void parkinglotsAreReceived() {
+        List<Parkinglot> resultLots = new ParkyparkRepository(file.getFile()).getAllParkinglots();
 
         //loop through all the objects and confirm that the file contains the same information as the expected data
         for (int i=0; i<expectedLots.size(); i++){
             //compare the name
-            Assertions.assertEquals(expectedLots.get(i).getName(), resultLots.get(i).getName());
+            assertEquals(expectedLots.get(i).getName(), resultLots.get(i).getName());
             //compare the address
-            Assertions.assertEquals(expectedLots.get(i).getAddress(), resultLots.get(i).getAddress());
+            assertEquals(expectedLots.get(i).getAddress(), resultLots.get(i).getAddress());
+            //check that there is an ID
+            assertNotNull(resultLots.get(i).getId());
+            //compare the userID
+            assertEquals(expectedLots.get(i).getUserId(), resultLots.get(i).getUserId());
         }
     }
-
 }
