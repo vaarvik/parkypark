@@ -1,14 +1,25 @@
-[
-  {
-    "name":"Fin parkeringsplass på buran",
-    "address":"21 2nd Street"
-  },
-  {
-    "name":"John",
-    "address":"Matrix Street"
-  },
-  {
-    "name":"Jonas",
-    "address":"Killer Street"
-  }
-]
+[ {
+  "name" : "Fin parkeringsplass på buran",
+  "address" : "21 2nd Street",
+  "id" : "1",
+  "userId" : "32",
+  "price" : 0.0
+}, {
+  "name" : "John",
+  "address" : "Matrix Street",
+  "id" : "2",
+  "userId" : "432",
+  "price" : 0.0
+}, {
+  "name" : "Jonas",
+  "address" : "Killer Street",
+  "id" : "3",
+  "userId" : "54",
+  "price" : 0.0
+}, {
+  "name" : "Emma",
+  "address" : "Hudsonsvei 14",
+  "id" : "ad0ef579-bcd2-4f25-bcf8-dbd281f7ef9f",
+  "userId" : "123-were",
+  "price" : 20.0
+} ]

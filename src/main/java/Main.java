@@ -1,13 +1,19 @@
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.vue.VueComponent;
-import no.parkypark.controllers.BookingController;
+import no.parkypark.controller.BookingController;
 import no.parkypark.repository.BookingRepository;
+import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
     public static void main(String[] args) {
 
-        //App startup
+      ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
+      ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
+      BookingRepository bookingRepository = new BookingRepository();
+      BookingController bookingController = new BookingController(bookingRepository);
+
+      //App startup
         Javalin app = Javalin.create(config -> {
             //Allows us to use gradle type dependencies for web dependencies
             config.enableWebjars();
@@ -15,7 +21,7 @@ public class Main {
             //Adds the stylesheet to the site
             config.addSinglePageRoot("/assets/styles/style", "vue/assets/styles/style.css");
 
-        }).start(7001);
+        }).start(7048);
 
         /*
         Pages
@@ -45,7 +51,21 @@ public class Main {
          * * POST Request.
          * * Send all information about the new parkinglot.
          */
-        app.get("/add-parkinglot", new VueComponent("parkinglot-handling/add-parkinglot"));
+        app.get("/parkinglots/add", new VueComponent("parkinglot-handling/add-parkinglot"));
+
+        /*
+         * edits a specific parkinglot for a logged in user
+         * POST Request.
+         * Update information about a parkinglot
+         */
+        app.get("/parkinglots/:parkinglotid/edit", new VueComponent("edit-parkinglot"));
+
+        /*
+         * site for booking a specific parkinglot
+         * POST Request.
+         * Send all information about the new booking.
+         */
+        app.get("/parkinglots/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
 
         /*
          * shows all parkinglots related to a single user
@@ -53,25 +73,7 @@ public class Main {
          */
         app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
 
-        /*
-         * edits a specific parkinglot for a logged in user
-         * POST Request.
-         * Update information about a parkinglot
-         */
-        app.get("/user/:userid/parkinglot/:parkinglotid/edit", new VueComponent("parkinglot-handling/edit-parkinglot"));
-
-        /*
-         * site for booking a specific parkinglot
-         * POST Request.
-         * Send all information about the new booking.
-         */
-        app.get("/parkinglot/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
-
         //APIs
-        BookingRepository bookingRepository = new BookingRepository();
-        BookingController bookingController = new BookingController(bookingRepository);
-
-
         app.get("/api/parkinglots", ctx ->
                 ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots())
         );
@@ -79,6 +81,20 @@ public class Main {
         app.post("/api/booking/book", bookingController::bookParkinglot);
 
 
+        /*
+         * All parkinglots
+         */
+        app.get("/api/parkinglots", parkinglotsController::getAllParkinglots);
+
+        /*
+         * Single parkinglot
+         */
+        app.get("/api/parkinglots/:parkinglotid", parkinglotsController::getParkinglot);
+
+        /*
+         * API that receives the data after a form has been submitted on the edit parkinglot page
+         */
+        app.post("/api/parkinglots/:parkinglotid/edit", parkinglotsController::updateParkinglot);
 
     }
 

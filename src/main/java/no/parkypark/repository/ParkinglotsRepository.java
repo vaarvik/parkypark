@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 
 public class ParkinglotsRepository implements IParkinglotsRepository {
@@ -44,12 +45,33 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      * Adds a parkinglot to the repository and in the JSON file.
      *
      * @param parkinglot The parkinglot to be added
-     * @return The parkinglot that was added. Returns what it
+     * @return The parkinglot that was added.
      */
     @Override
     public Parkinglot addParkinglot(Parkinglot parkinglot) {
         this.parkinglots = new ArrayList<>(readJSONFile(this.parkinglotsFile));
         this.parkinglots.add(parkinglot);
+        writeToJSONFile(this.parkinglotsFile, this.parkinglots);
+        return parkinglot;
+    }
+
+    /**
+     * Update Parkinglot
+     * ----------
+     * Updates a parkinglot in the repository and in the JSON file.
+     *
+     * @param changes The parkinglot to be added. A Map object.
+     * @return The parkinglot that was updated.
+     */
+    public Parkinglot updateParkinglot(Map<String, List<String>> changes) {
+        Parkinglot parkinglot = getParkinglotById(changes.get("id").get(0));
+
+        //set new values
+        parkinglot.setName(changes.get("name").get(0));
+        parkinglot.setAddress(changes.get("address").get(0));
+        parkinglot.setPrice(Double.parseDouble(changes.get("price").get(0)));
+
+        //update JSON
         writeToJSONFile(this.parkinglotsFile, this.parkinglots);
         return parkinglot;
     }

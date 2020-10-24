@@ -1,4 +1,4 @@
-package no.parkypark.controllers;
+package no.parkypark.controller;
 
 
 import io.javalin.http.Context;
