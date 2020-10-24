@@ -24,5 +24,7 @@ public class ParkinglotsController {
         //map creates a JavaScript-like object
         Map<String, List<String>> formParams = ctx.formParamMap();
         parkinglotsRepository.updateParkinglot(formParams);
+        //redirect user after update
+        ctx.redirect("/");
     }
 }
