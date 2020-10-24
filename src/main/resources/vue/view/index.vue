@@ -17,7 +17,7 @@
             fetch("api/parkinglots")
                 .then(res => res.json())
                 .then((res) => {
-                    this.parkingslots = res.allParkinglots;
+                    this.parkingslots = res;
                 })
         }
     });
