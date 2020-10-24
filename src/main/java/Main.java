@@ -79,6 +79,11 @@ public class Main {
          */
         app.get("/api/parkinglots/:parkinglotid", parkinglotsController::getParkinglot);
 
+        /*
+         * API that receives the data after a form has been submitted on the edit parkinglot page
+         */
+        app.post("/api/parkinglots/:parkinglotid/edit", parkinglotsController::updateParkinglot);
+
     }
 
 }
