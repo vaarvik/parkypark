@@ -1,10 +1,13 @@
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.vue.VueComponent;
+import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
     public static void main(String[] args) {
 
+        ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
+        ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
         //App startup
         Javalin app = Javalin.create(config -> {
             //Allows us to use gradle type dependencies for web dependencies
@@ -66,10 +69,15 @@ public class Main {
         app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
 
         //APIs
-        app.get("/api/parkinglots", ctx ->
-                    ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots()
-                )
-        );
+        /*
+         * All parkinglots
+         */
+        app.get("/api/parkinglots", parkinglotsController::getAllParkinglots);
+
+        /*
+         * Single parkinglot
+         */
+        app.get("/api/parkinglots/:parkinglotid", parkinglotsController::getParkinglot);
 
     }
 
