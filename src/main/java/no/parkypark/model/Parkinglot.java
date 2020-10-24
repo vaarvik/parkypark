@@ -66,6 +66,9 @@ public class Parkinglot {
         return "Parkinglot{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", price=" + price +
                 '}';
     }
 }

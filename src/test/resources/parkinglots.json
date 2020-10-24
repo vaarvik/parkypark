@@ -1,13 +1,13 @@
 [ {
-  "name" : "Smith",
-  "address" : "21 2nd Street",
-  "id" : "905e3c35-dba8-4096-b6c1-d52d010541ff",
-  "userId" : "24bfecd6-8a6a-402e-b8e0-e5f135d056cd",
+  "name" : "Best Spot!",
+  "address" : "Planetroad 2",
+  "id" : "89e4c338-b1aa-41ae-aff0-049dd3f15310",
+  "userId" : "a093240b-06ad-4e91-94c1-6d6a0e6832f7",
   "price" : 50.0
 }, {
   "name" : "John",
   "address" : "Matrix Street",
-  "id" : "eb21ef65-7944-409a-a931-f477a5467864",
-  "userId" : "9c54bf65-dc24-4bba-a089-8d6ca9bfded9",
+  "id" : "fdf60d02-a440-4588-bbd1-e855e8c75ee1",
+  "userId" : "afeaa090-52d7-4786-9b2c-69f079c36696",
   "price" : 30.0
 } ]
