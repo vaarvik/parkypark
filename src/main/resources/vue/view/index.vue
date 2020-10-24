@@ -16,9 +16,7 @@
         created(){
             fetch("api/parkinglots")
                 .then(res => res.json())
-                .then((res) => {
-                    this.parkingslots = res;
-                })
+                .then(res => this.parkingslots = res)
         }
     });
 </script>

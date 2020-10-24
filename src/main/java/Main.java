@@ -16,7 +16,7 @@ public class Main {
             //Adds the stylesheet to the site
             config.addSinglePageRoot("/assets/styles/style", "vue/assets/styles/style.css");
 
-        }).start(7001);
+        }).start(7048);
 
         /*
         Pages
@@ -53,7 +53,7 @@ public class Main {
          * POST Request.
          * Update information about a parkinglot
          */
-        app.get("/parkinglots/:parkinglotid/edit", new VueComponent("parkinglot-handling/edit-parkinglot"));
+        app.get("/parkinglots/:parkinglotid/edit", new VueComponent("edit-parkinglot"));
 
         /*
          * site for booking a specific parkinglot
