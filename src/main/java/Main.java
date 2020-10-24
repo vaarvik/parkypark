@@ -1,5 +1,7 @@
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.vue.VueComponent;
+import no.parkypark.controllers.BookingController;
+import no.parkypark.repository.BookingRepository;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
@@ -66,14 +68,15 @@ public class Main {
         app.get("/parkinglot/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
 
         //APIs
-        BookingController bookingController = new BookingController();
+        BookingRepository bookingRepository = new BookingRepository();
+        BookingController bookingController = new BookingController(bookingRepository);
 
 
         app.get("/api/parkinglots", ctx ->
-                ctx.json(new ParkyparkRepository("src/main/resources/data/parkinglots.json").getAllParkinglots())
+                ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots())
         );
 
-        app.post("/api/booking/book", ctx -> bookingController::bookParkinglot);
+        app.post("/api/booking/book", bookingController::bookParkinglot);
 
 
 
