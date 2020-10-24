@@ -43,7 +43,21 @@ public class Main {
          * * POST Request.
          * * Send all information about the new parkinglot.
          */
-        app.get("/add-parkinglot", new VueComponent("parkinglot-handling/add-parkinglot"));
+        app.get("/parkinglots/add", new VueComponent("parkinglot-handling/add-parkinglot"));
+
+        /*
+         * edits a specific parkinglot for a logged in user
+         * POST Request.
+         * Update information about a parkinglot
+         */
+        app.get("/parkinglots/:parkinglotid/edit", new VueComponent("parkinglot-handling/edit-parkinglot"));
+
+        /*
+         * site for booking a specific parkinglot
+         * POST Request.
+         * Send all information about the new booking.
+         */
+        app.get("/parkinglots/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
 
         /*
          * shows all parkinglots related to a single user
@@ -51,23 +65,9 @@ public class Main {
          */
         app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
 
-        /*
-         * edits a specific parkinglot for a logged in user
-         * POST Request.
-         * Update information about a parkinglot
-         */
-        app.get("/user/:userid/parkinglot/:parkinglotid/edit", new VueComponent("parkinglot-handling/edit-parkinglot"));
-
-        /*
-         * site for booking a specific parkinglot
-         * POST Request.
-         * Send all information about the new booking.
-         */
-        app.get("/parkinglot/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
-
         //APIs
         app.get("/api/parkinglots", ctx ->
-                ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots()
+                    ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots()
                 )
         );
 
