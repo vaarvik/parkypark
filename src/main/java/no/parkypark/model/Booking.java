@@ -23,6 +23,8 @@ public class Booking {
         this.payment = payment;
     }
 
+    public Booking() {}
+
     public Payment getPayment() {
         return payment;
     }
@@ -39,19 +41,19 @@ public class Booking {
         this.userId = userId;
     }
 
-    public UUID getParkinglot() {
+    public UUID getParkinglotId() {
         return this.parkinglotId;
     }
 
-    public void setParkinglot(UUID parkinglotId) {
+    public void setParkinglotId(UUID parkinglotId) {
         this.parkinglotId = parkinglotId;
     }
 
-    public String getCar() {
+    public String getCarLicenceNumber() {
         return this.carLicenceNumber;
     }
 
-    public void setCar(String carLicenceNumber) {
+    public void setCarLicenceNumber(String carLicenceNumber) {
         this.carLicenceNumber = carLicenceNumber;
     }
 
