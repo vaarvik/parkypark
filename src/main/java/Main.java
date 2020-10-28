@@ -22,6 +22,7 @@ public class Main {
         Pages
         ==========
          */
+        app.before("/", ctx -> ctx.redirect("/parkinglots/test"));
 
         /*
          * shows all parkinglots
@@ -34,6 +35,23 @@ public class Main {
          * * Get information that checks if user is signed in or not
          */
         app.get("/login", new VueComponent("login"));
+        /*
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+         */
+
+        app.get("/parkinglots/test", new VueComponent("test-add-parkinglot"));
+
+         /*
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+        -----------TEST---------------------
+         */
 
         /*
          * shows a single parkinglot
