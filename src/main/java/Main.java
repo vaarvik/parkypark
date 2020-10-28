@@ -44,6 +44,7 @@ public class Main {
          */
 
         app.get("/parkinglots/test", new VueComponent("test-add-parkinglot"));
+        app.post("api/parkinglots/test", parkinglotsController::addParkinglot);
 
          /*
         -----------TEST---------------------
