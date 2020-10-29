@@ -1,16 +1,21 @@
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.controller.BookingController;
+import no.parkypark.model.JsonStorage;
+import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.BookingRepository;
 import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
+    private static final String PARKINGLOT_JSON = "src/main/resources/data/parkinglots.json";
+
     public static void main(String[] args) {
 
-      ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
+      JsonStorage<Parkinglot> parkinglotJsonStorage = new JsonStorage<>(Parkinglot.class, PARKINGLOT_JSON);
+      ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository(parkinglotJsonStorage);
       ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
-      BookingRepository bookingRepository = new BookingRepository();
+      BookingRepository bookingRepository = new BookingRepository(null);
       BookingController bookingController = new BookingController(bookingRepository);
 
       //App startup

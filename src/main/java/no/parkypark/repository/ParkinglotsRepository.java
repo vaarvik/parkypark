@@ -1,22 +1,18 @@
 package no.parkypark.repository;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+import no.parkypark.model.IStorage;
 import no.parkypark.model.Parkinglot;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 
 public class ParkinglotsRepository implements IParkinglotsRepository {
-    private String parkinglotsFile = "";
-    private List<Parkinglot> parkinglots = new ArrayList<>();
+    private IStorage storage;
+    private List<Parkinglot> parkinglots;
 
-    public ParkinglotsRepository(String filePath) {
-        this.readJSONFile(filePath);
+    public ParkinglotsRepository(IStorage storage) {
+       this.storage = storage;
+       this.parkinglots = storage.read();
     }
 
     @Override
@@ -39,6 +35,15 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
         return null;
     }
 
+    public Parkinglot getParkinglotByUserId(String userId) {
+        for(Parkinglot i : this.parkinglots ) {
+            if(i.getUserId().equals(userId)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
     /**
      * Add Parkinglot
      * ----------
@@ -49,9 +54,9 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      */
     @Override
     public Parkinglot addParkinglot(Parkinglot parkinglot) {
-        this.parkinglots = new ArrayList<>(readJSONFile(this.parkinglotsFile));
         this.parkinglots.add(parkinglot);
-        writeToJSONFile(this.parkinglotsFile, this.parkinglots);
+        this.storage.write(this.parkinglots);
+        this.parkinglots = this.storage.read();
         return parkinglot;
     }
 
@@ -66,56 +71,12 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
     public Parkinglot updateParkinglot(Map<String, List<String>> changes) {
         Parkinglot parkinglot = getParkinglotById(changes.get("id").get(0));
 
-        //set new values
         parkinglot.setName(changes.get("name").get(0));
         parkinglot.setAddress(changes.get("address").get(0));
         parkinglot.setPrice(Double.parseDouble(changes.get("price").get(0)));
 
-        //update JSON
-        writeToJSONFile(this.parkinglotsFile, this.parkinglots);
+        this.storage.write(this.parkinglots);
+        this.parkinglots = this.storage.read();
         return parkinglot;
-    }
-
-    /**
-     * Write to JSON File
-     * ----------
-     * Writes to a JSON file and attach the updated data to an instance variable in this repository.
-     *
-     * @param filePath The path that the data should be fetched from.
-     * @return The data that is fetched. A List object.
-     */
-    private List<Parkinglot> writeToJSONFile(String filePath, List<Parkinglot> parkinglots) {
-        //create the mapper that we use to create the data into an object
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), parkinglots);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return this.parkinglots;
-    }
-
-    /**
-     * Read JSON File
-     * ----------
-     * Reads a JSON file and attaches the data that is received to an instance variable in this repository.
-     *
-     * @param filePath The path that the data should be fetched from.
-     * @return The data that is fetched. A List object.
-     */
-    private List<Parkinglot> readJSONFile(String filePath) {
-        //create the mapper that we use to create the data into an object
-        this.parkinglotsFile = filePath;
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            // JSON file to Java object
-            Parkinglot[] parkinglots = mapper.readValue(new File(filePath), Parkinglot[].class);
-            //store the data in the instance variable that stores the data
-            this.parkinglots = Arrays.asList(parkinglots);
-        } catch (IOException e) {
-            //if there's an error fetching the data...
-            e.printStackTrace();
-        }
-        return this.parkinglots;
     }
 }
