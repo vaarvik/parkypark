@@ -19,6 +19,8 @@ public class Payment {
         this.creditCardExpiryYear = creditCardExpiryYear;
     }
 
+    public Payment() {}
+
     public long getPaymentCardNumber() {
         return paymentCardNumber;
     }

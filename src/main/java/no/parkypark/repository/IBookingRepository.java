@@ -9,7 +9,7 @@ public interface IBookingRepository {
 
     Booking getBookingById();
 
-    Booking addBooking();
+    Booking addBooking(Booking booking);
 
     Booking updateBooking();
 

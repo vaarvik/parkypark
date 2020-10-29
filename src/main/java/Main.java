@@ -1,14 +1,19 @@
 import io.javalin.Javalin;
 import io.javalin.plugin.rendering.vue.VueComponent;
+import no.parkypark.controller.BookingController;
+import no.parkypark.repository.BookingRepository;
 import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
     public static void main(String[] args) {
 
-        ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
-        ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
-        //App startup
+      ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
+      ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
+      BookingRepository bookingRepository = new BookingRepository();
+      BookingController bookingController = new BookingController(bookingRepository);
+
+      //App startup
         Javalin app = Javalin.create(config -> {
             //Allows us to use gradle type dependencies for web dependencies
             config.enableWebjars();
@@ -69,6 +74,7 @@ public class Main {
         app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
 
         //APIs
+
         /*
          * All parkinglots
          */
@@ -84,6 +90,10 @@ public class Main {
          */
         app.post("/api/parkinglots/:parkinglotid/edit", parkinglotsController::updateParkinglot);
 
+        /*
+         * API that receives the data after a form has been submitted on the book parkinglot page
+        */
+        app.post("/api/booking/book", bookingController::bookParkinglot);
     }
 
 }
