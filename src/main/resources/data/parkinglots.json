@@ -22,4 +22,10 @@
   "id" : "ad0ef579-bcd2-4f25-bcf8-dbd281f7ef9f",
   "userId" : "123-were",
   "price" : 20.0
+}, {
+  "name" : "Kari",
+  "address" : "Killer Street",
+  "id" : "6e1f31b2-4d82-4d6e-8436-41b6e938fce6",
+  "userId" : "sfd",
+  "price" : 19.0
 } ]
