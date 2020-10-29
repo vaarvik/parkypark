@@ -6,23 +6,21 @@ public class Parkinglot {
     private String name;
     private String address;
     private String id;
-    private String userId;
+    private String ownerId;
     private double price;
 
-    public Parkinglot(String name, String address, String userId, double price) {
+    public Parkinglot(String name, String address, String ownerId, double price) {
         this.name = name;
         this.address = address;
         this.id = UUID.randomUUID().toString();
-        this.userId = userId;
+        this.ownerId = ownerId;
         this.price = price;
     }
 
-    public Parkinglot(){
-
-    }
+    public Parkinglot() {}
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -30,7 +28,7 @@ public class Parkinglot {
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
     public void setAddress(String address) {
@@ -38,7 +36,7 @@ public class Parkinglot {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(String id) {
@@ -53,12 +51,12 @@ public class Parkinglot {
         this.price = price;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getOwnerId() {
+        return this.ownerId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     @Override
@@ -67,7 +65,7 @@ public class Parkinglot {
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", id='" + id + '\'' +
-                ", userId='" + userId + '\'' +
+                ", ownerId='" + ownerId + '\'' +
                 ", price=" + price +
                 '}';
     }

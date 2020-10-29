@@ -35,9 +35,9 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
         return null;
     }
 
-    public Parkinglot getParkinglotByUserId(String userId) {
+    public Parkinglot getParkinglotByOwnerId(String ownerId) {
         for(Parkinglot i : this.parkinglots ) {
-            if(i.getUserId().equals(userId)) {
+            if(i.getOwnerId().equals(ownerId)) {
                 return i;
             }
         }
