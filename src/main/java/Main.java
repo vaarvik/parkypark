@@ -74,12 +74,6 @@ public class Main {
         app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
 
         //APIs
-        app.get("/api/parkinglots", ctx ->
-                ctx.json(new ParkinglotsRepository("src/main/resources/data/parkinglots.json").getAllParkinglots())
-        );
-
-        app.post("/api/booking/book", bookingController::bookParkinglot);
-
 
         /*
          * All parkinglots
@@ -96,6 +90,10 @@ public class Main {
          */
         app.post("/api/parkinglots/:parkinglotid/edit", parkinglotsController::updateParkinglot);
 
+        /*
+         * API that receives the data after a form has been submitted on the book parkinglot page
+        */
+        app.post("/api/booking/book", bookingController::bookParkinglot);
     }
 
 }
