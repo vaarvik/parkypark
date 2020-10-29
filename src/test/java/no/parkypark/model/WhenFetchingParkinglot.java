@@ -37,9 +37,18 @@ public class WhenFetchingParkinglot {
 
 	@Test
 	public void parkinglotIsReceivedById() {
-		Parkinglot resultLot = new ParkinglotsRepository(file.getFile()).getParkinglotById(file.getUserId(0));
+		ParkinglotsRepository repository = new ParkinglotsRepository(file.getFile());
+		Parkinglot resultLot = repository.getParkinglotById(file.getUserId(0));
+		Parkinglot expectedLot = repository.getAllParkinglots().get(0);
+
 		//compare the name
-		assertEquals(expectedLots.get(0).toString(), resultLot.toString());
+		assertEquals(expectedLot.getName(), resultLot.getName());
+		//compare the address
+		assertEquals(expectedLot.getAddress(), resultLot.getAddress());
+		//compare the id
+		assertEquals(expectedLot.getAddress(), resultLot.getAddress());
+		//check that the user IDs match
+		assertEquals(expectedLot.getUserId(), resultLot.getUserId());
 	}
 
 	@Test
