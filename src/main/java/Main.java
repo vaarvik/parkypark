@@ -10,7 +10,7 @@ public class Main {
 
       ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository("src/main/resources/data/parkinglots.json");
       ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
-      BookingRepository bookingRepository = new BookingRepository();
+      BookingRepository bookingRepository = new BookingRepository("src/main/resources/data/bookings.json");
       BookingController bookingController = new BookingController(bookingRepository);
 
       //App startup

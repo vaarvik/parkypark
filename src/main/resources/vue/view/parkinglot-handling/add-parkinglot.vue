@@ -1,10 +1,10 @@
-<template id="book-parkinglot">
+<template id="add-parkinglot">
     <div>
     </div>
 </template>
 <script>
-    Vue.component("book-parkinglot", {
-        template: "#book-parkinglot",
+    Vue.component("add-parkinglot", {
+        template: "#add-parkinglot",
         data(){
         }
     });
