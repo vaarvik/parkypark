@@ -44,14 +44,14 @@ public class Main {
          * shows a single parkinglot
          * * Get all information about a single parkinglot
          */
-        app.get("/parkinglots/:parkinglotid", new VueComponent("parkinglot-handling/single-parkinglot"));
+        app.get("/parkinglots/:parkinglotid", new VueComponent("single-parkinglot"));
 
         /*
          * adds a parkinglot
          * * POST Request.
          * * Send all information about the new parkinglot.
          */
-        app.get("/parkinglots/add", new VueComponent("parkinglot-handling/add-parkinglot"));
+        app.get("/parkinglots/add", new VueComponent("add-parkinglot"));
 
         /*
          * edits a specific parkinglot for a logged in user
@@ -65,15 +65,18 @@ public class Main {
          * POST Request.
          * Send all information about the new booking.
          */
-        app.get("/parkinglots/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
+        app.get("/parkinglots/:parkinglotid/book", new VueComponent("book-parkinglot"));
 
         /*
          * shows all parkinglots related to a single user
          * Get all parkingslots for a specific user
          */
-        app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
+        app.get("/user/:userid/parkinglots", new VueComponent("user-parkinglots"));
 
-        //APIs
+        /*
+        APIs
+        ==========
+         */
 
         /*
          * All parkinglots
@@ -93,7 +96,7 @@ public class Main {
         /*
          * API that receives the data after a form has been submitted on the book parkinglot page
         */
-        app.post("/api/booking/book", bookingController::bookParkinglot);
+        app.post("/api/parkinglots/:parkinglotid/book", bookingController::bookParkinglot);
     }
 
 }
