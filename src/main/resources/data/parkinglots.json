@@ -2,121 +2,120 @@
   "name" : "Fin parkeringsplass på buran",
   "address" : "21 2nd Street",
   "id" : "1",
-  "userId" : "32",
+  "ownerId" : "32",
   "price" : 20.0
 }, {
   "name" : "Bred Parkering i Hallingdal",
   "address" : "Matrix Street",
   "id" : "2",
-  "userId" : "40",
+  "ownerId" : "40",
   "price" : 30.0
 }, {
   "name" : "Parkering nærmt Oslo Sentrum",
   "address" : "Holmlia 5f",
   "id" : "3",
-  "userId" : "423",
+  "ownerId" : "423",
   "price" : 20.0
 }, {
   "name" : "Lekker parkering for de rike",
   "address" : "Hudsonsvei 14",
   "id" : "4",
-  "userId" : "555",
+  "ownerId" : "555",
   "price" : 20.0
-},  {
+}, {
   "name" : "Plass for de som ikke er redd for riper i lakken",
   "address" : "Scrape Street 2",
   "id" : "5",
-  "userId" : "222",
+  "ownerId" : "222",
   "price" : 15.0
-  },{
+}, {
   "name" : "Lekker Parkeringsplass sentralt i grorud med elbillader",
   "address" : "Grorudalen Badestrand 9f",
   "id" : "6",
-  "userId" : "632",
+  "ownerId" : "632",
   "price" : 50.0
-},{
+}, {
   "name" : "Garasjeparkering ved Smibygget 7",
   "address" : "Smibygget 7",
   "id" : "7",
-  "userId" : "543",
+  "ownerId" : "543",
   "price" : 30.0
-},{
+}, {
   "name" : "Bleieven 2",
   "address" : "Bleieven 2",
   "id" : "8",
-  "userId" : "11",
+  "ownerId" : "11",
   "price" : 20.0
-},{
+}, {
   "name" : "Liten parkeringsplass nærmt Gjeddevannet",
   "address" : "Varden 23",
   "id" : "9",
-  "userId" : "3543",
+  "ownerId" : "3543",
   "price" : 50.0
-},{
+}, {
   "name" : "Sentral Parkering under tak",
   "address" : "Fyllingsdalen 8b",
   "id" : "10",
-  "userId" : "643",
+  "ownerId" : "643",
   "price" : 50.0
-},{
+}, {
   "name" : "Trailer parkeringsplass rett utenfor Bergen Sentrum",
   "address" : "Åsaneveien 6",
   "id" : "11",
-  "userId" : "634",
+  "ownerId" : "634",
   "price" : 70.0
-},{
+}, {
   "name" : "Ledig plass i Bjørgebrekka",
   "address" : "Bjørgebrekka 8f",
   "id" : "12",
-  "userId" : "124",
+  "ownerId" : "124",
   "price" : 80.0
-},{
+}, {
   "name" : "Beste parkeringen i byn",
   "address" : "Enveimedsentrum 23",
   "id" : "13",
-  "userId" : "2",
+  "ownerId" : "2",
   "price" : 220.0
-},{
+}, {
   "name" : "Parkeringplass",
   "address" : "Stiveiene 6",
   "id" : "15",
-  "userId" : "1132",
+  "ownerId" : "1132",
   "price" : 10.0
-},{
+}, {
   "name" : "Begynner å gå tom for ideer",
   "address" : "Enveistien 9",
   "id" : "16",
-  "userId" : "2332",
+  "ownerId" : "2332",
   "price" : 15.0
-},{
+}, {
   "name" : "Fin parkeringsplass for alle med bil",
   "address" : "Bjørnegaten 44",
   "id" : "17",
-  "userId" : "6332",
+  "ownerId" : "6332",
   "price" : 19.0
-},{
+}, {
   "name" : "Knall bra plass å parkere",
   "address" : "Braplass 33",
   "id" : "18",
-  "userId" : "132",
+  "ownerId" : "132",
   "price" : 25.0
-},{
+}, {
   "name" : "Dyreste parkeringen du finner på denne siden",
   "address" : "Sentralveien 1",
   "id" : "19",
-  "userId" : "232",
+  "ownerId" : "232",
   "price" : 500.0
-},{
+}, {
   "name" : "Praktisk parkering i gyldendal",
   "address" : "gyldendal 8",
   "id" : "20",
-  "userId" : "372",
+  "ownerId" : "372",
   "price" : 60.0
-},{
+}, {
   "name" : "Nokså sentral parkering ved Hordvik",
   "address" : "Hordvik 7",
   "id" : "21",
-  "userId" : "332",
-  "price" : 20.0
-}
-]
+  "ownerId" : "332",
+  "price" : 9.9999999999E10
+} ]

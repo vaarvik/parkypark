@@ -10,23 +10,24 @@ public class ParkinglotsController {
         this.parkinglotsRepository = parkinglotsRepository;
     }
 
-    public void getAllParkinglots(Context ctx){
+    public void getAllParkinglots(Context ctx) {
         ctx.json(parkinglotsRepository.getAllParkinglots());
     }
 
-    public void getParkinglot(Context ctx){
+    public void getParkinglot(Context ctx) {
         ctx.json(parkinglotsRepository.getParkinglotById(ctx.pathParam(":parkinglotid")));
     }
 
     public void updateParkinglot(Context ctx) {
-        Parkinglot lot = ctx.bodyAsClass(Parkinglot.class);
-
         try {
+            Parkinglot lot = ctx.bodyAsClass(Parkinglot.class);
             parkinglotsRepository.updateParkinglot(lot);
+            ctx.json(lot);
         } catch (Exception e) {
-            ctx.result("Parkinglot not found");
+            ctx.status();
         }
+
         //redirect user after update
-        ctx.redirect("/");
+         ctx.redirect("/");
     }
 }
