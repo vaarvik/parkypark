@@ -15,7 +15,7 @@ public class Main {
       JsonStorage<Parkinglot> parkinglotJsonStorage = new JsonStorage<>(Parkinglot.class, PARKINGLOT_JSON);
       ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository(parkinglotJsonStorage);
       ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
-      BookingRepository bookingRepository = new BookingRepository();
+      BookingRepository bookingRepository = new BookingRepository("src/main/resources/data/bookings.json");
       BookingController bookingController = new BookingController(bookingRepository);
 
       //App startup

@@ -5,16 +5,17 @@ import java.util.UUID;
 
 public class Booking {
 
+    private String id;
     private String userId;
-    private UUID parkinglotId;
+    private String parkinglotId;
     private String carLicenceNumber;
     private Date checkIn;
     private Date checkOut;
     private Payment payment;
 
 
-    public Booking(String userId, UUID parkinglotId, String carLicenceNumber, Date checkIn, Date checkOut, Payment payment) {
-
+    public Booking(String userId, String parkinglotId, String carLicenceNumber, Date checkIn, Date checkOut, Payment payment) {
+        this.id = UUID.randomUUID().toString();
         this.userId = userId;
         this.parkinglotId = parkinglotId;
         this.carLicenceNumber = carLicenceNumber;
@@ -24,6 +25,10 @@ public class Booking {
     }
 
     public Booking() {}
+
+    public String getId() {
+        return id;
+    }
 
     public Payment getPayment() {
         return payment;
@@ -41,11 +46,11 @@ public class Booking {
         this.userId = userId;
     }
 
-    public UUID getParkinglotId() {
+    public String getParkinglotId() {
         return this.parkinglotId;
     }
 
-    public void setParkinglotId(UUID parkinglotId) {
+    public void setParkinglotId(String parkinglotId) {
         this.parkinglotId = parkinglotId;
     }
 
@@ -73,5 +78,16 @@ public class Booking {
         this.checkOut = checkOut;
     }
 
-
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", parkinglotId='" + parkinglotId + '\'' +
+                ", carLicenceNumber='" + carLicenceNumber + '\'' +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", payment=" + payment +
+                '}';
+    }
 }
