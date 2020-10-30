@@ -13,4 +13,5 @@ public interface IParkinglotsRepository {
 
     Parkinglot getParkinglotById(String id);
 
+    Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception;
 }

@@ -68,12 +68,16 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      * @param changes The parkinglot to be added. A Map object.
      * @return The parkinglot that was updated.
      */
-    public Parkinglot updateParkinglot(Map<String, List<String>> changes) {
-        Parkinglot parkinglot = getParkinglotById(changes.get("id").get(0));
+    public Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception {
+        Parkinglot parkinglot = this.getParkinglotById(updatedLot.getId());
 
-        parkinglot.setName(changes.get("name").get(0));
-        parkinglot.setAddress(changes.get("address").get(0));
-        parkinglot.setPrice(Double.parseDouble(changes.get("price").get(0)));
+        if (parkinglot == null) {
+            throw new Exception("Parkinglot not found");
+        }
+
+        parkinglot.setName(updatedLot.getName());
+        parkinglot.setAddress(updatedLot.getAddress());
+        parkinglot.setPrice(updatedLot.getPrice());
 
         this.storage.write(this.parkinglots);
         this.parkinglots = this.storage.read();

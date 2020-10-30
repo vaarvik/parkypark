@@ -1,10 +1,8 @@
 package no.parkypark.controller;
 
 import io.javalin.http.Context;
+import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.ParkinglotsRepository;
-
-import java.util.List;
-import java.util.Map;
 
 public class ParkinglotsController {
     private ParkinglotsRepository parkinglotsRepository;
@@ -21,9 +19,13 @@ public class ParkinglotsController {
     }
 
     public void updateParkinglot(Context ctx) {
-        //map creates a JavaScript-like object
-        Map<String, List<String>> formParams = ctx.formParamMap();
-        parkinglotsRepository.updateParkinglot(formParams);
+        Parkinglot lot = ctx.bodyAsClass(Parkinglot.class);
+
+        try {
+            parkinglotsRepository.updateParkinglot(lot);
+        } catch (Exception e) {
+            ctx.result("Parkinglot not found");
+        }
         //redirect user after update
         ctx.redirect("/");
     }
