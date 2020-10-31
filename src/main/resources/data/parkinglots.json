@@ -3,59 +3,120 @@
   "address" : "21 2nd Street",
   "id" : "1",
   "userId" : "32",
-  "price" : 0.0
-}, {
-  "name" : "John",
-  "address" : "Matrix Street",
-  "id" : "2",
-  "userId" : "432",
-  "price" : 0.0
-}, {
-  "name" : "Jonas",
-  "address" : "Killer Street",
-  "id" : "3",
-  "userId" : "54",
-  "price" : 0.0
-}, {
-  "name" : "Emma",
-  "address" : "Hudsonsvei 14",
-  "id" : "ad0ef579-bcd2-4f25-bcf8-dbd281f7ef9f",
-  "userId" : "123-were",
   "price" : 20.0
 }, {
-  "name" : "Kari",
-  "address" : "Killer Street",
-  "id" : "6e1f31b2-4d82-4d6e-8436-41b6e938fce6",
-  "userId" : "sfd",
-  "price" : 19.0
+  "name" : "Bred Parkering i Hallingdal",
+  "address" : "Matrix Street",
+  "id" : "2",
+  "userId" : "40",
+  "price" : 30.0
 }, {
-  "name" : "sdfs",
-  "address" : "dfsdf",
-  "id" : "b21c0bf4-ef55-4bb3-ad11-c0d925e8f235",
-  "userId" : "23",
-  "price" : 133.0
+  "name" : "Parkering nærmt Oslo Sentrum",
+  "address" : "Holmlia 5f",
+  "id" : "3",
+  "userId" : "423",
+  "price" : 20.0
 }, {
-  "name" : "halla",
-  "address" : "Bakvegen 2",
-  "id" : "780edc12-cb3d-4069-b473-2cd3c9ffc654",
-  "userId" : "145",
-  "price" : 12.0
-}, {
-  "name" : "Hei",
-  "address" : "vegen2",
-  "id" : "22c2fa15-db3c-4a28-a854-706056b44859",
-  "userId" : "78",
+  "name" : "Lekker parkering for de rike",
+  "address" : "Hudsonsvei 14",
+  "id" : "4",
+  "userId" : "555",
+  "price" : 20.0
+},  {
+  "name" : "Plass for de som ikke er redd for riper i lakken",
+  "address" : "Scrape Street 2",
+  "id" : "5",
+  "userId" : "222",
+  "price" : 15.0
+},{
+  "name" : "Lekker Parkeringsplass sentralt i grorud med elbillader",
+  "address" : "Grorudalen Badestrand 9f",
+  "id" : "6",
+  "userId" : "632",
+  "price" : 50.0
+},{
+  "name" : "Garasjeparkering ved Smibygget 7",
+  "address" : "Smibygget 7",
+  "id" : "7",
+  "userId" : "543",
+  "price" : 30.0
+},{
+  "name" : "Bleieven 2",
+  "address" : "Bleieven 2",
+  "id" : "8",
+  "userId" : "11",
+  "price" : 20.0
+},{
+  "name" : "Liten parkeringsplass nærmt Gjeddevannet",
+  "address" : "Varden 23",
+  "id" : "9",
+  "userId" : "3543",
+  "price" : 50.0
+},{
+  "name" : "Sentral Parkering under tak",
+  "address" : "Fyllingsdalen 8b",
+  "id" : "10",
+  "userId" : "643",
+  "price" : 50.0
+},{
+  "name" : "Trailer parkeringsplass rett utenfor Bergen Sentrum",
+  "address" : "Åsaneveien 6",
+  "id" : "11",
+  "userId" : "634",
   "price" : 70.0
-}, {
-  "name" : "12",
-  "address" : "12",
-  "id" : "b5cfdcec-467e-46b3-86a6-6e97681cc837",
-  "userId" : "12",
-  "price" : 12.0
-}, {
-  "name" : "13",
-  "address" : "13",
-  "id" : "b7fbb489-c28a-4b25-9467-a67f6ce92bc4",
-  "userId" : "13",
-  "price" : 13.0
-} ]
+},{
+  "name" : "Ledig plass i Bjørgebrekka",
+  "address" : "Bjørgebrekka 8f",
+  "id" : "12",
+  "userId" : "124",
+  "price" : 80.0
+},{
+  "name" : "Beste parkeringen i byn",
+  "address" : "Enveimedsentrum 23",
+  "id" : "13",
+  "userId" : "2",
+  "price" : 220.0
+},{
+  "name" : "Parkeringplass",
+  "address" : "Stiveiene 6",
+  "id" : "15",
+  "userId" : "1132",
+  "price" : 10.0
+},{
+  "name" : "Begynner å gå tom for ideer",
+  "address" : "Enveistien 9",
+  "id" : "16",
+  "userId" : "2332",
+  "price" : 15.0
+},{
+  "name" : "Fin parkeringsplass for alle med bil",
+  "address" : "Bjørnegaten 44",
+  "id" : "17",
+  "userId" : "6332",
+  "price" : 19.0
+},{
+  "name" : "Knall bra plass å parkere",
+  "address" : "Braplass 33",
+  "id" : "18",
+  "userId" : "132",
+  "price" : 25.0
+},{
+  "name" : "Dyreste parkeringen du finner på denne siden",
+  "address" : "Sentralveien 1",
+  "id" : "19",
+  "userId" : "232",
+  "price" : 500.0
+},{
+  "name" : "Praktisk parkering i gyldendal",
+  "address" : "gyldendal 8",
+  "id" : "20",
+  "userId" : "372",
+  "price" : 60.0
+},{
+  "name" : "Nokså sentral parkering ved Hordvik",
+  "address" : "Hordvik 7",
+  "id" : "21",
+  "userId" : "332",
+  "price" : 20.0
+}
+]
