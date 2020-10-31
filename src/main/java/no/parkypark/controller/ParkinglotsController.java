@@ -24,7 +24,6 @@ public class ParkinglotsController {
     public void addParkinglot(Context ctx){
         String name = ctx.formParam("name");
         String address = ctx.formParam("address");
-        //String id = ctx.formParam("id");
         String userid = ctx.formParam("userid");
         Double price = Double.parseDouble(ctx.formParam("price"));
 
