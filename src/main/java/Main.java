@@ -22,7 +22,6 @@ public class Main {
         Pages
         ==========
          */
-        app.before("/", ctx -> ctx.redirect("/parkinglots/test"));
 
         /*
          * shows all parkinglots
@@ -35,37 +34,19 @@ public class Main {
          * * Get information that checks if user is signed in or not
          */
         app.get("/login", new VueComponent("login"));
-        /*
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-         */
-
-        app.get("/parkinglots/test", new VueComponent("test-add-parkinglot"));
-        app.post("/api/parkinglots/test", parkinglotsController::addParkinglot);
-
-         /*
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-        -----------TEST---------------------
-         */
-
-        /*
-         * shows a single parkinglot
-         * * Get all information about a single parkinglot
-         */
-        app.get("/parkinglots/:parkinglotid", new VueComponent("parkinglot-handling/single-parkinglot"));
 
         /*
          * adds a parkinglot
          * * POST Request.
          * * Send all information about the new parkinglot.
          */
-        app.get("/parkinglots/add", new VueComponent("parkinglot-handling/add-parkinglot"));
+        app.get("/parkinglots/add", new VueComponent("add-parkinglot"));
+
+        /*
+         * shows a single parkinglot
+         * * Get all information about a single parkinglot
+         */
+        app.get("/parkinglots/:parkinglotid", new VueComponent("single-parkinglot"));
 
         /*
          * edits a specific parkinglot for a logged in user
@@ -79,13 +60,13 @@ public class Main {
          * POST Request.
          * Send all information about the new booking.
          */
-        app.get("/parkinglots/:parkinglotid/book", new VueComponent("parkinglot-handling/book-parkinglot"));
+        app.get("/parkinglots/:parkinglotid/book", new VueComponent("book-parkinglot"));
 
         /*
          * shows all parkinglots related to a single user
          * Get all parkingslots for a specific user
          */
-        app.get("/user/:userid/parkinglots", new VueComponent("parkinglot-handling/user-parkinglots"));
+        app.get("/user/:userid/parkinglots", new VueComponent("user-parkinglots"));
 
         //APIs
         /*
@@ -97,6 +78,11 @@ public class Main {
          * Single parkinglot
          */
         app.get("/api/parkinglots/:parkinglotid", parkinglotsController::getParkinglot);
+
+        /*
+         * add parkinglot
+         */
+        app.post("/api/parkinglots/add", parkinglotsController::addParkinglot);
 
         /*
          * API that receives the data after a form has been submitted on the edit parkinglot page

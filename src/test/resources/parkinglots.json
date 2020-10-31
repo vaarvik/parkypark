@@ -1,13 +1,19 @@
 [ {
-  "name" : "Best Spot!",
-  "address" : "Planetroad 2",
-  "id" : "89e4c338-b1aa-41ae-aff0-049dd3f15310",
-  "userId" : "a093240b-06ad-4e91-94c1-6d6a0e6832f7",
+  "name" : "Smith",
+  "address" : "21 2nd Street",
+  "id" : "ef4b7b69-65ec-49cd-97cf-4f7aba6b6bde",
+  "userId" : "9d17319d-7f41-46b0-bdfb-e1cd9ef997c2",
   "price" : 50.0
 }, {
   "name" : "John",
   "address" : "Matrix Street",
-  "id" : "fdf60d02-a440-4588-bbd1-e855e8c75ee1",
-  "userId" : "afeaa090-52d7-4786-9b2c-69f079c36696",
+  "id" : "72e8bb88-24d0-4dfb-afb8-3e46651051f3",
+  "userId" : "09f3e7aa-ff11-4f70-8666-b98fdec2e5fe",
   "price" : 30.0
+}, {
+  "name" : "Hedda",
+  "address" : "Bogstadveien 19",
+  "id" : "4065f8dd-dc95-4388-8249-eccaa60625be",
+  "userId" : "984cdcc2-7447-4cf8-af3d-328835d531a7",
+  "price" : 20.0
 } ]
