@@ -1,8 +1,9 @@
 import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.controller.BookingController;
-import no.parkypark.repository.BookingRepository;
 import no.parkypark.controller.ParkinglotsController;
+import no.parkypark.repository.BookingRepository;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
@@ -18,8 +19,8 @@ public class Main {
             //Allows us to use gradle type dependencies for web dependencies
             config.enableWebjars();
 
-            //Adds the stylesheet to the site
-            config.addSinglePageRoot("/assets/styles/style", "vue/assets/styles/style.css");
+            //Adds all files from the assets folder to the site
+            config.addStaticFiles("/assets", "src/main/resources/vue/assets", Location.EXTERNAL);
 
         }).start(7048);
 
