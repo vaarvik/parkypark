@@ -1,6 +1,5 @@
 package no.parkypark.model;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
@@ -8,8 +7,8 @@ import java.io.IOException;
 import java.util.List;
 
 public class JsonStorage<U> implements IStorage<U> {
-	private File file;
-	private Class<U> contentClass;
+	private final File file;
+	private final Class<U> contentClass;
 
 	// Hack: Class<U>.. https://stackoverflow.com/questions/3437897/how-do-i-get-a-class-instance-of-generic-type-t
 	public JsonStorage(Class<U> contentClass, String filePath) {

@@ -5,7 +5,7 @@ import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.ParkinglotsRepository;
 
 public class ParkinglotsController {
-    private ParkinglotsRepository parkinglotsRepository;
+    private final ParkinglotsRepository parkinglotsRepository;
     public ParkinglotsController(ParkinglotsRepository parkinglotsRepository) {
         this.parkinglotsRepository = parkinglotsRepository;
     }

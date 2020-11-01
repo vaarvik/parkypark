@@ -3,7 +3,9 @@ package no.parkypark.model;
 import no.parkypark.repository.ParkinglotsRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class ParkinglotRepositoryTest {
 	private List<Parkinglot> expectedLots;
 	private Parkinglot parkingLot;
@@ -23,13 +26,12 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@BeforeEach
-	private void setup() {
+	public void setup() {
 		setUpExpectedParkinglots();
 	}
 
 	@Test
-	public void addParkinglotTest() {
-		JsonStorage<Parkinglot> storage = mock(JsonStorage.class);
+	public void addParkinglotTest(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -40,16 +42,12 @@ public class ParkinglotRepositoryTest {
 
 		assertEquals(result, lot);
 
-		ArgumentCaptor<JsonStorage<Parkinglot>> argument = ArgumentCaptor.forClass(JsonStorage.class);
-		verify(storage).write((List<Parkinglot>) argument.capture());
-
-		// At this point expectedLots contains the added Parkinglot
-		assertEquals(expectedLots, argument.getValue());
+		assertEquals(3, expectedLots.size());
+		verify(storage).write(expectedLots);
 	}
 
 	@Test
-	public void getAllParkingLotsTest() {
-		JsonStorage<Parkinglot> storage = mock(JsonStorage.class);
+	public void getAllParkingLotsTest(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -60,8 +58,7 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@Test
-	public void getParkinglotByIdTest() {
-		JsonStorage<Parkinglot> storage = mock(JsonStorage.class);
+	public void getParkinglotByIdTest(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -71,8 +68,7 @@ public class ParkinglotRepositoryTest {
 		assertEquals(parkingLot, actual);
 	}
 	@Test
-	public void updateParkinglotTest() {
-		JsonStorage<Parkinglot> storage = mock(JsonStorage.class);
+	public void updateParkinglotTest(@Mock JsonStorage<Parkinglot> storage) throws Exception {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -87,15 +83,12 @@ public class ParkinglotRepositoryTest {
 		update.setOwnerId("updatedOwnerId");
 		update.setPrice(123);
 
-		try {
-			repo.updateParkinglot(update);
+		repo.updateParkinglot(update);
 
-			assertEquals(parkingLot.getId(), update.getId());
-			assertEquals(parkingLot.getName(), update.getName());
-			assertEquals(parkingLot.getAddress(), update.getAddress());
-			assertEquals(parkingLot.getPrice(), update.getPrice());
-			assertNotEquals(parkingLot.getOwnerId(), update.getOwnerId());
-
-		} catch (Exception e) { }
+		assertEquals(parkingLot.getId(), update.getId());
+		assertEquals(parkingLot.getName(), update.getName());
+		assertEquals(parkingLot.getAddress(), update.getAddress());
+		assertEquals(parkingLot.getPrice(), update.getPrice());
+		assertNotEquals(parkingLot.getOwnerId(), update.getOwnerId());
 	}
 }
