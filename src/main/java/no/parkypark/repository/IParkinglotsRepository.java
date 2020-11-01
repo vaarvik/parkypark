@@ -3,6 +3,7 @@ package no.parkypark.repository;
 import no.parkypark.model.Parkinglot;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IParkinglotsRepository {
     List<Parkinglot> getAllParkinglots();
@@ -13,5 +14,5 @@ public interface IParkinglotsRepository {
 
     Parkinglot getParkinglotById(String id);
 
-    Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception;
+    Parkinglot updateParkinglot(Map<String, List<String>> changes) throws Exception;
 }

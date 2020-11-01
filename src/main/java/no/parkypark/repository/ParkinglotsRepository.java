@@ -1,7 +1,7 @@
 package no.parkypark.repository;
 import no.parkypark.model.IStorage;
 import no.parkypark.model.Parkinglot;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
@@ -68,17 +68,15 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      * @param changes The parkinglot to be added. A Map object.
      * @return The parkinglot that was updated.
      */
-    public Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception {
-        Parkinglot parkinglot = this.getParkinglotById(updatedLot.getId());
+    public Parkinglot updateParkinglot(Map<String, List<String>> changes) {
+        Parkinglot parkinglot = getParkinglotById(changes.get("id").get(0));
 
-        if (parkinglot == null) {
-            throw new Exception("Parkinglot not found");
-        }
+        //set new values
+        parkinglot.setName(changes.get("name").get(0));
+        parkinglot.setAddress(changes.get("address").get(0));
+        parkinglot.setPrice(Double.parseDouble(changes.get("price").get(0)));
 
-        parkinglot.setName(updatedLot.getName());
-        parkinglot.setAddress(updatedLot.getAddress());
-        parkinglot.setPrice(updatedLot.getPrice());
-
+        //update JSON
         this.storage.write(this.parkinglots);
         this.parkinglots = this.storage.read();
         return parkinglot;

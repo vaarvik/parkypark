@@ -5,8 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -80,21 +79,20 @@ public class ParkinglotRepositoryTest {
 		// Creating a new object here as the update, since merely changing
 		// the values of the parkingLot object would change the object fields
 		// before calling update.
-		Parkinglot update = new Parkinglot();
-		update.setId(parkingLot.getId());
-		update.setName("updatedName");
-		update.setAddress("updatedAdress");
-		update.setOwnerId("updatedOwnerId");
-		update.setPrice(123);
+		Map<String, List<String>> formParams = new HashMap<>();
+		formParams.put("name", new ArrayList<String>(Collections.singleton("updatedName")));
+		formParams.put("address", new ArrayList<String>(Collections.singleton("updatedAddress")));
+		formParams.put("ownerId", new ArrayList<String>(Collections.singleton("updatedOwnerId")));
+		formParams.put("price", new ArrayList<String>(Collections.singleton("123")));
 
 		try {
-			repo.updateParkinglot(update);
+			repo.updateParkinglot(formParams);
 
-			assertEquals(parkingLot.getId(), update.getId());
-			assertEquals(parkingLot.getName(), update.getName());
-			assertEquals(parkingLot.getAddress(), update.getAddress());
-			assertEquals(parkingLot.getPrice(), update.getPrice());
-			assertNotEquals(parkingLot.getOwnerId(), update.getOwnerId());
+			assertEquals(parkingLot.getId(), formParams.get("id").get(0));
+			assertEquals(parkingLot.getName(), formParams.get("name").get(0));
+			assertEquals(parkingLot.getAddress(), formParams.get("address").get(0));
+			assertEquals(parkingLot.getPrice(), formParams.get("ownerId").get(0));
+			assertNotEquals(parkingLot.getOwnerId(), formParams.get("price").get(0));
 
 		} catch (Exception e) { }
 	}
