@@ -1,0 +1,26 @@
+@startuml OppdatereParkeringsplass
+participant Bruker
+
+Bruker -> FrontEnd: Endre opplysninger
+activate Bruker
+
+activate FrontEnd
+FrontEnd -> FrontEnd: Sjekke om opplysningene oppfyller kravene
+FrontEnd -> Backend: Sende oppdaterte opplysninger via POST request
+
+activate Backend
+Backend -> Backend: Finne parkeringsplassen
+Backend -> Backend: Behandle opplysninger
+activate Database
+Backend -> Database: Oppdatere parkeringsplass
+Database --> Backend: Sende oppdatert data
+deactivate Database
+
+Backend --> FrontEnd: Gi beskjed om at data er oppdatert
+deactivate Backend
+
+FrontEnd --> Bruker: Fortelle at data er oppdatert
+deactivate FrontEnd
+
+deactivate Bruker
+@enduml
