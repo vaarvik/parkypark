@@ -27,7 +27,5 @@ public class ParkinglotsController {
             ctx.status();
         }
 
-        //redirect user after update
-         ctx.redirect("/");
     }
 }
