@@ -1,15 +1,14 @@
 package no.parkypark.repository;
 import no.parkypark.model.IStorage;
 import no.parkypark.model.Parkinglot;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
 
 public class ParkinglotsRepository implements IParkinglotsRepository {
-    private IStorage storage;
+    private final IStorage<Parkinglot> storage;
     private List<Parkinglot> parkinglots;
 
-    public ParkinglotsRepository(IStorage storage) {
+    public ParkinglotsRepository(IStorage<Parkinglot> storage) {
        this.storage = storage;
        this.parkinglots = storage.read();
     }
@@ -64,7 +63,7 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      * ----------
      * Updates a parkinglot in the repository and in the JSON file.
      *
-     * @param changes The parkinglot to be added. A Map object.
+     * @param updatedLot A Parkinlot object containing the changes to be made.
      * @return The parkinglot that was updated.
      */
     public Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception {
