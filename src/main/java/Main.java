@@ -2,10 +2,9 @@ import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.controller.BookingController;
+import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.model.JsonStorage;
 import no.parkypark.model.Parkinglot;
-import no.parkypark.repository.BookingRepository;
-import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.repository.BookingRepository;
 import no.parkypark.repository.ParkinglotsRepository;
 
@@ -48,17 +47,17 @@ public class Main {
         app.get("/login", new VueComponent("login"));
 
         /*
-         * shows a single parkinglot
-         * * Get all information about a single parkinglot
-         */
-        app.get("/parkinglots/:parkinglotid", new VueComponent("single-parkinglot"));
-
-        /*
          * adds a parkinglot
          * * POST Request.
          * * Send all information about the new parkinglot.
          */
         app.get("/parkinglots/add", new VueComponent("add-parkinglot"));
+
+        /*
+         * shows a single parkinglot
+         * * Get all information about a single parkinglot
+         */
+        app.get("/parkinglots/:parkinglotid", new VueComponent("single-parkinglot"));
 
         /*
          * edits a specific parkinglot for a logged in user
