@@ -124,4 +124,10 @@
   "id" : "7a6e81ad-b177-4e4c-9426-a178f7cd2413",
   "ownerId" : "3",
   "price" : 4.0
+}, {
+  "name" : "Parkering i Knudsens Vei",
+  "address" : "Knudsens Vei 2",
+  "id" : "6d941d0b-d44c-4348-9458-d3218039c68e",
+  "ownerId" : "1",
+  "price" : 20.0
 } ]

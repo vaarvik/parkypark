@@ -11,6 +11,12 @@ body, html {
 	margin: 0;
 	background-color: #EEEFF7;
 	color: #1C1D21;
+	position: relative;
+}
+
+body {
+	position: absolute;
+	top: 0;
 }
 
 h1, h2, h3{
@@ -49,6 +55,7 @@ a:hover {
 }
 
 .site-branding{
+	color: #1C1D21;
 	text-transform: uppercase;
 	font-size: 20px;
 }
@@ -66,26 +73,27 @@ a:hover {
 }
 
 .site-navigation a:hover{
-	/* text-decoration: underline; */
 	color: #445878;
 }
 
 .site-content{
-	margin: 0 auto;
+	margin: 32px auto;
 	margin-top: 100px;
 	max-width: 758px;
+	padding: 16px 24px;
 }
 
 .site-footer {
 	background-color: #1C1D21;
 	color: #EEEFF7;
 	width: 100%;
+	padding: 16px 24px;
+	box-sizing: border-box;
 }
 .site-footer__content {
 	margin: 0 auto;
 	max-width: 758px;
 	width: 100%;
-	padding: 24px 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -101,6 +109,22 @@ a:hover {
 ====================
 */
 
+/* Button */
+.btn {
+	padding: 6px 24px;
+	background-color: #445878;
+	color: #EEEFF7;
+	border: 2px solid #445878;
+	cursor: pointer;
+	transition: .15s;
+	font-weight: bold;
+	border-radius: 2px;
+}
+
+.btn:hover {
+	background-color: #EEEFF7;
+	color: #445878;
+}
 
 /* Summary List */
 .summary-list {
@@ -149,13 +173,13 @@ a:hover {
 }
 
 .summary-list__info {
-	width: 300px;
+	width: 400px;
 	flex-grow: 1;
 }
 
-.summary-list__image {
+.summary-list__image, .entry-info__image {
 	object-fit: cover;
-	width: 200px;
+	width: 150px;
 	flex-grow: 1;
 }
 
@@ -171,16 +195,47 @@ a:hover {
 }
 
 /* Summary Info */
-.summary-info {
+.summary-info, .entry-info {
 	color: #31353D;
 }
 
-.summary-info__price {
+.summary-info__price, .entry-info__price {
 	font-weight: bold;
 	font-size: 1.6em;
 	margin: 0;
 }
 
-.summary-info__price::after {
+.summary-info__price::after, .entry-info__price::after {
 	content: ",-";
+}
+
+/* Entry Info */
+.entry-info {
+	display: flex;
+	flex-flow: wrap-reverse;
+}
+
+.entry-info__text {
+	width: 400px;
+	margin-right: 16px;
+	flex-grow: 1;
+}
+
+.entry-info__image {
+	width: 300px;
+	flex-grow: 1;
+}
+
+/* Entry Header */
+.entry-header {
+	margin: 24px 0;;
+}
+
+.entry-header__heading {
+	border-bottom: 2px solid #445878;
+	padding-bottom: 16px;
+}
+
+.entry-buttons {
+	margin-top: 16px;
 }

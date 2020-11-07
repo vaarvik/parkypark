@@ -1,11 +1,13 @@
 <template id="index">
-    <div>
+    <div class="site-wrapper">
         <header class="site-header">
-            <h1 class="site-branding">ParkyPark</h1>
+            <a href="/">
+                <h2 class="site-branding">ParkyPark</h2>
+            </a>
             <div class="site-navigation">
-                <a href="">Add parkinglot</a>
+                <a href="/parkinglots/add">Add parkinglot</a>
                 <a href="">Your parkinglots</a>
-                <a href="">Logout</a>
+                <a href="">Log out</a>
             </div>
         </header>
         <main class="site-content">
