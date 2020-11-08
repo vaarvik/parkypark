@@ -26,17 +26,20 @@
                 </div>
                 <br>
                 <form :action="`/api/parkinglots/${parkinglot.id}/book`" method="POST">
-                    <div class="field input">
+                    <div>
                         <label for="input-car">Velg bilen du skal bruke:</label>
-                        <input type="text" name="car" id="input-car" placeholder="Registreringsnummer...">
+                        <input class="field input" type="text" name="car" id="input-car" placeholder="Registreringsnummer...">
+                        <br>
                     </div>
-                    <div class="field input">
+                    <div>
                         <label for="input-checkin">Startdato på parkeringen</label>
-                        <input type="date" :min="getToday()" name="checkin" id="input-checkin">
+                        <input class="field input" type="date" :min="getToday()" name="checkin" id="input-checkin">
+                        <br>
                     </div>
-                    <div class="field input">
+                    <div>
                         <label for="input-checkout">Sluttdato på parkeringen</label>
-                        <input type="date" name="checkout" id="input-checkout">
+                        <input class="field input" type="date" name="checkout" id="input-checkout">
+                        <br>
                     </div>
                     <input type="hidden" name="parkinglotId" :value="parkinglot.id">
                     <input type="hidden" name="userId" :value="1">

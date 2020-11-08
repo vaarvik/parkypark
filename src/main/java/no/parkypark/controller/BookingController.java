@@ -37,7 +37,7 @@ public class BookingController {
 			bookingRepository.addBooking(newBooking);
 			ctx.redirect("/");
 		} catch (Exception e) {
-			ctx.result("input Error!");
+			ctx.result("Input error");
 		}
 	}
 }

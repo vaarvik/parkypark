@@ -4,6 +4,8 @@ import io.javalin.http.Context;
 import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.ParkinglotsRepository;
 
+import java.util.Objects;
+
 public class ParkinglotsController {
     private final ParkinglotsRepository parkinglotsRepository;
     public ParkinglotsController(ParkinglotsRepository parkinglotsRepository) {
@@ -22,10 +24,16 @@ public class ParkinglotsController {
         String name = ctx.formParam("name");
         String address = ctx.formParam("address");
         String userid = ctx.formParam("userid");
-        Double price = Double.parseDouble(ctx.formParam("price"));
+        double price = Double.parseDouble(Objects.requireNonNull(ctx.formParam("price")));
 
         Parkinglot lot = new Parkinglot(name, address, userid, price);
-        parkinglotsRepository.addParkinglot(lot);
+
+        try {
+            parkinglotsRepository.addParkinglot(lot);
+            ctx.redirect("/");
+        } catch (Exception e) {
+            ctx.result("Input error");
+        }
     }
 
     public void updateParkinglot(Context ctx) {
