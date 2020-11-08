@@ -130,4 +130,10 @@
   "id" : "6d941d0b-d44c-4348-9458-d3218039c68e",
   "ownerId" : "1",
   "price" : 20.0
+}, {
+  "name" : "Sigurdsvei",
+  "address" : "Sigurdsvei 19",
+  "id" : "701dcc43-db5d-4ffe-aae0-5d9a9b435379",
+  "ownerId" : "",
+  "price" : 20.0
 } ]

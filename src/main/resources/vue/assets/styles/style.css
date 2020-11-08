@@ -126,6 +126,18 @@ a:hover {
 	color: #445878;
 }
 
+/* Field */
+.field {
+	font-size: inherit;
+	font-family: inherit;
+	display: block;
+	border: #1C1D21 solid 1px;
+	border-radius: 2px;
+	padding: 8px;
+	min-width: 300px;
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
 /* Summary List */
 .summary-list {
 	list-style: none;
