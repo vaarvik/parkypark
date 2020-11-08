@@ -18,37 +18,37 @@
                 <div class="entry-info">
                     <div class="entry-info__text">
                         <form @submit="checkForm" :action="`/api/parkinglots/add`" method="post">
-                                <label for="name">Navn</label>
-                                <input class="field input" type="text" name="name" id="name" v-model="name">
-                                <br>
+                            <label for="name">Navn</label>
+                            <input class="field input" type="text" name="name" id="name" v-model="name">
+                            <br>
 
-                                <label for="address">Adresse</label>
-                                <input class="field input" type="text" name="address" id="address" v-model="address">
-                                <br>
+                            <label for="address">Adresse</label>
+                            <input class="field input" type="text" name="address" id="address" v-model="address">
+                            <br>
 
-                                <label for="price">Pris</label>
-                                <input class="field input" type="number" step="1" name="price" id="price" v-model="price" min="0">
-                                <br>
+                            <label for="price">Pris</label>
+                            <input class="field input" type="number" step="1" name="price" id="price" v-model="price" min="0">
+                            <br>
 
-                                <label for="image">Bilde</label>
-                                <input placeholder="Bildeurl..." class="field input" type="url" name="image" id="image" v-model="image">
-                                <br>
+                            <label for="image">Bilde</label>
+                            <input placeholder="Bildeurl..." class="field input" type="url" name="image" id="image" v-model="image">
+                            <br>
 
-                                <label for="checkin">Check in</label>
-                                <input class="field input" type="date" :min="getToday()" name="checkin" id="checkin" v-model="checkin">
-                                <br>
+                            <label for="checkin">Check in</label>
+                            <input class="field input" type="date" :min="getToday()" name="checkin" id="checkin" v-model="checkin">
+                            <br>
 
-                                <label for="checkout">Check out</label>
-                                <input class="field input" type="date" :min="checkin ? checkin : getToday()" name="checkout" id="checkout" v-model="checkout">
-                                <br>
+                            <label for="checkout">Check out</label>
+                            <input class="field input" type="date" :min="checkin ? checkin : getToday()" name="checkout" id="checkout" v-model="checkout">
+                            <br>
 
-                                <label for="description">Beskrivelse</label>
-                                <textarea class="field" name="description" id="description" cols="30" rows="2" v-model="description"></textarea>
-                                <br>
+                            <label for="description">Beskrivelse</label>
+                            <textarea class="field" name="description" id="description" cols="30" rows="2" v-model="description"></textarea>
+                            <br>
 
-                                <input type="hidden" name="userid" id="userid" value="1" v-model="userid">
+                            <input type="hidden" name="userid" id="userid" value="1" v-model="userid">
 
-                                <button class="btn">Opprett parkeringsplass</button>
+                            <button class="btn">Opprett parkeringsplass</button>
                         </form>
                     </div>
                     <img v-if="image" class="entry-info__image" :src="image" alt="">

@@ -28,4 +28,19 @@
     "creditCardExpiryMonth" : 1,
     "creditCardExpiryYear" : 1
   }
+}, {
+  "id" : "1c4c5c4f-5d6b-41fe-8006-a654fb19fb96",
+  "userId" : "1",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "VF88991",
+  "checkIn" : 1605308400000,
+  "checkOut" : 1605999600000,
+  "payment" : {
+    "paymentCardNumber" : 1,
+    "paymentOption" : "",
+    "creditCardName" : "",
+    "carCharging" : false,
+    "creditCardExpiryMonth" : 1,
+    "creditCardExpiryYear" : 1
+  }
 } ]
