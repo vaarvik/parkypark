@@ -33,18 +33,24 @@ public class BookingRepositoryTest {
     }
 
     @Test
+    public void getAllBookingsTest(@Mock JsonStorage<Booking> storage) {
+        when(storage.read()).thenReturn(expectedBookings);
+        BookingRepository repo = new BookingRepository(storage);
+        assertEquals(expectedBookings, repo.getAllBookings());
+        verify(storage).read();
+    }
+
+    @Test
     public void addBookingTest(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
 
         BookingRepository repo = new BookingRepository(storage);
-
         Booking booking = new Booking("String userId3", "String parkinglotId3", "String carLicenceNumber3", new Date(2020, 01, 27), new Date(2020, 01, 29), null);
 
-        Booking result = repo.addBooking(booking);
+        expectedBookings.add(booking);
+        storage.write(expectedBookings);
 
-        assertEquals(result, booking);
-
-        assertEquals(3, expectedBookings.size());
+        assertEquals(expectedBookings, repo.getAllBookings());
         verify(storage).write(expectedBookings);
     }
 }

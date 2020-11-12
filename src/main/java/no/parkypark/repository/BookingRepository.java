@@ -4,6 +4,7 @@ import no.parkypark.model.Booking;
 import no.parkypark.model.IStorage;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BookingRepository implements IBookingRepository{
 	private final IStorage<Booking> storage;
@@ -14,6 +15,9 @@ public class BookingRepository implements IBookingRepository{
 		this.bookings = storage.read();
 	}
 
+	public List<Booking> getAllBookings() {
+		return this.bookings;
+	}
 	/**
 	 * Add Parkinglot
 	 * ----------
@@ -28,5 +32,27 @@ public class BookingRepository implements IBookingRepository{
 		this.storage.write(this.bookings);
 		this.bookings = this.storage.read();
 		return booking;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		BookingRepository that = (BookingRepository) o;
+		return Objects.equals(storage, that.storage) &&
+				Objects.equals(bookings, that.bookings);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(storage, bookings);
+	}
+
+	@Override
+	public String toString() {
+		return "BookingRepository{" +
+				"storage=" + storage +
+				", bookings=" + bookings +
+				'}';
 	}
 }
