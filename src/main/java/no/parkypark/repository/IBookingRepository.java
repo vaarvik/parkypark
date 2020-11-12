@@ -11,7 +11,5 @@ public interface IBookingRepository {
 
     Booking addBooking(Booking booking);
 
-    Booking updateBooking();
-
     Booking deleteBooking();
 }

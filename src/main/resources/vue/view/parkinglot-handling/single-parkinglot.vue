@@ -66,7 +66,9 @@
         template: "#single-parkinglot",
         data: () => ({
             parkinglot: {},
-            booking: {},
+            booking: {
+                userId: 2,
+            },
             title: '',
             loremIpsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum velit et maximus pulvinar. Nullam efficitur nulla volutpat dolor gravida, et eleifend nunc lobortis. Curabitur dapibus laoreet erat. Phasellus a libero nec est semper auctor. Pellentesque non risus vehicula, tempor dolor quis, pretium magna. Integer cursus pretium libero. Nulla imperdiet felis sed felis varius aliquet. Proin nec sodales tortor. Phasellus at vehicula augue. In varius odio elit, sit amet interdum odio mollis a. Nullam pharetra tortor nisi, et molestie orci tempor sit amet. Cras velit metus, sodales quis risus non, lobortis bibendum nulla.",
         }),
@@ -86,7 +88,7 @@
                     body: JSON.stringify(this.booking),
                 })
                 .then((res) => {
-                    // alert("Din reise er blitt booket!")
+                    alert("Din reise er blitt booket!")
                 })
                 .catch((err) => {
                     alert("Booking failet.")
@@ -100,7 +102,6 @@
                   this.title = res.name;
                   this.parkinglot = res;
                   this.booking.parkinglotId = res.id;
-                  this.booking.userId = res.ownerId;
                 })
                 .catch(this.title = "This parkinglot does not exist");
         },

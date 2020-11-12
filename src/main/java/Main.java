@@ -3,6 +3,7 @@ import io.javalin.http.staticfiles.Location;
 import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.controller.BookingController;
 import no.parkypark.controller.ParkinglotsController;
+import no.parkypark.model.Booking;
 import no.parkypark.model.JsonStorage;
 import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.BookingRepository;
@@ -10,13 +11,15 @@ import no.parkypark.repository.ParkinglotsRepository;
 
 public class Main {
     private static final String PARKINGLOT_JSON = "src/main/resources/data/parkinglots.json";
+    private static final String BOOKING_JSON = "src/main/resources/data/bookings.json";
 
     public static void main(String[] args) {
 
       JsonStorage<Parkinglot> parkinglotJsonStorage = new JsonStorage<>(Parkinglot.class, PARKINGLOT_JSON);
+      JsonStorage<Booking> bookingJsonStorage = new JsonStorage<>(Booking.class, BOOKING_JSON);
       ParkinglotsRepository parkinglotsRepository = new ParkinglotsRepository(parkinglotJsonStorage);
       ParkinglotsController parkinglotsController = new ParkinglotsController(parkinglotsRepository);
-      BookingRepository bookingRepository = new BookingRepository("src/main/resources/data/bookings.json");
+      BookingRepository bookingRepository = new BookingRepository(bookingJsonStorage);
       BookingController bookingController = new BookingController(bookingRepository);
 
       //App startup
