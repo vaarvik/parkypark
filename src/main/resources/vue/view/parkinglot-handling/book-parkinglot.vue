@@ -3,7 +3,7 @@
         <h1>{{parkinglot.name}}</h1>
         <p>Book deg på denne parkeringsplassen.</p>
         <hr>
-        <form @submit="checkForm" :action="`/api/parkinglots/${parkinglot.id}/book`" method="POST">
+        <form @submit="onSubmit">
             <div class="field input">
                 <label for="input-car">Velg bilen du skal bruke:</label>
                 <input type="text" name="car" id="input-car" placeholder="Registreringsnummer...">
@@ -35,6 +35,19 @@
                 .catch(() => alert("Error while fetching parkinglot"));
         },
         methods:{
+            onSubmit(event) {
+                event.preventDefault();
+                fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
+                    method: 'POST',
+                    body: JSON.stringify(this.parkinglot),
+                })
+                .then(() => {
+                    alert("Din reise er blitt booket!")
+                })
+                .catch((err) => {
+                    alert("Booking failed.")
+                });
+            },
             checkForm:function(e) {
 
             }

@@ -82,8 +82,8 @@
             onSubmit(event) {
                 event.preventDefault();
                 fetch('/api/parkinglots/:parkinglotid/edit', {
-                method: 'POST',
-                body: JSON.stringify(this.parkinglot),
+                    method: 'POST',
+                    body: JSON.stringify(this.parkinglot),
                 });
             },
             checkForm:function(e) {

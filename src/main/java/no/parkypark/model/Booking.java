@@ -24,7 +24,10 @@ public class Booking {
         this.payment = payment;
     }
 
-    public Booking() {}
+    //used by front-end and bodyAsClass
+    public Booking() {
+        this.id = UUID.randomUUID().toString();
+    }
 
     public String getId() {
         return id;

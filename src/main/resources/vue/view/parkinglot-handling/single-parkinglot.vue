@@ -25,24 +25,23 @@
                     <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
                 </div>
                 <br>
-                <form :action="`/api/parkinglots/${parkinglot.id}/book`" method="POST">
+                <form @submit="onSubmit">
                     <div>
                         <label for="input-car">Velg bilen du skal bruke:</label>
-                        <input class="field input" type="text" name="car" id="input-car" placeholder="Registreringsnummer...">
+                        <input class="field input" type="text" name="carLicenceNumber" id="input-car" placeholder="Registreringsnummer..." v-model="booking.carLicenceNumber">
                         <br>
                     </div>
                     <div>
                         <label for="input-checkin">Startdato på parkeringen</label>
-                        <input class="field input" type="date" :min="getToday()" name="checkin" id="input-checkin">
+                        <input class="field input" type="date" :min="getToday()" name="checkin" id="input-checkin" v-model="booking.checkIn">
                         <br>
                     </div>
                     <div>
                         <label for="input-checkout">Sluttdato på parkeringen</label>
-                        <input class="field input" type="date" name="checkout" id="input-checkout">
+                        <input class="field input" type="date" name="checkout" id="input-checkout"
+                        v-model="booking.checkOut">
                         <br>
                     </div>
-                    <input type="hidden" name="parkinglotId" :value="parkinglot.id">
-                    <input type="hidden" name="userId" :value="1">
                     <a :href="`/parkinglots/${parkinglot.id}/book`">
                         <button class="btn">Book</button>
                     </a>
@@ -67,6 +66,7 @@
         template: "#single-parkinglot",
         data: () => ({
             parkinglot: {},
+            booking: {},
             title: '',
             loremIpsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum velit et maximus pulvinar. Nullam efficitur nulla volutpat dolor gravida, et eleifend nunc lobortis. Curabitur dapibus laoreet erat. Phasellus a libero nec est semper auctor. Pellentesque non risus vehicula, tempor dolor quis, pretium magna. Integer cursus pretium libero. Nulla imperdiet felis sed felis varius aliquet. Proin nec sodales tortor. Phasellus at vehicula augue. In varius odio elit, sit amet interdum odio mollis a. Nullam pharetra tortor nisi, et molestie orci tempor sit amet. Cras velit metus, sodales quis risus non, lobortis bibendum nulla.",
         }),
@@ -78,7 +78,20 @@
                 let yyyy = today.getFullYear();
 
                 return `${yyyy}-${mm}-${dd}`;
-            }
+            },
+            onSubmit(event) {
+                event.preventDefault();
+                fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
+                    method: 'POST',
+                    body: JSON.stringify(this.booking),
+                })
+                .then((res) => {
+                    // alert("Din reise er blitt booket!")
+                })
+                .catch((err) => {
+                    alert("Booking failet.")
+                });
+            },
         },
         created(){
             fetch(`/api/parkinglots/${this.$javalin.pathParams["parkinglotid"]}`)
@@ -86,6 +99,8 @@
                 .then(res => {
                   this.title = res.name;
                   this.parkinglot = res;
+                  this.booking.parkinglotId = res.id;
+                  this.booking.userId = res.ownerId;
                 })
                 .catch(this.title = "This parkinglot does not exist");
         },

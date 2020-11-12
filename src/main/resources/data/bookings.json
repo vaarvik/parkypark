@@ -43,4 +43,96 @@
     "creditCardExpiryMonth" : 1,
     "creditCardExpiryYear" : 1
   }
+}, {
+  "id" : "40a5c30a-3a45-498c-9f7e-25ce8443fcd9",
+  "userId" : "1",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "VE31311",
+  "checkIn" : 1605913200000,
+  "checkOut" : 1606086000000,
+  "payment" : {
+    "paymentCardNumber" : 1,
+    "paymentOption" : "",
+    "creditCardName" : "",
+    "carCharging" : false,
+    "creditCardExpiryMonth" : 1,
+    "creditCardExpiryYear" : 1
+  }
+}, {
+  "id" : "9be3cccf-2941-4ba1-b4a1-c83cf1a89546",
+  "userId" : "1",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "EE91833",
+  "checkIn" : 1605826800000,
+  "checkOut" : 1606604400000,
+  "payment" : {
+    "paymentCardNumber" : 1,
+    "paymentOption" : "",
+    "creditCardName" : "",
+    "carCharging" : false,
+    "creditCardExpiryMonth" : 1,
+    "creditCardExpiryYear" : 1
+  }
+}, {
+  "id" : "6a5aeaa6-24fb-4739-8b1c-3788e3fa812c",
+  "userId" : "1",
+  "parkinglotId" : "4",
+  "carLicenceNumber" : "PE29938",
+  "checkIn" : 1605826800000,
+  "checkOut" : 1605999600000,
+  "payment" : {
+    "paymentCardNumber" : 1,
+    "paymentOption" : "",
+    "creditCardName" : "",
+    "carCharging" : false,
+    "creditCardExpiryMonth" : 1,
+    "creditCardExpiryYear" : 1
+  }
+}, {
+  "id" : "50a11bd2-7049-44b6-bee9-639b7f24f956",
+  "userId" : "1",
+  "parkinglotId" : "4",
+  "carLicenceNumber" : "RE19929",
+  "checkIn" : 1606518000000,
+  "checkOut" : 1606604400000,
+  "payment" : {
+    "paymentCardNumber" : 1,
+    "paymentOption" : "",
+    "creditCardName" : "",
+    "carCharging" : false,
+    "creditCardExpiryMonth" : 1,
+    "creditCardExpiryYear" : 1
+  }
+}, {
+  "id" : "353c3f11-3bd4-4e50-9560-538e918e66fc",
+  "userId" : "32",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "KE92392",
+  "checkIn" : 1606435200000,
+  "checkOut" : 1606521600000,
+  "payment" : null
+}, {
+  "id" : "e7bbcd9d-c6a3-4c6d-a7b5-ec9d7d2368f6",
+  "userId" : "32",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "OE92837",
+  "checkIn" : 1606003200000,
+  "checkOut" : 1606521600000,
+  "payment" : null
+}, {
+  "id" : "8dfcb162-bca9-4080-b546-d7403eaeb7df",
+  "userId" : "32",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "EE39384",
+  "checkIn" : 1606608000000,
+  "checkOut" : 1606694400000,
+  "payment" : null
+}, {
+  "id" : "7fbcd506-b2c8-4aae-9b15-dc53cea52fce",
+  "userId" : "32",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "OK99999",
+  "checkIn" : 1605312000000,
+  "checkOut" : 1605398400000,
+  "payment" : null
 } ]
