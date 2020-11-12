@@ -14,16 +14,6 @@ public class BookingRepository implements IBookingRepository{
 		this.bookings = storage.read();
 	}
 
-	@Override
-	public List<Booking> getAllBookings() {
-		return null;
-	}
-
-	@Override
-	public Booking deleteBooking() {
-		return null;
-	}
-
 	/**
 	 * Add Parkinglot
 	 * ----------
@@ -38,15 +28,5 @@ public class BookingRepository implements IBookingRepository{
 		this.storage.write(this.bookings);
 		this.bookings = this.storage.read();
 		return booking;
-	}
-
-	@Override
-	public Booking getBookingById(String id) {
-		for (Booking i: this.bookings) {
-			if(i.getId().equals(id)) {
-				return i;
-			}
-		}
-		return null;
 	}
 }
