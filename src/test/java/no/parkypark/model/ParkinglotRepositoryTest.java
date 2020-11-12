@@ -67,28 +67,21 @@ public class ParkinglotRepositoryTest {
 
 		assertEquals(parkingLot, actual);
 	}
+
 	@Test
 	public void updateParkinglotTest(@Mock JsonStorage<Parkinglot> storage) throws Exception {
 		when(storage.read()).thenReturn(expectedLots);
 
+		// Create the repository
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
 
-		// Creating a new object here as the update, since merely changing
-		// the values of the parkingLot object would change the object fields
-		// before calling update.
-		Parkinglot update = new Parkinglot();
-		update.setId(parkingLot.getId());
-		update.setName("updatedName");
-		update.setAddress("updatedAdress");
-		update.setOwnerId("updatedOwnerId");
-		update.setPrice(123);
+		// The updated parkinglot
+		Parkinglot updatedLot = new Parkinglot("updatedName", "updatedAdress", parkingLot.getOwnerId(), 3);
+		updatedLot.setId(parkingLot.getId());
 
-		repo.updateParkinglot(update);
+		// Update parkinglot
+		repo.updateParkinglot(updatedLot);
 
-		assertEquals(parkingLot.getId(), update.getId());
-		assertEquals(parkingLot.getName(), update.getName());
-		assertEquals(parkingLot.getAddress(), update.getAddress());
-		assertEquals(parkingLot.getPrice(), update.getPrice());
-		assertNotEquals(parkingLot.getOwnerId(), update.getOwnerId());
+		assertEquals(parkingLot, updatedLot);
 	}
 }

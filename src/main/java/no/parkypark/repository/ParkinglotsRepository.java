@@ -63,7 +63,7 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      * ----------
      * Updates a parkinglot in the repository and in the JSON file.
      *
-     * @param updatedLot A Parkinlot object containing the changes to be made.
+     * @param updatedLot A Parkinglot object containing the changes to be made.
      * @return The parkinglot that was updated.
      */
     public Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception {
@@ -73,9 +73,7 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
             throw new Exception("Parkinglot not found");
         }
 
-        parkinglot.setName(updatedLot.getName());
-        parkinglot.setAddress(updatedLot.getAddress());
-        parkinglot.setPrice(updatedLot.getPrice());
+        parkinglot.update(updatedLot);
 
         this.storage.write(this.parkinglots);
         this.parkinglots = this.storage.read();

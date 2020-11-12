@@ -1,5 +1,6 @@
 package no.parkypark.model;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Parkinglot {
@@ -18,6 +19,12 @@ public class Parkinglot {
     }
 
     public Parkinglot() {}
+
+    public void update(Parkinglot parkinglot) {
+        this.name = parkinglot.name;
+        this.address = parkinglot.address;
+        this.price = parkinglot.price;
+    }
 
     public String getName() {
         return this.name;
@@ -68,5 +75,22 @@ public class Parkinglot {
                 ", ownerId='" + ownerId + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parkinglot that = (Parkinglot) o;
+        return Double.compare(that.price, price) == 0 &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(ownerId, that.ownerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, address, id, ownerId, price);
     }
 }
