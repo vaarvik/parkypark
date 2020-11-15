@@ -29,7 +29,7 @@ i området. Man kan på et vis si at applikasjonen er som AirBnB for parkeringsp
 - Nederst i IntelliJ vil det åpne seg et nytt vindu. Trykk på linken markert nedenfor og webapplikasjonen vil åpne seg.
 ![](images/javalin.png)
 
-##avhengigheter for prototypen
+## Avhengigheter for prototypen
 - ([Javalin (bruker slf4j-simple](https://javalin.io/documentation))
 - ([Vue](https://vuejs.org/v2/guide/))
 - ([Jackson](https://github.com/FasterXML/jackson-docs))
