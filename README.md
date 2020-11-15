@@ -24,10 +24,14 @@ i området. Man kan på et vis si at applikasjonen er som AirBnB for parkeringsp
 - Trykk på Load Gradle Changes
 
 ![](images/load_gradle_changes.png)
-- Finn frem til main i prosjekt strukturen. Høyre klikk på main og velg Run 'Main.main()' eller trykk Ctrl+Shift+F10.
-![](images/main.png)
-- Nederst i IntelliJ vil det åpne seg et nytt vindu. Trykk på linken markert nedenfor og webapplikasjonen vil åpne seg.
+- Finn frem til main i prosjekt strukturen som vist på bildet under. Høyre klikk på main og velg Run 'Main.main()'.
+![](images/kjor_main.png)
+- Nederst i IntelliJ vil det åpne seg et nytt vindu. Trykk på linken markert nedenfor og webapplikasjonen vil åpne seg.(Fungerer ikke å åpne i Internet Explorer)
 ![](images/javalin.png)
+
+## Hvordan kjør tester
+- Finn frem til test i prosjekt strukturen som vist på bildet under. Høyre klikk på test og velg Run 'Tests in 'parkypark....'.
+![](images/kjor_test.png)
 
 ## Avhengigheter for prototypen
 - [Javalin (bruker slf4j-simple](https://javalin.io/documentation)
