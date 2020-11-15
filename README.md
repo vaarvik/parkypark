@@ -30,10 +30,10 @@ i området. Man kan på et vis si at applikasjonen er som AirBnB for parkeringsp
 ![](images/javalin.png)
 
 ## Avhengigheter for prototypen
-- ([Javalin (bruker slf4j-simple](https://javalin.io/documentation))
-- ([Vue](https://vuejs.org/v2/guide/))
-- ([Jackson](https://github.com/FasterXML/jackson-docs))
+- [Javalin (bruker slf4j-simple](https://javalin.io/documentation)
+- [Vue](https://vuejs.org/v2/guide/))
+- [Jackson](https://github.com/FasterXML/jackson-docs)
 
 Avhengigheter for testing
-- ([JUnit5](https://junit.org/junit5/docs/current/user-guide/))
-- ([Mockito](https://site.mockito.org/))
+- [JUnit5](https://junit.org/junit5/docs/current/user-guide/)
+- [Mockito](https://site.mockito.org/)
