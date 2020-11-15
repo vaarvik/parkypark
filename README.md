@@ -29,7 +29,7 @@ i området. Man kan på et vis si at applikasjonen er som AirBnB for parkeringsp
 - Nederst i IntelliJ vil det åpne seg et nytt vindu. Trykk på linken markert nedenfor og webapplikasjonen vil åpne seg.(Fungerer ikke å åpne i Internet Explorer)
 ![](images/javalin.png)
 
-## Hvordan kjør tester
+## Hvordan kjøre tester
 - Finn frem til test i prosjekt strukturen som vist på bildet under. Høyre klikk på test og velg Run 'Tests in 'parkypark....'.
 ![](images/kjor_test.png)
 
