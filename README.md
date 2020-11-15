@@ -31,6 +31,7 @@ i området. Man kan på et vis si at applikasjonen er som AirBnB for parkeringsp
 
 ## Hvordan kjøre tester
 - Finn frem til test i prosjekt strukturen som vist på bildet under. Høyre klikk på test og velg Run 'Tests in 'parkypark....'.
+
 ![](images/kjor_test.png)
 
 ## Avhengigheter for prototypen
