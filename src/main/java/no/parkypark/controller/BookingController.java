@@ -6,7 +6,7 @@ import no.parkypark.model.Booking;
 import no.parkypark.repository.BookingRepository;
 
 public class BookingController {
-	private BookingRepository bookingRepository;
+	private final  BookingRepository bookingRepository;
 	public BookingController(BookingRepository bookingRepository) {
 		this.bookingRepository = bookingRepository;
 	}

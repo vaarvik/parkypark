@@ -5,8 +5,8 @@
   "ownerId" : "32",
   "price" : 20.0
 }, {
-  "name" : "Bred Parkering i Hallingdal",
-  "address" : "Matrix Street",
+  "name" : "Nord Parkering",
+  "address" : "Bossekopven 22",
   "id" : "2",
   "ownerId" : "40",
   "price" : 30.0
