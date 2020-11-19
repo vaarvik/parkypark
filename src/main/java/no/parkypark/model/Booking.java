@@ -1,10 +1,10 @@
 package no.parkypark.model;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Booking {
-
     private String id;
     private String userId;
     private String parkinglotId;
@@ -79,6 +79,25 @@ public class Booking {
 
     public void setCheckOut(Date checkOut) {
         this.checkOut = checkOut;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(id, booking.id) &&
+                Objects.equals(userId, booking.userId) &&
+                Objects.equals(parkinglotId, booking.parkinglotId) &&
+                Objects.equals(carLicenceNumber, booking.carLicenceNumber) &&
+                Objects.equals(checkIn, booking.checkIn) &&
+                Objects.equals(checkOut, booking.checkOut) &&
+                Objects.equals(payment, booking.payment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, parkinglotId, carLicenceNumber, checkIn, checkOut, payment);
     }
 
     @Override
