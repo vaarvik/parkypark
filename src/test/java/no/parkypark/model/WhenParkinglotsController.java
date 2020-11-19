@@ -61,4 +61,14 @@ public class WhenParkinglotsController {
         controller.updateParkinglot(ctx);
         verify(ctx).json(expectedParkinglot);
     }
+
+    @Test
+    public void addAParkinglot() {
+        when(ctx.bodyAsClass(Parkinglot.class)).thenReturn(expectedParkinglot);
+
+        Parkinglot newParkinglot = ctx.bodyAsClass(Parkinglot.class);
+        ParkinglotsController controller = new ParkinglotsController(repo);
+        controller.addParkinglot(ctx);
+        verify(ctx).json(newParkinglot);
+    }
 }

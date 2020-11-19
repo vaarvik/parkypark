@@ -19,17 +19,11 @@ public class ParkinglotsController {
     }
 
     public void addParkinglot(Context ctx){
-//        String name = ctx.formParam("name");
-//        String address = ctx.formParam("address");
-//        String userid = ctx.formParam("userid");
-//        double price = Double.parseDouble(Objects.requireNonNull(ctx.formParam("price")));
-
         Parkinglot lot = ctx.bodyAsClass(Parkinglot.class);
 
         try {
             parkinglotsRepository.addParkinglot(lot);
             ctx.json(lot);
-//            ctx.redirect("/");
         } catch (Exception e) {
             ctx.result("Input error");
         }
