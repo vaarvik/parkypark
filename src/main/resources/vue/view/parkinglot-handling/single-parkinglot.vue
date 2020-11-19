@@ -88,6 +88,7 @@
                     body: JSON.stringify(this.booking),
                 })
                 .then((res) => {
+                    alert("Her ville en betaling blitt håndtert.")
                     alert("Din reise er blitt booket!")
                 })
                 .catch((err) => {
