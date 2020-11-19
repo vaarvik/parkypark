@@ -136,10 +136,4 @@
   "id" : "701dcc43-db5d-4ffe-aae0-5d9a9b435379",
   "ownerId" : "",
   "price" : 20.0
-}, {
-  "name" : "hey",
-  "address" : "hety12",
-  "id" : "0781c0ba-5c1f-4550-9c0d-7e87f4226234",
-  "ownerId" : "",
-  "price" : 20.0
-} ]
+}]

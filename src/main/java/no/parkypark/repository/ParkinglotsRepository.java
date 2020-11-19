@@ -68,7 +68,6 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
      */
     public Parkinglot updateParkinglot(Parkinglot updatedLot) throws Exception {
         Parkinglot parkinglot = this.getParkinglotById(updatedLot.getId());
-        System.out.println(parkinglot);
 
         if (parkinglot == null) {
             throw new Exception("Parkinglot not found");
@@ -76,7 +75,6 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
 
         parkinglot.update(updatedLot);
 
-        System.out.println(updatedLot);
         this.storage.write(this.parkinglots);
         this.parkinglots = this.storage.read();
         return parkinglot;

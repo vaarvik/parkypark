@@ -18,7 +18,10 @@ public class Parkinglot {
         this.price = price;
     }
 
-    public Parkinglot() {}
+    //used by front-end and bodyAsClass
+    public Parkinglot() {
+        this.id = UUID.randomUUID().toString();
+    }
 
     public void update(Parkinglot parkinglot) {
         this.name = parkinglot.name;
