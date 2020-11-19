@@ -46,9 +46,19 @@ public class WhenParkinglotsController {
     @Test
     public void fetchASingleParkinglot() {
         when(repo.getParkinglotById(ctx.pathParam(":parkinglotid"))).thenReturn(expectedParkinglot);
-//
+
         ParkinglotsController controller = new ParkinglotsController(repo);
         controller.getParkinglot(ctx);
+        verify(ctx).json(expectedParkinglot);
+    }
+
+    @Test
+    public void updateAParkinglot() {
+        when(ctx.bodyAsClass(Parkinglot.class)).thenReturn(expectedParkinglot);
+        expectedParkinglot.update(new Parkinglot("NewName", "NewAddress", "13", 2));
+
+        ParkinglotsController controller = new ParkinglotsController(repo);
+        controller.updateParkinglot(ctx);
         verify(ctx).json(expectedParkinglot);
     }
 }
