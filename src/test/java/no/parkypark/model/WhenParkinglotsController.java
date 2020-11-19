@@ -42,4 +42,13 @@ public class WhenParkinglotsController {
         controller.getAllParkinglots(ctx);
         verify(ctx).json(expectedParkinglots);
     }
+
+    @Test
+    public void fetchASingleParkinglot() {
+        when(repo.getParkinglotById(ctx.pathParam(":parkinglotid"))).thenReturn(expectedParkinglot);
+//
+        ParkinglotsController controller = new ParkinglotsController(repo);
+        controller.getParkinglot(ctx);
+        verify(ctx).json(expectedParkinglot);
+    }
 }
