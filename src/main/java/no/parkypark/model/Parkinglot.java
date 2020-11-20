@@ -1,5 +1,6 @@
 package no.parkypark.model;
 
+import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -8,6 +9,10 @@ public class Parkinglot {
     private String address;
     private String id;
     private String ownerId;
+    private Date checkin;
+    private Date checkout;
+    private String image;
+    private String description;
     private double price;
 
     public Parkinglot(String name, String address, String ownerId, double price) {
@@ -27,6 +32,37 @@ public class Parkinglot {
         this.name = parkinglot.name;
         this.address = parkinglot.address;
         this.price = parkinglot.price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCheckin() {
+        return checkin;
+    }
+
+    public void setCheckin(Date checkin) {
+        this.checkin = checkin;
+    }
+
+    public Date getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(Date checkout) {
+        this.checkout = checkout;
     }
 
     public String getName() {

@@ -20,7 +20,6 @@ public class ParkinglotsController {
 
     public void addParkinglot(Context ctx){
         Parkinglot lot = ctx.bodyAsClass(Parkinglot.class);
-
         try {
             parkinglotsRepository.addParkinglot(lot);
             ctx.json(lot);

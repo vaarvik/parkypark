@@ -1,139 +1,41 @@
 [ {
-  "name" : "Fin parkeringsplass på buran",
-  "address" : "21 2nd Street",
-  "id" : "1",
-  "ownerId" : "32",
-  "price" : 20.0
-}, {
-  "name" : "Nord Parkering",
-  "address" : "Bossekopven 22",
-  "id" : "2",
-  "ownerId" : "40",
-  "price" : 30.0
-}, {
-  "name" : "Parkering nærmt Oslo Sentrum",
-  "address" : "Holmlia 5f",
-  "id" : "3",
-  "ownerId" : "423",
-  "price" : 20.0
-}, {
-  "name" : "Lekker parkering for de rike",
-  "address" : "Hudsonsvei 14",
-  "id" : "4",
-  "ownerId" : "555",
-  "price" : 20.0
-}, {
-  "name" : "Plass for de som ikke er redd for riper i lakken",
-  "address" : "Scrape Street 2",
-  "id" : "5",
-  "ownerId" : "222",
-  "price" : 15.0
-}, {
-  "name" : "Lekker Parkeringsplass sentralt i grorud med elbillader",
-  "address" : "Grorudalen Badestrand 9f",
-  "id" : "6",
-  "ownerId" : "632",
-  "price" : 50.0
-}, {
-  "name" : "Garasjeparkering ved Smibygget 7",
-  "address" : "Smibygget 7",
-  "id" : "7",
-  "ownerId" : "543",
-  "price" : 30.0
-}, {
-  "name" : "Bleieven 2",
-  "address" : "Bleieven 2",
-  "id" : "8",
-  "ownerId" : "11",
-  "price" : 20.0
-}, {
-  "name" : "Liten parkeringsplass nærmt Gjeddevannet",
-  "address" : "Varden 23",
-  "id" : "9",
-  "ownerId" : "3543",
-  "price" : 50.0
-}, {
-  "name" : "Sentral Parkering under tak",
-  "address" : "Fyllingsdalen 8b",
-  "id" : "10",
-  "ownerId" : "643",
-  "price" : 50.0
-}, {
-  "name" : "Trailer parkeringsplass rett utenfor Bergen Sentrum",
-  "address" : "Åsaneveien 6",
-  "id" : "11",
-  "ownerId" : "634",
-  "price" : 70.0
-}, {
-  "name" : "Ledig plass i Bjørgebrekka",
-  "address" : "Bjørgebrekka 8f",
-  "id" : "12",
-  "ownerId" : "124",
-  "price" : 80.0
-}, {
-  "name" : "Beste parkeringen i byn",
-  "address" : "Enveimedsentrum 23",
-  "id" : "13",
-  "ownerId" : "2",
-  "price" : 220.0
-}, {
-  "name" : "Parkeringplass",
-  "address" : "Stiveiene 6",
-  "id" : "15",
-  "ownerId" : "1132",
-  "price" : 10.0
-}, {
-  "name" : "Begynner å gå tom for ideer",
-  "address" : "Enveistien 9",
-  "id" : "16",
-  "ownerId" : "2332",
-  "price" : 15.0
-}, {
-  "name" : "Fin parkeringsplass for alle med bil",
-  "address" : "Bjørnegaten 44",
-  "id" : "17",
-  "ownerId" : "6332",
-  "price" : 19.0
-}, {
-  "name" : "Knall bra plass å parkere",
-  "address" : "Braplass 33",
-  "id" : "18",
-  "ownerId" : "132",
-  "price" : 25.0
-}, {
-  "name" : "Dyreste parkeringen du finner på denne siden",
-  "address" : "Sentralveien 1",
-  "id" : "19",
-  "ownerId" : "232",
-  "price" : 500.0
-}, {
-  "name" : "Praktisk parkering i gyldendal",
-  "address" : "gyldendal 8",
-  "id" : "20",
-  "ownerId" : "372",
-  "price" : 60.0
-}, {
-  "name" : "Nokså sentral parkering ved Hordvik",
-  "address" : "Hordvik 7",
-  "id" : "21",
-  "ownerId" : "332",
-  "price" : 9.9999999999E10
-}, {
-  "name" : "Jonas ",
-  "address" : "Pettsonsvei 2",
-  "id" : "7a6e81ad-b177-4e4c-9426-a178f7cd2413",
-  "ownerId" : "3",
-  "price" : 4.0
-}, {
-  "name" : "Parkering i Knudsens Vei",
-  "address" : "Knudsens Vei 2",
-  "id" : "6d941d0b-d44c-4348-9458-d3218039c68e",
-  "ownerId" : "1",
-  "price" : 20.0
-}, {
   "name" : "Sigurdsvei",
   "address" : "Sigurdsvei 19",
   "id" : "701dcc43-db5d-4ffe-aae0-5d9a9b435379",
   "ownerId" : "",
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000,
+  "image" : null,
+  "description" : null,
   "price" : 20.0
-}]
+}, {
+  "name" : "hger",
+  "address" : "erger",
+  "id" : "8aa11670-54ec-4f0a-86a4-c1c31fa886c8",
+  "ownerId" : "2",
+  "checkin" : 1606608000000,
+  "checkout" : 1606608000000,
+  "image" : null,
+  "description" : null,
+  "price" : 223.0
+}, {
+  "name" : "sef",
+  "address" : "ee",
+  "id" : "bc6fcdc8-06be-4bb7-a390-98c6c705b943",
+  "ownerId" : "2",
+  "checkin" : 1605916800000,
+  "checkout" : 1606608000000,
+  "image" : null,
+  "description" : null,
+  "price" : 2.0
+}, {
+  "name" : "eee",
+  "address" : "sfers",
+  "id" : "23255aa5-f8db-413e-b06e-76addc05653a",
+  "ownerId" : "2",
+  "checkin" : 1606003200000,
+  "checkout" : 1606521600000,
+  "image" : null,
+  "description" : "wew",
+  "price" : 323.0
+} ]
