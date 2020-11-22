@@ -43,7 +43,7 @@
                         v-model="booking.checkOut">
                         <br>
                     </div>
-                    <a :href="`/parkinglots/${parkinglot.id}/book`">
+                    <a v-if="isRenter()" :href="`/parkinglots/${parkinglot.id}/book`">
                         <button class="btn">Book</button>
                     </a>
                 </form>
