@@ -34,12 +34,12 @@
                     </div>
                     <div>
                         <label for="input-checkin">Startdato på parkeringen</label>
-                        <input class="field input" type="date" :min="checkInDate(parkinglot.checkin)" name="checkin" id="input-checkin" v-model="booking.checkIn">
+                        <input class="field input" type="date" :min="checkInDate(parkinglot.checkin)" :max="checkInDate(parkinglot.checkout)" name="checkin" id="input-checkin" v-model="booking.checkIn">
                         <br>
                     </div>
                     <div>
                         <label for="input-checkout">Sluttdato på parkeringen</label>
-                        <input class="field input" type="date" :min="checkInDate(booking.checkIn)" name="checkout" id="input-checkout"
+                        <input class="field input" type="date" :min="checkInDate(booking.checkIn)" :max="checkInDate(parkinglot.checkout)" name="checkout" id="input-checkout"
                         v-model="booking.checkOut">
                         <br>
                     </div>
@@ -70,7 +70,7 @@
                 parkinglot: {},
                 user: JSON.parse(this.getCookie("user").value),
                 booking: {
-                    userId: 2,
+                    userId: JSON.parse(this.getCookie("user").value).id,
                 },
                 title: '',
                 loremIpsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum velit et maximus pulvinar. Nullam efficitur nulla volutpat dolor gravida, et eleifend nunc lobortis. Curabitur dapibus laoreet erat. Phasellus a libero nec est semper auctor. Pellentesque non risus vehicula, tempor dolor quis, pretium magna. Integer cursus pretium libero. Nulla imperdiet felis sed felis varius aliquet. Proin nec sodales tortor. Phasellus at vehicula augue. In varius odio elit, sit amet interdum odio mollis a. Nullam pharetra tortor nisi, et molestie orci tempor sit amet. Cras velit metus, sodales quis risus non, lobortis bibendum nulla.",
@@ -110,8 +110,9 @@
                     body: JSON.stringify(this.booking),
                 })
                 .then((res) => {
-                    alert("Her ville en betaling blitt håndtert.")
-                    alert("Din reise er blitt booket!")
+                    alert("Her ville en betaling blitt håndtert.");
+                    alert("Din reise er blitt booket!");
+                    window.location = "/";
                 })
                 .catch((err) => {
                     alert("Booking failet.")
