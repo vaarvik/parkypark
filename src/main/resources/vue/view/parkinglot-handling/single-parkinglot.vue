@@ -26,7 +26,7 @@
                     <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
                 </div>
                 <br>
-                <form @submit="onSubmit">
+                <form v-if="isRenter()" @submit="onSubmit">
                     <div>
                         <label for="input-car">Velg bilen du skal bruke:</label>
                         <input class="field input" type="text" name="carLicenceNumber" id="input-car" placeholder="Registreringsnummer..." v-model="booking.carLicenceNumber">
@@ -43,7 +43,10 @@
                         v-model="booking.checkOut">
                         <br>
                     </div>
-                    <a v-if="isRenter()" :href="`/parkinglots/${parkinglot.id}/book`">
+                    <div>
+                        <p v-if="booking.checkOut" class="entry-info__price">Totalpris: {{ parkinglot.price * (getDateDifference(new Date(booking.checkOut), new Date(booking.checkIn)) + 1) }}</p>
+                    </div>
+                    <a :href="`/parkinglots/${parkinglot.id}/book`">
                         <button class="btn">Book</button>
                     </a>
                 </form>
@@ -102,6 +105,10 @@
                 return new Date().getTime() > dateNum ?
                     this.getInputDateFormat(new Date()) :
                     this.getInputDateFormat(new Date(dateNum));
+            },
+            getDateDifference(checkOut, checkIn) {
+                const timeDif = checkOut.getTime() - checkIn.getTime();
+                return timeDif / (1000 * 3600 * 24)
             },
             onSubmit(event) {
                 event.preventDefault();

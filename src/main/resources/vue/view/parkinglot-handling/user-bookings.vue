@@ -25,12 +25,13 @@
                             <header class="summary-header">
                                 <h2 class="summary-header__heading">{{ booking.parkinglot.name }}</h2>
                                 <p class="summary-header__sub-fact">{{ booking.parkinglot.address }}</p>
-                                <p class="summary-header__sub-fact">{{ getDateFormat(new Date(booking.checkIn)) }} - {{ getDateFormat(new Date(booking.checkOut)) }}</p>
+                                <p class="summary-header__sub-fact">Booket fra/til:<br>
+                                {{ getDateFormat(new Date(booking.checkIn)) }} - {{ getDateFormat(new Date(booking.checkOut)) }}</p>
                             </header>
                             <div class="summary-info">
                                 <p class="summary-info__text">Kostnad:</p>
                                 <p class="summary-info__price">
-                                    {{ booking.parkinglot.price * getDateDifference(new Date(booking.checkOut), new Date(booking.checkIn)) }}
+                                    {{ booking.parkinglot.price * (getDateDifference(new Date(booking.checkOut), new Date(booking.checkIn)) + 1) }}
                                 </p>
                                 <a :href="`/parkinglots/${booking.parkinglotId}`">
                                     <button class="btn">Sjekk ut parkeringsplassen</button>
