@@ -19,6 +19,7 @@
                             <header class="summary-header">
                                 <h2 class="summary-header__heading">{{ parkinglot.name }}</h2>
                                 <p class="summary-header__sub-fact">{{ parkinglot.address }}</p>
+                                <p class="summary-header__sub-fact">{{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
                             </header>
                             <div class="summary-info">
                                 <p class="summary-info__price">{{ parkinglot.price }}</p>
@@ -69,7 +70,10 @@
                 e.preventDefault();
                 this.deleteCookie("user");
                 window.location = "/login";
-            }
+            },
+            getDateFormat(date) {
+                return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+            },
         },
         created(){
             if(this.getCookie("user"))
