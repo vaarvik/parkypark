@@ -15,6 +15,7 @@
             <div class="entry">
                 <header class="entry-header">
                     <h1 class="entry-header__heading">Opprett parkeringsplass</h1>
+                    <p>Hei {{user.name}}! Bruk skjemaet nedenfor for å legge til din parkeringsplass.</p>
                 </header>
                 <div class="entry-info">
                     <div class="entry-info__text">

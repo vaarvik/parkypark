@@ -85,11 +85,14 @@
             }
         },
         created(){
-            if(this.getCookie("user"))
+            if(this.getCookie("user") && this.isRenter())
                 fetch("api/parkinglots")
                     .then(res => res.json())
                     .then(res => this.parkinglots = res)
                     .catch(res => console.log("Could not find any data."))
+            else if(this.getCookie("user")) {
+                window.location = "/parkinglots/add";
+            }
             else
                 window.location = "/login";
         }
