@@ -5,9 +5,9 @@
                 <h2 class="site-branding">ParkyPark</h2>
             </a>
             <div class="site-navigation">
-                <a href="/parkinglots/add">Add parkinglot</a>
-                <a :href='user.type === "renter" ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
-                    {{user.type === "renter" ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
+                <a v-if="!isRenter()" href="/parkinglots/add">Add parkinglot</a>
+                <a :href='isRenter() ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
+                    {{isRenter() ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
                 <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
@@ -126,6 +126,9 @@
                 e.preventDefault();
                 this.deleteCookie("user");
                 window.location = "/login";
+            },
+            isRenter() {
+                return this.user.type === "renter";
             }
         }
     });
