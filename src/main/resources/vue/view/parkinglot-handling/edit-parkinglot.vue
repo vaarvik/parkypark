@@ -9,7 +9,6 @@
                 <a :href='user.type === "renter" ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
                     {{user.type === "renter" ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
                 <a href="/login" @click="onLogout">Logg ut</a>
-                <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
         <main class="site-content">
