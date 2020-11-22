@@ -48,8 +48,6 @@
                             <textarea class="field" name="description" id="description" cols="30" rows="2" v-model="parkinglot.description"></textarea>
                             <br>
 
-                            <input type="hidden" name="ownerId" id="ownerId" value="1" v-model="parkinglot.ownerId">
-
                             <button class="btn">Opprett parkeringsplass</button>
                         </form>
                     </div>
@@ -71,7 +69,7 @@
         data(){
             return {
                 parkinglot: {
-                    ownerId: 2,
+                    ownerId: JSON.parse(this.getCookie("user").value).id,
                 },
                 user: JSON.parse(this.getCookie("user").value)
             }
@@ -85,7 +83,7 @@
                 })
                 .then((res) => {
                     alert("Din parkeringsplass er blitt registrert")
-                    window.location = "/";
+                    window.location = "/parkinglots/add";
                 })
                 .catch((err) => {
                     alert("Booking failet.")
