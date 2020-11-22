@@ -48,7 +48,7 @@
                         <button class="btn">Book</button>
                     </a>
                 </form>
-                <div class="entry-buttons">
+                <div v-if="user.id === parkinglot.ownerId" class="entry-buttons">
                     <a :href="`/parkinglots/${parkinglot.id}/edit`">
                         <button class="btn">Endre</button>
                     </a>
