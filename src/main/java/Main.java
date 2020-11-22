@@ -76,6 +76,12 @@ public class Main {
         app.get("/user/:userid/parkinglots", new VueComponent("user-parkinglots"));
 
         /*
+         * shows all parkinglots related to a single user
+         * Get all parkingslots for a specific user
+         */
+        app.get("/user/:userid/bookings", new VueComponent("user-bookings"));
+
+        /*
         APIs
         ==========
          */
@@ -84,6 +90,11 @@ public class Main {
          * All parkinglots
          */
         app.get("/api/parkinglots", parkinglotsController::getAllParkinglots);
+
+        /*
+         * All parkinglots for a user
+         */
+        app.get("/api/:userid/parkinglots", parkinglotsController::getAllParkinglotsByUser);
 
         /*
          * Single parkinglot

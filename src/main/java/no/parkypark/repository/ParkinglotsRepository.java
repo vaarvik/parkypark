@@ -2,6 +2,7 @@ package no.parkypark.repository;
 import no.parkypark.model.IStorage;
 import no.parkypark.model.Parkinglot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParkinglotsRepository implements IParkinglotsRepository {
@@ -33,13 +34,14 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
         return null;
     }
 
-    public Parkinglot getParkinglotByOwnerId(String ownerId) {
+    public ArrayList<Parkinglot> getParkinglotByOwnerId(String ownerId) {
+        ArrayList<Parkinglot> parkinglots = new ArrayList<>();
         for(Parkinglot i : this.parkinglots ) {
             if(i.getOwnerId().equals(ownerId)) {
-                return i;
+                parkinglots.add(i);
             }
         }
-        return null;
+        return parkinglots;
     }
 
     /**

@@ -14,6 +14,10 @@ public class ParkinglotsController {
         ctx.json(parkinglotsRepository.getAllParkinglots());
     }
 
+    public void getAllParkinglotsByUser(Context ctx) {
+        ctx.json(parkinglotsRepository.getParkinglotByOwnerId(ctx.pathParam(":userid")));
+    }
+
     public void getParkinglot(Context ctx) {
         ctx.json(parkinglotsRepository.getParkinglotById(ctx.pathParam(":parkinglotid")));
     }
