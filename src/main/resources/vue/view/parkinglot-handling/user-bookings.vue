@@ -1,4 +1,4 @@
-<template id="user-parkinglots">
+<template id="user-bookings">
     <div class="site-wrapper">
         <header class="site-header">
             <a href="/">
@@ -12,21 +12,33 @@
             </div>
         </header>
         <main class="site-content">
-            <ul class="summary-list" v-if="parkinglots.length">
-                <li class="summary-list__item" v-for="parkinglot in parkinglots" :key="parkinglot.id">
-                    <a class="summary-list__item-anchor" :href="`/parkinglots/${parkinglot.id}`">
+            <div class="entry">
+                <header class="entry-header">
+                    <h1 class="entry-header__heading">Hei {{user.name}}!</h1>
+                    <p>Nedenfor finner du alle dine bookinger. Ta kontakt med kundeservice dersom noe skulle være feil eller du ønsker å avbestille.</p>
+                </header>
+            </div>
+            <ul class="summary-list" v-if="bookings.length">
+                <li class="summary-list__item suddle" v-for="booking in bookings" :key="booking.id">
+                    <div class="summary-list__item-anchor">
                         <div class="summary-list__info">
                             <header class="summary-header">
-                                <h2 class="summary-header__heading">{{ parkinglot.name }}</h2>
-                                <p class="summary-header__sub-fact">{{ parkinglot.address }}</p>
-                                <p class="summary-header__sub-fact">{{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
+                                <h2 class="summary-header__heading">{{ booking.parkinglot.name }}</h2>
+                                <p class="summary-header__sub-fact">{{ booking.parkinglot.address }}</p>
+                                <p class="summary-header__sub-fact">{{ getDateFormat(new Date(booking.checkIn)) }} - {{ getDateFormat(new Date(booking.checkOut)) }}</p>
                             </header>
                             <div class="summary-info">
-                                <p class="summary-info__price">{{ parkinglot.price }}</p>
+                                <p class="summary-info__text">Kostnad:</p>
+                                <p class="summary-info__price">
+                                    {{ booking.parkinglot.price * getDateDifference(new Date(booking.checkOut), new Date(booking.checkIn)) }}
+                                </p>
+                                <a :href="`/parkinglots/${booking.parkinglotId}`">
+                                    <button class="btn">Sjekk ut parkeringsplassen</button>
+                                </a>
                             </div>
                         </div>
-                        <img class="summary-list__image" :src="`https://picsum.photos/seed/${parkinglot.id}/300/100`" alt="">
-                    </a>
+                        <img class="summary-list__image" :src="`https://picsum.photos/seed/${booking.parkinglotId}/300/100`" alt="">
+                    </div>
                 </li>
             </ul>
             <p v-else>{{fallback}}</p>
@@ -40,13 +52,13 @@
     </div>
 </template>
 <script>
-    Vue.component("user-parkinglots", {
-        template: "#user-parkinglots",
+    Vue.component("user-bookings", {
+        template: "#user-bookings",
         data(){
             return {
-                parkinglots: [],
+                bookings: [],
                 user: this.getCookie("user") ? JSON.parse(this.getCookie("user").value) : null,
-                fallback: "No parkinglots found"
+                fallback: "No bookings found"
             }
         },
         methods: {
@@ -74,15 +86,31 @@
             getDateFormat(date) {
                 return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
             },
+            getDateDifference(checkOut, checkIn) {
+                const timeDif = checkOut.getTime() - checkIn.getTime();
+                return timeDif / (1000 * 3600 * 24)
+            },
             isRenter() {
                 return this.user.type === "renter";
             }
         },
         created(){
             if(this.getCookie("user"))
-                fetch(`/api/${this.$javalin.pathParams["userid"]}/parkinglots`)
+                fetch(`/api/${this.$javalin.pathParams["userid"]}/bookings`)
                     .then(res => res.json())
-                    .then(res => this.parkinglots = res)
+                    .then((res) => {
+                        res.map(booking => {
+                            fetch(`/api/parkinglots/${booking.parkinglotId}`)
+                                .then(pRes => pRes.json())
+                                .then(pRes => booking.parkinglot = pRes)
+                                .then(pRes => {
+                                    this.bookings.push({...booking, parkinglot: pRes});
+                                    return pRes;
+                                })
+                                .catch(pRes => console.log("Could not find the belonging parkinglot."))
+                        });
+                        return res;
+                    })
                     .catch(res => console.log("Could not find any data."))
             else
                 window.location = "/login";

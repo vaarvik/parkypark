@@ -11,6 +11,10 @@ public class BookingController {
 		this.bookingRepository = bookingRepository;
 	}
 
+	public void getAllBookingsByUser(Context ctx) {
+		ctx.json(bookingRepository.getBookingsByUserId(ctx.pathParam(":userid")));
+	}
+
 	public void bookParkinglot(Context ctx) {
 		try {
 			Booking newBooking = ctx.bodyAsClass(Booking.class);

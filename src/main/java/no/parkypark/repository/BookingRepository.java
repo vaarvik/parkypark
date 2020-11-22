@@ -3,6 +3,7 @@ package no.parkypark.repository;
 import no.parkypark.model.Booking;
 import no.parkypark.model.IStorage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +14,16 @@ public class BookingRepository implements IBookingRepository{
 	public BookingRepository(IStorage<Booking> storage) {
 		this.storage = storage;
 		this.bookings = storage.read();
+	}
+
+	public ArrayList<Booking> getBookingsByUserId(String ownerId) {
+		ArrayList<Booking> bookings = new ArrayList<>();
+		for(Booking i : this.bookings ) {
+			if(i.getUserId().equals(ownerId)) {
+				bookings.add(i);
+			}
+		}
+		return bookings;
 	}
 
 	public List<Booking> getAllBookings() {

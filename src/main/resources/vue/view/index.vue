@@ -5,13 +5,19 @@
                 <h2 class="site-branding">ParkyPark</h2>
             </a>
             <div class="site-navigation">
-                <a v-if="!isRenter()" href="/parkinglots/add">Add parkinglot</a>
+                <a v-if="!isRenter()" href="/parkinglots/add">Legg til parkeringsplass</a>
                 <a :href='isRenter() ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
                     {{isRenter() ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
                 <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
         <main class="site-content">
+            <div class="entry">
+                <header class="entry-header">
+                    <h1 class="entry-header__heading">Velkommen {{user.name}}!</h1>
+                    <p>Bruk listen nedenfor til å velge en reise du ønsker å booke deg på!</p>
+                </header>
+            </div>
             <ul class="summary-list" v-if="parkinglots.length">
                 <li class="summary-list__item" v-for="parkinglot in parkinglots" :key="parkinglot.id">
                     <a class="summary-list__item-anchor" :href="`/parkinglots/${parkinglot.id}`">

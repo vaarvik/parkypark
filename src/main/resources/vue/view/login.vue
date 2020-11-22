@@ -10,8 +10,8 @@
                 <div class="entry-info">
                     <div class="entry-info__center">
                         <div class="entry-buttons">
-                            <button class="btn big" @click='setSessionCookie("user", "{\"type\": \"lender\", \"id\": \"2\"}")'>Logg inn for å drive utleie av parkeringsplasser</button>
-                            <button class="btn big" @click='setSessionCookie("user", "{\"type\": \"renter\", \"id\": \"1\"}")'>Logg inn for å leie en parkeringsplass</button>
+                            <button class="btn big" @click='setSessionCookie("user", "{\"type\": \"lender\", \"id\": \"2\", \"name\": \"Frida\"}")'>Logg inn for å drive utleie av parkeringsplasser</button>
+                            <button class="btn big" @click='setSessionCookie("user", "{\"type\": \"renter\", \"id\": \"1\", \"name\": \"Jon\"}")'>Logg inn for å leie en parkeringsplass</button>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
                 <h2 class="site-branding">ParkyPark</h2>
             </a>
             <div class="site-navigation">
-                <a v-if="!isRenter()" href="/parkinglots/add">Add parkinglot</a>
+                <a v-if="!isRenter()" href="/parkinglots/add">Legg til parkeringsplass</a>
                 <a :href='isRenter() ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
                     {{isRenter() ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
                 <a href="/login" @click="onLogout">Logg ut</a>

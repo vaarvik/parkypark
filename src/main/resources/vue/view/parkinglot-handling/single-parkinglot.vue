@@ -5,7 +5,7 @@
                 <h2 class="site-branding">ParkyPark</h2>
             </a>
             <div class="site-navigation">
-                <a v-if="!isRenter()" href="/parkinglots/add">Add parkinglot</a>
+                <a v-if="!isRenter()" href="/parkinglots/add">Legg til parkeringsplass</a>
                 <a :href='isRenter() ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
                     {{isRenter() ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
                 <a href="/login" @click="onLogout">Logg ut</a>
@@ -21,7 +21,7 @@
                         <p class="entry-header__sub-fact"><b>Adresse:</b> {{ parkinglot.address }}</p>
                         <p class="entry-header__sub-fact">{{ parkinglot.description ? parkinglot.description : loremIpsum }}</p>
                         <p class="entry-header__sub-fact">Tilgjengelig utleieperiode: {{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
-                        <p class="entry-info__price">Pris: {{ parkinglot.price }}</p>
+                        <p class="entry-info__price">Dagspris: {{ parkinglot.price }}</p>
                     </div>
                     <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
                 </div>

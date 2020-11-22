@@ -97,6 +97,11 @@ public class Main {
         app.get("/api/:userid/parkinglots", parkinglotsController::getAllParkinglotsByUser);
 
         /*
+         * All bookings for a user
+         */
+        app.get("/api/:userid/bookings", bookingController::getAllBookingsByUser);
+
+        /*
          * Single parkinglot
          */
         app.get("/api/parkinglots/:parkinglotid", parkinglotsController::getParkinglot);

@@ -182,6 +182,10 @@ a:hover {
 	background-color: #445878;
 }
 
+.summary-list__item.suddle:hover {
+	background-color: #272727;
+}
+
 .summary-list__item-anchor:hover {
 	text-decoration: underline;
 }
@@ -206,7 +210,7 @@ a:hover {
 	margin-bottom: 3px;
 }
 
-.summary-header__sub-fact {
+.summary-header__sub-fact, .summary-info__text  {
 	font-style: italic;
 	margin-top: 0;
 	font-size: .8em;
