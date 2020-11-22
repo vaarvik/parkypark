@@ -34,12 +34,12 @@
                     </div>
                     <div>
                         <label for="input-checkin">Startdato på parkeringen</label>
-                        <input class="field input" type="date" :min="getToday()" name="checkin" id="input-checkin" v-model="booking.checkIn">
+                        <input class="field input" type="date" :min="checkInDate(parkinglot.checkin)" name="checkin" id="input-checkin" v-model="booking.checkIn">
                         <br>
                     </div>
                     <div>
                         <label for="input-checkout">Sluttdato på parkeringen</label>
-                        <input class="field input" type="date" name="checkout" id="input-checkout"
+                        <input class="field input" type="date" :min="checkInDate(booking.checkIn)" name="checkout" id="input-checkout"
                         v-model="booking.checkOut">
                         <br>
                     </div>
@@ -90,13 +90,18 @@
                 });
                 return finalCookie;
             },
-            getToday() {
-                let today = new Date();
-                let dd = String(today.getDate()).padStart(2, '0');
-                let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                let yyyy = today.getFullYear();
+            getInputDateFormat(date) {
+                // let today = new Date();
+                let dd = String(date.getDate()).padStart(2, '0');
+                let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = date.getFullYear();
 
                 return `${yyyy}-${mm}-${dd}`;
+            },
+            checkInDate(dateNum) {
+                return new Date().getTime() > dateNum ?
+                    this.getInputDateFormat(new Date()) :
+                    this.getInputDateFormat(new Date(dateNum));
             },
             onSubmit(event) {
                 event.preventDefault();
@@ -134,6 +139,7 @@
                   this.title = res.name;
                   this.parkinglot = res;
                   this.booking.parkinglotId = res.id;
+                  this.booking.checkIn = this.checkInDate(res.checkin);
                 })
                 .catch(this.title = "This parkinglot does not exist");
         },
