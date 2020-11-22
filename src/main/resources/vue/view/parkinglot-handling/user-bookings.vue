@@ -58,7 +58,7 @@
             return {
                 bookings: [],
                 user: this.getCookie("user") ? JSON.parse(this.getCookie("user").value) : null,
-                fallback: "No bookings found"
+                fallback: "Sjekk ut forsiden og book din første parkeringsplass!"
             }
         },
         methods: {
