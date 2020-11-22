@@ -35,6 +35,15 @@ public class WhenBookingController {
     private BookingRepository repo = mock(BookingRepository.class); // "mock-maker-inline" must be enabled
 
     @Test
+    public void fetchAllBookingsByUser() {
+        when(repo.getBookingsByUserId(ctx.pathParam(":userid"))).thenReturn(expectedBookings);
+
+        BookingController controller = new BookingController(repo);
+        controller.getAllBookingsByUser(ctx);
+        verify(ctx).json(expectedBookings);
+    }
+
+    @Test
     public void createsABooking() {
         when(ctx.bodyAsClass(Booking.class)).thenReturn(expectedBooking);
 

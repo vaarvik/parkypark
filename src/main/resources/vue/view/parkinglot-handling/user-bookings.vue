@@ -14,7 +14,7 @@
         <main class="site-content">
             <div class="entry">
                 <header class="entry-header">
-                    <h1 class="entry-header__heading">Hei {{user.name}}!</h1>
+                    <h1 class="entry-header__heading">Dine bookinger</h1>
                     <p>Nedenfor finner du alle dine bookinger. Ta kontakt med kundeservice dersom noe skulle være feil eller du ønsker å avbestille.</p>
                 </header>
             </div>

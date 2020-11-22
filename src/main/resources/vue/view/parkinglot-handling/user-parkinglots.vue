@@ -12,6 +12,11 @@
             </div>
         </header>
         <main class="site-content">
+            <div class="entry">
+                <header class="entry-header">
+                    <h1 class="entry-header__heading">Dine parkeringsplasser</h1>
+                </header>
+            </div>
             <ul class="summary-list" v-if="parkinglots.length">
                 <li class="summary-list__item" v-for="parkinglot in parkinglots" :key="parkinglot.id">
                     <a class="summary-list__item-anchor" :href="`/parkinglots/${parkinglot.id}`">

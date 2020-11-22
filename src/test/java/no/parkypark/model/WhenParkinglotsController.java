@@ -53,6 +53,15 @@ public class WhenParkinglotsController {
     }
 
     @Test
+    public void fetchAllParkinglotsByUser() {
+        when(repo.getParkinglotsByOwnerId(ctx.pathParam(":userid"))).thenReturn(expectedParkinglots);
+
+        ParkinglotsController controller = new ParkinglotsController(repo);
+        controller.getAllParkinglotsByUser(ctx);
+        verify(ctx).json(expectedParkinglots);
+    }
+
+    @Test
     public void updateAParkinglot() {
         when(ctx.bodyAsClass(Parkinglot.class)).thenReturn(expectedParkinglot);
         expectedParkinglot.update(new Parkinglot("NewName", "NewAddress", "13", 2));

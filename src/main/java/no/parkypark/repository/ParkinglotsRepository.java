@@ -34,7 +34,7 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
         return null;
     }
 
-    public ArrayList<Parkinglot> getParkinglotByOwnerId(String ownerId) {
+    public List<Parkinglot> getParkinglotsByOwnerId(String ownerId) {
         ArrayList<Parkinglot> parkinglots = new ArrayList<>();
         for(Parkinglot i : this.parkinglots ) {
             if(i.getOwnerId().equals(ownerId)) {

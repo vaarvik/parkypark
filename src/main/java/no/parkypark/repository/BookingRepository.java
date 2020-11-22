@@ -16,7 +16,7 @@ public class BookingRepository implements IBookingRepository{
 		this.bookings = storage.read();
 	}
 
-	public ArrayList<Booking> getBookingsByUserId(String ownerId) {
+	public List<Booking> getBookingsByUserId(String ownerId) {
 		ArrayList<Booking> bookings = new ArrayList<>();
 		for(Booking i : this.bookings ) {
 			if(i.getUserId().equals(ownerId)) {
