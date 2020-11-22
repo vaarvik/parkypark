@@ -119,6 +119,12 @@ a:hover {
 	transition: .15s;
 	font-weight: bold;
 	border-radius: 2px;
+	max-width: 220px;
+	margin: 8px;
+}
+
+.btn.big {
+	padding: 18px 24px;
 }
 
 .btn:hover {
@@ -227,10 +233,16 @@ a:hover {
 	flex-flow: wrap-reverse;
 }
 
-.entry-info__text {
+.entry-info__text, .entry-info__center {
 	width: 400px;
 	margin-right: 16px;
 	flex-grow: 1;
+}
+
+.entry-info__center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .entry-info__image {

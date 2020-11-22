@@ -6,8 +6,10 @@
             </a>
             <div class="site-navigation">
                 <a href="/parkinglots/add">Add parkinglot</a>
-                <a href="">Your parkinglots</a>
-                <a href="">Log out</a>
+                <a :href='user.type === "renter" ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
+                    {{user.type === "renter" ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
+                <a href="/login" @click="onLogout">Logg ut</a>
+                <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
         <main class="site-content">
@@ -19,7 +21,7 @@
                     <div class="entry-info__text">
                         <p class="entry-header__sub-fact"><b>Adresse:</b> {{ parkinglot.address }}</p>
                         <p class="entry-header__sub-fact">{{ parkinglot.description ? parkinglot.description : loremIpsum }}</p>
-                        <p class="entry-header__sub-fact">Tilgjengelig utleieperiode: {{ parkinglot.checkin }}-{{ parkinglot.checkout }}</p>
+                        <p class="entry-header__sub-fact">Tilgjengelig utleieperiode: {{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
                         <p class="entry-info__price">Pris: {{ parkinglot.price }}</p>
                     </div>
                     <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
@@ -64,15 +66,31 @@
 <script>
     Vue.component("single-parkinglot", {
         template: "#single-parkinglot",
-        data: () => ({
-            parkinglot: {},
-            booking: {
-                userId: 2,
-            },
-            title: '',
-            loremIpsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum velit et maximus pulvinar. Nullam efficitur nulla volutpat dolor gravida, et eleifend nunc lobortis. Curabitur dapibus laoreet erat. Phasellus a libero nec est semper auctor. Pellentesque non risus vehicula, tempor dolor quis, pretium magna. Integer cursus pretium libero. Nulla imperdiet felis sed felis varius aliquet. Proin nec sodales tortor. Phasellus at vehicula augue. In varius odio elit, sit amet interdum odio mollis a. Nullam pharetra tortor nisi, et molestie orci tempor sit amet. Cras velit metus, sodales quis risus non, lobortis bibendum nulla.",
-        }),
+        data(){
+            return {
+                parkinglot: {},
+                user: JSON.parse(this.getCookie("user").value),
+                booking: {
+                    userId: 2,
+                },
+                title: '',
+                loremIpsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam bibendum velit et maximus pulvinar. Nullam efficitur nulla volutpat dolor gravida, et eleifend nunc lobortis. Curabitur dapibus laoreet erat. Phasellus a libero nec est semper auctor. Pellentesque non risus vehicula, tempor dolor quis, pretium magna. Integer cursus pretium libero. Nulla imperdiet felis sed felis varius aliquet. Proin nec sodales tortor. Phasellus at vehicula augue. In varius odio elit, sit amet interdum odio mollis a. Nullam pharetra tortor nisi, et molestie orci tempor sit amet. Cras velit metus, sodales quis risus non, lobortis bibendum nulla.",
+            }
+        },
         methods: {
+            getCookie(cName) {
+                const cookies = document.cookie.split(";"); //split cookies into array
+                let finalCookie = null;
+
+                cookies.forEach(function (cookie) {
+                    cookie = cookie.replace(/ /g, ""); //remove space after string split
+                    cookie = cookie.split("=");
+                    if (cookie[0] === cName) {
+                        finalCookie = { name: cookie[0], value: cookie[1] };
+                    }
+                });
+                return finalCookie;
+            },
             getToday() {
                 let today = new Date();
                 let dd = String(today.getDate()).padStart(2, '0');
@@ -95,6 +113,17 @@
                     alert("Booking failet.")
                 });
             },
+            getDateFormat(date) {
+                return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+            },
+            deleteCookie(name) {
+                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            },
+            onLogout(e) {
+                e.preventDefault();
+                this.deleteCookie("user");
+                window.location = "/login";
+            }
         },
         created(){
             fetch(`/api/parkinglots/${this.$javalin.pathParams["parkinglotid"]}`)

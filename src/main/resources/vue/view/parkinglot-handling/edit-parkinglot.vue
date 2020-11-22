@@ -6,8 +6,10 @@
             </a>
             <div class="site-navigation">
                 <a href="/parkinglots/add">Add parkinglot</a>
-                <a href="">Your parkinglots</a>
-                <a href="">Log out</a>
+                <a :href='user.type === "renter" ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
+                    {{user.type === "renter" ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
+                <a href="/login" @click="onLogout">Logg ut</a>
+                <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
         <main class="site-content">
@@ -65,10 +67,13 @@
 <script>
     Vue.component("edit-parkinglot", {
         template: "#edit-parkinglot",
-        data: () => ({
-            parkinglot: {},
-            title: '',
-        }),
+        data(){
+            return {
+                parkinglot: {},
+                user: JSON.parse(this.getCookie("user").value),
+                title: '',
+            }
+        },
         created(){
             fetch(`/api/parkinglots/${this.$javalin.pathParams["parkinglotid"]}`)
                 .then(res => res.json())
@@ -79,12 +84,31 @@
                 .catch(() => alert("Error while fetching parkinglot"));
         },
         methods:{
+            getCookie(cName) {
+                const cookies = document.cookie.split(";"); //split cookies into array
+                let finalCookie = null;
+
+                cookies.forEach(function (cookie) {
+                    cookie = cookie.replace(/ /g, ""); //remove space after string split
+                    cookie = cookie.split("=");
+                    if (cookie[0] === cName) {
+                        finalCookie = { name: cookie[0], value: cookie[1] };
+                    }
+                });
+                return finalCookie;
+            },
             onSubmit(event) {
                 event.preventDefault();
                 fetch('/api/parkinglots/:parkinglotid/edit', {
                     method: 'POST',
                     body: JSON.stringify(this.parkinglot),
-                });
+                })
+                .then((res) => {
+                    alert("Din parkeringsplass er blitt endret!")
+                })
+                .catch((err) => {
+                    alert("Endringen failet.")
+                });;
             },
             checkForm:function(e) {
 
@@ -95,6 +119,14 @@
                 let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
                 let yyyy = today.getFullYear();
                 return `${yyyy}-${mm}-${dd}`;
+            },
+            deleteCookie(name) {
+                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            },
+            onLogout(e) {
+                e.preventDefault();
+                this.deleteCookie("user");
+                window.location = "/login";
             }
         }
     });

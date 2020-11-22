@@ -7,7 +7,8 @@
         template: "#user-parkinglots",
         data(){
             return {
-                parkingslots: []
+                parkingslots: [],
+                user: JSON.parse(this.getCookie("user").value),
             }
         }
     });

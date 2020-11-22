@@ -6,8 +6,9 @@
             </a>
             <div class="site-navigation">
                 <a href="/parkinglots/add">Add parkinglot</a>
-                <a href="">Your parkinglots</a>
-                <a href="">Log out</a>
+                <a :href='user.type === "renter" ? `/user/${user.id}/bookings` : `/user/${user.id}/parkinglots`'>
+                    {{user.type === "renter" ? "Dine bookinger" : "Dine parkeringsplasser"}}</a>
+                <a href="/login" @click="onLogout">Logg ut</a>
             </div>
         </header>
         <main class="site-content">
@@ -43,14 +44,41 @@
         data(){
             return {
                 parkinglots: [],
+                user: this.getCookie("user") ? JSON.parse(this.getCookie("user").value) : null,
                 fallback: "No parkinglots found"
             }
         },
+        methods: {
+            getCookie(cName) {
+                const cookies = document.cookie.split(";"); //split cookies into array
+                let finalCookie = null;
+
+                cookies.forEach(function (cookie) {
+                    cookie = cookie.replace(/ /g, ""); //remove space after string split
+                    cookie = cookie.split("=");
+                    if (cookie[0] === cName) {
+                        finalCookie = { name: cookie[0], value: cookie[1] };
+                    }
+                });
+                return finalCookie;
+            },
+            deleteCookie(name) {
+                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            },
+            onLogout(e) {
+                e.preventDefault();
+                this.deleteCookie("user");
+                window.location = "/login";
+            }
+        },
         created(){
-            fetch("api/parkinglots")
-                .then(res => res.json())
-                .then(res => this.parkinglots = res)
-                .catch(res => console.log("Could not find any data."))
+            if(this.getCookie("user"))
+                fetch("api/parkinglots")
+                    .then(res => res.json())
+                    .then(res => this.parkinglots = res)
+                    .catch(res => console.log("Could not find any data."))
+            else
+                window.location = "/login";
         }
     });
 </script>

@@ -70,13 +70,6 @@ public class Main {
         app.get("/parkinglots/:parkinglotid/edit", new VueComponent("edit-parkinglot"));
 
         /*
-         * site for booking a specific parkinglot
-         * POST Request.
-         * Send all information about the new booking.
-         */
-        app.get("/parkinglots/:parkinglotid/book", new VueComponent("book-parkinglot"));
-
-        /*
          * shows all parkinglots related to a single user
          * Get all parkingslots for a specific user
          */
