@@ -16,7 +16,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class BookingRepositoryTest {
+public class WhenBookingRepository {
     private List<Booking> expectedBookings;
     private Booking booking;
 
@@ -33,7 +33,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    public void getAllBookingsTest(@Mock JsonStorage<Booking> storage) {
+    public void getsAllBookings(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
         BookingRepository repo = new BookingRepository(storage);
         assertEquals(expectedBookings, repo.getAllBookings());
@@ -41,7 +41,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    public void addBookingTest(@Mock JsonStorage<Booking> storage) {
+    public void addsABooking(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
 
         BookingRepository repo = new BookingRepository(storage);

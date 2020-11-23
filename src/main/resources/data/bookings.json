@@ -14,4 +14,12 @@
   "checkIn" : 1606608000000,
   "checkOut" : 1606694400000,
   "payment" : null
+}, {
+  "id" : "7bcea12c-ee1d-49f6-ba45-bbe234cdb7e5",
+  "userId" : "1",
+  "parkinglotId" : "7625ce40-0992-4ab5-ade6-165e773196ad",
+  "carLicenceNumber" : "ZT305535",
+  "checkIn" : 1606521600000,
+  "checkOut" : 1606608000000,
+  "payment" : null
 } ]
