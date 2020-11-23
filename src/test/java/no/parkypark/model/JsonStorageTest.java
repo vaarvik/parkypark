@@ -1,18 +1,19 @@
 package no.parkypark.model;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.io.TempDir;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JsonStorageTest {
 	private static final String JSON_PARKINGLOT_FILE = "[{ \"name\" : \"Best Spot!\", \"address\" : \"Planetroad 2\",\"id\" : \"b5319909-1968-442c-93e9-fd08d24d985f\",\"ownerId\" : \"fe34e136-ff5a-4c2f-93c3-1820bc170f83\",\"price\" : 50.0}]";
+
 
 	@Test
 	void readFromFileTest(@TempDir Path tempDir) throws IOException {
