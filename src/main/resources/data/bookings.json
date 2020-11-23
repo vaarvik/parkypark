@@ -1,0 +1,17 @@
+[ {
+  "id" : "593b6f7a-3ec2-4f35-b2cd-37874236ef62",
+  "userId" : "1",
+  "parkinglotId" : "1",
+  "carLicenceNumber" : "VF99923",
+  "checkIn" : 1606608000000,
+  "checkOut" : 1606694400000,
+  "payment" : null
+}, {
+  "id" : "ba6292ea-4a8e-45d3-9548-75448f45a45f",
+  "userId" : "1",
+  "parkinglotId" : "8",
+  "carLicenceNumber" : "VG54322",
+  "checkIn" : 1606608000000,
+  "checkOut" : 1606694400000,
+  "payment" : null
+} ]

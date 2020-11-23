@@ -1,0 +1,13 @@
+@startuml
+start
+  :Hent nåværende posisjon;
+  repeat
+  if (Har ny posisjon?) then (ja)
+    :Hent nåværende posisjon;
+  endif
+  :Finn parkeringsplasser;
+  repeat while (Er det noen parkeringsplasser i nærheten?) is (nei)
+  ->ja;
+  :Vis parkeringsplasser i nærheten;
+stop
+@enduml

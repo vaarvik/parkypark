@@ -1,10 +1,10 @@
 package no.parkypark.model;
 
-public class Renter extends User {
-    private Car car;
+import java.util.UUID;
 
-    public Renter(String name, String email, String password, Car car) {
-        super(name, email, password);
-        this.car = car;
+public class Renter extends User {
+
+    public Renter(UUID userId, String name, String email, String password) {
+        super(userId, name, email, password);
     }
 }

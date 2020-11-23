@@ -1,58 +1,68 @@
 package no.parkypark.model;
 
 import java.util.Date;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Booking {
-
-    private User user;
-    private Parkinglot parkinglot;
-    private Car car;
+    private String id;
+    private String userId;
+    private String parkinglotId;
+    private String carLicenceNumber;
     private Date checkIn;
     private Date checkOut;
-    private long paymentCardNumber;
-    private String paymentOption;
-    private String creditCardName;
-    private boolean carCharging;
-    private int creditCardExpiryMonth;
-    private int creditCardExpiryYear;
+    private Payment payment;
 
-    public Booking(User user, Parkinglot parkinglot, Car car, Date checkIn, Date checkOut, long paymentCardNumber, String paymentOption, String creditCardName, boolean carCharging, int creditCardExpiryMonth, int creditCardExpiryYear) {
 
-        this.user = user;
-        this.parkinglot = parkinglot;
-        this.car = car;
+    public Booking(String userId, String parkinglotId, String carLicenceNumber, Date checkIn, Date checkOut, Payment payment) {
+        this.id = UUID.randomUUID().toString();
+        this.userId = userId;
+        this.parkinglotId = parkinglotId;
+        this.carLicenceNumber = carLicenceNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        this.paymentCardNumber = paymentCardNumber;
-        this.paymentOption = paymentOption;
-        this.creditCardName = creditCardName;
-        this.carCharging = carCharging;
-        this.creditCardExpiryMonth = creditCardExpiryMonth;
-        this.creditCardExpiryYear = creditCardExpiryYear;
+        this.payment = payment;
     }
 
-    public User getUser() {
-        return user;
+    //used by front-end and bodyAsClass
+    public Booking() {
+        this.id = UUID.randomUUID().toString();
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public String getId() {
+        return id;
     }
 
-    public Parkinglot getParkinglot() {
-        return parkinglot;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setParkinglot(Parkinglot parkinglot) {
-        this.parkinglot = parkinglot;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
-    public Car getCar() {
-        return car;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getParkinglotId() {
+        return this.parkinglotId;
+    }
+
+    public void setParkinglotId(String parkinglotId) {
+        this.parkinglotId = parkinglotId;
+    }
+
+    public String getCarLicenceNumber() {
+        return this.carLicenceNumber;
+    }
+
+    public void setCarLicenceNumber(String carLicenceNumber) {
+        this.carLicenceNumber = carLicenceNumber;
     }
 
     public Date getCheckIn() {
@@ -71,51 +81,35 @@ public class Booking {
         this.checkOut = checkOut;
     }
 
-    public long getPaymentCardNumber() {
-        return paymentCardNumber;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(id, booking.id) &&
+                Objects.equals(userId, booking.userId) &&
+                Objects.equals(parkinglotId, booking.parkinglotId) &&
+                Objects.equals(carLicenceNumber, booking.carLicenceNumber) &&
+                Objects.equals(checkIn, booking.checkIn) &&
+                Objects.equals(checkOut, booking.checkOut) &&
+                Objects.equals(payment, booking.payment);
     }
 
-    public void setPaymentCardNumber(long paymentCardNumber) {
-        this.paymentCardNumber = paymentCardNumber;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, parkinglotId, carLicenceNumber, checkIn, checkOut, payment);
     }
 
-    public String getPaymentOption() {
-        return paymentOption;
-    }
-
-    public void setPaymentOption(String paymentOption) {
-        this.paymentOption = paymentOption;
-    }
-
-    public String getCreditCardName() {
-        return creditCardName;
-    }
-
-    public void setCreditCardName(String creditCardName) {
-        this.creditCardName = creditCardName;
-    }
-
-    public boolean isCarCharging() {
-        return carCharging;
-    }
-
-    public void setCarCharging(boolean carCharging) {
-        this.carCharging = carCharging;
-    }
-
-    public int getCreditCardExpiryMonth() {
-        return creditCardExpiryMonth;
-    }
-
-    public void setCreditCardExpiryMonth(int creditCardExpiryMonth) {
-        this.creditCardExpiryMonth = creditCardExpiryMonth;
-    }
-
-    public int getCreditCardExpiryYear() {
-        return creditCardExpiryYear;
-    }
-
-    public void setCreditCardExpiryYear(int creditCardExpiryYear) {
-        this.creditCardExpiryYear = creditCardExpiryYear;
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", parkinglotId='" + parkinglotId + '\'' +
+                ", carLicenceNumber='" + carLicenceNumber + '\'' +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", payment=" + payment +
+                '}';
     }
 }
