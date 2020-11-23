@@ -30,7 +30,7 @@
         template: "#login",
         methods: {
             setSessionCookie(cName, cValue) {
-                document.cookie = cName + "=" + cValue + ";" + "path=/" + "; SameSite=Strict; Secure";
+                document.cookie = cName + "=" + cValue + ";" + "path=/" + ";";
                 window.location = "/";
             },
             getCookie(cName) {
