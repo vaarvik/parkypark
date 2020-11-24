@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,9 +22,9 @@ public class WhenBookingController {
 
     private void setUpExpectedBookings() {
         expectedBookings = new ArrayList<>();
-        expectedBooking = new Booking("userId", "parkinglotId", "carLicenceNumber", new Date(2020, 01, 23), new Date(2020, 01, 25), null);
+        expectedBooking = new Booking("userId", "parkinglotId", "carLicenceNumber", LocalDate.of(2020, 01, 23), LocalDate.of(2020, 01, 25), null);
         expectedBookings.add(expectedBooking);
-        expectedBookings.add(new Booking("String userId2", "String parkinglotId2", "String carLicenceNumber2", new Date(2020, 01, 18), new Date(2020, 01, 28), null));
+        expectedBookings.add(new Booking("String userId2", "String parkinglotId2", "String carLicenceNumber2", LocalDate.of(2020, 01, 18), LocalDate.of(2020, 01, 28), null));
     }
 
     @BeforeEach

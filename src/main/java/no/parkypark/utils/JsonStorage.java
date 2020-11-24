@@ -1,7 +1,8 @@
-package no.parkypark.model;
+package no.parkypark.utils;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +38,7 @@ public class JsonStorage<U> implements IStorage<U> {
 
 		try {
 			mapper.writerWithDefaultPrettyPrinter().writeValue(this.file, array);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

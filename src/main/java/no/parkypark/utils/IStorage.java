@@ -1,4 +1,4 @@
-package no.parkypark.model;
+package no.parkypark.utils;
 import java.util.List;
 
 public interface IStorage<T> {

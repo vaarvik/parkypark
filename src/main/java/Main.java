@@ -4,7 +4,7 @@ import io.javalin.plugin.rendering.vue.VueComponent;
 import no.parkypark.controller.BookingController;
 import no.parkypark.controller.ParkinglotsController;
 import no.parkypark.model.Booking;
-import no.parkypark.model.JsonStorage;
+import no.parkypark.utils.JsonStorage;
 import no.parkypark.model.Parkinglot;
 import no.parkypark.repository.BookingRepository;
 import no.parkypark.repository.ParkinglotsRepository;

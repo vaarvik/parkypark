@@ -1,5 +1,6 @@
 package no.parkypark.model;
 
+import no.parkypark.utils.JsonStorage;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

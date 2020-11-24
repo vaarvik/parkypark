@@ -1,5 +1,5 @@
 package no.parkypark.repository;
-import no.parkypark.model.IStorage;
+import no.parkypark.utils.IStorage;
 import no.parkypark.model.Parkinglot;
 
 import java.util.ArrayList;
