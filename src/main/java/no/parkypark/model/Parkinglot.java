@@ -41,9 +41,13 @@ public class Parkinglot {
     }
 
     public void update(Parkinglot parkinglot) {
-        this.name = parkinglot.name;
-        this.address = parkinglot.address;
-        this.price = parkinglot.price;
+        this.name = parkinglot.getName();
+        this.address = parkinglot.getAddress();
+        this.price = parkinglot.getPrice();
+        this.checkout = parkinglot.getCheckout();
+        this.checkin = parkinglot.getCheckin();
+        this.description = parkinglot.getDescription();
+        this.image = parkinglot.getImage();
     }
 
     public String getImage() {

@@ -6,9 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import no.parkypark.utils.JsonDateDeserialize;
 import no.parkypark.utils.JsonDateSerializer;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -84,7 +82,6 @@ public class Booking {
 
     public void setCheckIn(LocalDateTime checkIn) {
         this.checkIn = checkIn;
-        System.out.println(checkIn);
     }
 
     public LocalDateTime getCheckOut() {
