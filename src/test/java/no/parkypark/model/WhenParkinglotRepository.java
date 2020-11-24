@@ -1,6 +1,7 @@
 package no.parkypark.model;
 
 import no.parkypark.repository.ParkinglotsRepository;
+import no.parkypark.utils.JsonStorage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

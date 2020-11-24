@@ -1,5 +1,11 @@
 package no.parkypark.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import no.parkypark.utils.JsonDateDeserialize;
+import no.parkypark.utils.JsonDateSerializer;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -9,11 +15,17 @@ public class Parkinglot {
     private String address;
     private String id;
     private String ownerId;
-    private Date checkin;
-    private Date checkout;
     private String image;
     private String description;
     private double price;
+
+    @JsonDeserialize(using = JsonDateDeserialize.class)
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDateTime checkin;
+
+    @JsonDeserialize(using = JsonDateDeserialize.class)
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDateTime checkout;
 
     public Parkinglot(String name, String address, String ownerId, double price) {
         this.name = name;
@@ -29,9 +41,13 @@ public class Parkinglot {
     }
 
     public void update(Parkinglot parkinglot) {
-        this.name = parkinglot.name;
-        this.address = parkinglot.address;
-        this.price = parkinglot.price;
+        this.name = parkinglot.getName();
+        this.address = parkinglot.getAddress();
+        this.price = parkinglot.getPrice();
+        this.checkout = parkinglot.getCheckout();
+        this.checkin = parkinglot.getCheckin();
+        this.description = parkinglot.getDescription();
+        this.image = parkinglot.getImage();
     }
 
     public String getImage() {
@@ -50,19 +66,19 @@ public class Parkinglot {
         this.description = description;
     }
 
-    public Date getCheckin() {
+    public LocalDateTime getCheckin() {
         return checkin;
     }
 
-    public void setCheckin(Date checkin) {
+    public void setCheckin(LocalDateTime checkin) {
         this.checkin = checkin;
     }
 
-    public Date getCheckout() {
+    public LocalDateTime getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(Date checkout) {
+    public void setCheckout(LocalDateTime checkout) {
         this.checkout = checkout;
     }
 

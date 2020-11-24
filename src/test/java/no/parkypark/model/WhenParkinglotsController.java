@@ -17,7 +17,6 @@ import static org.mockito.Mockito.*;
 public class WhenParkinglotsController {
     private List<Parkinglot> expectedParkinglots;
     private Parkinglot expectedParkinglot;
-    ArrayList<Parkinglot> depectedParkinglots = new ArrayList<>();
 
     private void setUpExpectedParkinglots() {
         expectedParkinglots = new ArrayList<>();
@@ -31,8 +30,8 @@ public class WhenParkinglotsController {
         setUpExpectedParkinglots();
     }
 
-    private Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
-    private ParkinglotsRepository repo = mock(ParkinglotsRepository.class); // "mock-maker-inline" must be enabled
+    private final Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
+    private final ParkinglotsRepository repo = mock(ParkinglotsRepository.class); // "mock-maker-inline" must be enabled
 
     @Test
     public void fetchAllParkinglots() {

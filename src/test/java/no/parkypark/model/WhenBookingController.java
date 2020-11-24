@@ -7,9 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -20,10 +20,15 @@ public class WhenBookingController {
     private Booking expectedBooking;
 
     private void setUpExpectedBookings() {
+        LocalDateTime d1 = LocalDateTime.of(2020, Month.DECEMBER, 12, 19, 5, 40);
+        LocalDateTime d2 = LocalDateTime.of(2020, Month.DECEMBER, 22, 19, 4, 40);
+        LocalDateTime d3 = LocalDateTime.of(2021, Month.JANUARY, 10, 19, 30, 40);
+        LocalDateTime d4 = LocalDateTime.of(2021, Month.JANUARY, 9, 19, 2, 40);
+
         expectedBookings = new ArrayList<>();
-        expectedBooking = new Booking("userId", "parkinglotId", "carLicenceNumber", new Date(2020, 01, 23), new Date(2020, 01, 25), null);
+        expectedBooking = new Booking("userId", "parkinglotId", "carLicenceNumber", d1, d2, null);
         expectedBookings.add(expectedBooking);
-        expectedBookings.add(new Booking("String userId2", "String parkinglotId2", "String carLicenceNumber2", new Date(2020, 01, 18), new Date(2020, 01, 28), null));
+        expectedBookings.add(new Booking("String userId2", "String parkinglotId2", "String carLicenceNumber2", d3, d4, null));
     }
 
     @BeforeEach
@@ -31,8 +36,8 @@ public class WhenBookingController {
         setUpExpectedBookings();
     }
 
-    private Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
-    private BookingRepository repo = mock(BookingRepository.class); // "mock-maker-inline" must be enabled
+    private final Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
+    private final BookingRepository repo = mock(BookingRepository.class); // "mock-maker-inline" must be enabled
 
     @Test
     public void fetchAllBookingsByUser() {
