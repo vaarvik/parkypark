@@ -5,9 +5,6 @@ import io.javalin.http.Context;
 import no.parkypark.model.Booking;
 import no.parkypark.repository.BookingRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BookingController {
 	private final BookingRepository bookingRepository;
 	public BookingController(BookingRepository bookingRepository) {
