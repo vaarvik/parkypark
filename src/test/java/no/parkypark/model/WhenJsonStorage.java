@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JsonStorageTest {
+public class WhenJsonStorage {
 	private static final String JSON_PARKINGLOT_FILE =
 			"[" +
 				"{ \"name\" : \"Oscars Parkeringsplass\", \"address\" : \"Oscarveien 14\",\"id\" : \"b5319909-1968-442c-93e9-fd08d24d985f\",\"ownerId\" : \"4\",\"price\" : 20.0}," +
@@ -28,7 +28,7 @@ public class JsonStorageTest {
 	}
 
 	@Test
-	void readFromFileTest(@TempDir Path tempDir) throws IOException {
+	void readsFromFile(@TempDir Path tempDir) throws IOException {
 		Path path = tempDir.resolve("parkinglots.json");
 		Files.write(path, JSON_PARKINGLOT_FILE.getBytes());
 
@@ -43,7 +43,7 @@ public class JsonStorageTest {
 	}
 
 	@Test
-	void writeToFile(@TempDir Path tempDir) {
+	void writesToFile(@TempDir Path tempDir) {
 		Path path = tempDir.resolve("parkinglots.json");
 
 		JsonStorage<Parkinglot> parkinglotJsonStorage = new JsonStorage<>(Parkinglot.class, path.toAbsolutePath().toString());
