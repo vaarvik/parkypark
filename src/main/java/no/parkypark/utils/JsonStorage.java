@@ -38,7 +38,7 @@ public class JsonStorage<U> implements IStorage<U> {
 
 		try {
 			mapper.writerWithDefaultPrettyPrinter().writeValue(this.file, array);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
