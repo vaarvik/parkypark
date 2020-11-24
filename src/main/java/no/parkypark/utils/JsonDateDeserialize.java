@@ -17,7 +17,9 @@ public class JsonDateDeserialize extends JsonDeserializer<LocalDateTime> {
 		ObjectCodec oc = jp.getCodec();
 		LongNode node = oc.readTree(jp);
 		long epoch = node.longValue();
-		date = LocalDateTime.ofEpochSecond(epoch, 0, ZoneOffset.UTC);
+
+		// The date is stored/returned from frontend as milliseconds but LocalDateTime can only handle the timestamp in seconds.
+		date = LocalDateTime.ofEpochSecond(epoch / 1000, 0, ZoneOffset.UTC);
 
 		return date;
 	}

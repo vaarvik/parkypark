@@ -27,12 +27,25 @@ public class Parkinglot {
     @JsonSerialize(using = JsonDateSerializer.class)
     private LocalDateTime checkout;
 
-    public Parkinglot(String name, String address, String ownerId, double price) {
+    public Parkinglot(
+            String name,
+            String address,
+            String ownerId,
+            double price,
+            String image,
+            String description,
+            LocalDateTime checkin,
+            LocalDateTime checkout
+    ) {
         this.name = name;
         this.address = address;
         this.id = UUID.randomUUID().toString();
         this.ownerId = ownerId;
+        this.image = image;
+        this.description = description;
         this.price = price;
+        this.checkin = checkin;
+        this.checkout = checkout;
     }
 
     //used by front-end and bodyAsClass
@@ -130,6 +143,10 @@ public class Parkinglot {
                 ", id='" + id + '\'' +
                 ", ownerId='" + ownerId + '\'' +
                 ", price=" + price +
+                ", image=" + image +
+                ", description=" + description +
+                ", checkin=" + checkin +
+                ", checkout=" + checkout +
                 '}';
     }
 
@@ -142,11 +159,15 @@ public class Parkinglot {
                 Objects.equals(name, that.name) &&
                 Objects.equals(address, that.address) &&
                 Objects.equals(id, that.id) &&
-                Objects.equals(ownerId, that.ownerId);
+                Objects.equals(ownerId, that.ownerId) &&
+                Objects.equals(image, that.image) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(checkin, that.checkin) &&
+                Objects.equals(checkout, that.checkout);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, address, id, ownerId, price);
+        return Objects.hash(name, address, id, ownerId, price, image, description, checkin, checkout);
     }
 }

@@ -8,6 +8,8 @@ import org.mockito.Mock;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +20,19 @@ import static org.mockito.Mockito.*;
 public class WhenParkinglotRepository {
 	private List<Parkinglot> expectedLots;
 	private Parkinglot parkingLot;
+	private LocalDateTime d1;
+	private LocalDateTime d2;
+	private String imageUrl;
 
 	private void setUpExpectedParkinglots() {
+		imageUrl = "https://placekitten.com/200/300";
+		d1 = LocalDateTime.of(2020, Month.DECEMBER, 12, 19, 5, 40);
+		d2 = LocalDateTime.of(2020, Month.DECEMBER, 22, 19, 4, 40);
+
 		expectedLots = new ArrayList<>();
-		parkingLot = new Parkinglot("Flott parkeringplass ved sjøen", "21 2nd Street", "123", 20);
+		parkingLot = new Parkinglot("Flott parkeringplass ved sjøen", "21 2nd Street", "123", 20, imageUrl, "", d1, d2);
 		expectedLots.add(parkingLot);
-		expectedLots.add(new Parkinglot("Plass for parkering", "Matrix Street", "456", 30));
+		expectedLots.add(new Parkinglot("Plass for parkering", "Matrix Street", "456", 30, imageUrl, "", d1, d2));
 	}
 
 	@BeforeEach
@@ -37,7 +46,7 @@ public class WhenParkinglotRepository {
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
 
-		Parkinglot lot = new Parkinglot("name", "adress", "ownerId", 666);
+		Parkinglot lot = new Parkinglot("name", "adress", "ownerId", 666, imageUrl, "Description", d1, d2);
 
 		Parkinglot result = repo.addParkinglot(lot);
 
@@ -76,8 +85,20 @@ public class WhenParkinglotRepository {
 		// Create the repository
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
 
+		LocalDateTime updatedD1 = LocalDateTime.of(2021, Month.DECEMBER, 12, 19, 5, 40);
+		LocalDateTime updatedD2 = LocalDateTime.of(2022, Month.DECEMBER, 12, 19, 5, 40);
+
 		// The updated parkinglot
-		Parkinglot updatedLot = new Parkinglot("updatedName", "updatedAdress", parkingLot.getOwnerId(), 3);
+		Parkinglot updatedLot = new Parkinglot(
+						"updatedName",
+						"updatedAdress",
+						parkingLot.getOwnerId(),
+						3,
+						"https://new-image-url",
+						"New description",
+						updatedD1,
+						updatedD2);
+
 		updatedLot.setId(parkingLot.getId());
 
 		// Update parkinglot
