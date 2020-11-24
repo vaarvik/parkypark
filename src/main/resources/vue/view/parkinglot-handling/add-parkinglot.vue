@@ -37,11 +37,11 @@
                             <br>
 
                             <label for="checkin">Check in</label>
-                            <input class="field input" type="date" :min="getToday()" name="checkin" id="checkin" v-model="parkinglot.checkin">
+                            <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkin')" :min="getToday()" name="checkin" id="checkin">
                             <br>
 
                             <label for="checkout">Check out</label>
-                            <input class="field input" type="date" :min="parkinglot.checkin ? parkinglot.checkin : getToday()" name="checkout" id="checkout" v-model="parkinglot.checkout">
+                            <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkout')" :min="parkinglot.checkin ? getInputDateFormat(new Date(parkinglot.checkin)) : getToday()" name="checkout" id="checkout">
                             <br>
 
                             <label for="description">Beskrivelse</label>
@@ -75,6 +75,18 @@
             }
         },
         methods:{
+            getDateInput(e, prop) {
+                this.parkinglot[prop] = new Date(e.target.value).getTime();
+                console.log(this.parkinglot);
+            },
+            getInputDateFormat(date) {
+                // let today = new Date();
+                let dd = String(date.getDate()).padStart(2, '0');
+                let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = date.getFullYear();
+
+                return `${yyyy}-${mm}-${dd}`;
+            },
             onSubmit(event) {
                 event.preventDefault();
                 fetch(`/api/parkinglots/add`, {

@@ -34,13 +34,12 @@
                     </div>
                     <div>
                         <label for="input-checkin">Startdato på parkeringen</label>
-                        <input class="field input" type="date" :min="checkInDate(parkinglot.checkin)" :max="checkInDate(parkinglot.checkout)" name="checkin" id="input-checkin" v-model="booking.checkIn">
+                        <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkIn')" :min="checkInDate(parkinglot.checkin)" :max="checkInDate(parkinglot.checkout)" name="checkin" id="input-checkin">
                         <br>
                     </div>
                     <div>
                         <label for="input-checkout">Sluttdato på parkeringen</label>
-                        <input class="field input" type="date" :min="checkInDate(booking.checkIn)" :max="checkInDate(parkinglot.checkout)" name="checkout" id="input-checkout"
-                        v-model="booking.checkOut">
+                        <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkOut')" :min="checkInDate(booking.checkIn)" :max="checkInDate(parkinglot.checkout)" name="checkout" id="input-checkout">
                         <br>
                     </div>
                     <div>
@@ -80,6 +79,10 @@
             }
         },
         methods: {
+            getDateInput(e, prop) {
+                this.booking[prop] = new Date(e.target.value).getTime();
+                console.log(this.booking);
+            },
             getCookie(cName) {
                 const cookies = document.cookie.split(";"); //split cookies into array
                 let finalCookie = null;
