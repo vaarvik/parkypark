@@ -88,17 +88,20 @@
             },
             onSubmit(event) {
                 event.preventDefault();
-                fetch(`/api/parkinglots/add`, {
-                    method: 'POST',
-                    body: JSON.stringify(this.parkinglot),
-                })
-                .then((res) => {
-                    alert("Din parkeringsplass er blitt registrert")
-                    window.location = "/parkinglots/add";
-                })
-                .catch((err) => {
-                    alert("Booking failet.")
-                });
+                if(this.parkinglot.checkin && this.parkinglot.checkout && this.parkinglot.price && this.parkinglot.address && this.parkinglot.name)
+                    fetch(`/api/parkinglots/add`, {
+                        method: 'POST',
+                        body: JSON.stringify(this.parkinglot),
+                    })
+                    .then((res) => {
+                        alert("Din parkeringsplass er blitt registrert")
+                        window.location = "/parkinglots/add";
+                    })
+                    .catch((err) => {
+                        alert("Booking failet.")
+                    });
+                else
+                    alert("Vennligst fyll ut/velg: Startdato, sluttdato, pris, adresse og navn.")
             },
 
             getToday() {

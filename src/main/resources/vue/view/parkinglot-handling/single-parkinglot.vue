@@ -114,18 +114,21 @@
             },
             onSubmit(event) {
                 event.preventDefault();
-                fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
-                    method: 'POST',
-                    body: JSON.stringify(this.booking),
-                })
-                .then((res) => {
-                    alert("Her ville en betaling blitt håndtert.");
-                    alert("Din reise er blitt booket!");
-                    window.location = "/";
-                })
-                .catch((err) => {
-                    alert("Booking failet.")
-                });
+                if(this.booking.checkIn && this.booking.checkOut && this.booking.carLicenceNumber)
+                    fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
+                        method: 'POST',
+                        body: JSON.stringify(this.booking),
+                    })
+                    .then((res) => {
+                        alert("Her ville en betaling blitt håndtert.");
+                        alert("Din reise er blitt booket!");
+                        window.location = "/";
+                    })
+                    .catch((err) => {
+                        alert("Booking failet.")
+                    });
+                else
+                    alert("Vennligst fyll ut/velg: Startdato, sluttdato og registreringsnummer.")
             },
             getDateFormat(date) {
                 return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
