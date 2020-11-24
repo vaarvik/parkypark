@@ -3,23 +3,31 @@
   "userId" : "1",
   "parkinglotId" : "1",
   "carLicenceNumber" : "VF99923",
+  "payment" : null,
   "checkIn" : 1606608000000,
-  "checkOut" : 1606694400000,
-  "payment" : null
+  "checkOut" : 1606694400000
 }, {
   "id" : "ba6292ea-4a8e-45d3-9548-75448f45a45f",
   "userId" : "1",
   "parkinglotId" : "8",
   "carLicenceNumber" : "VG54322",
+  "payment" : null,
   "checkIn" : 1606608000000,
-  "checkOut" : 1606694400000,
-  "payment" : null
+  "checkOut" : 1606694400000
 }, {
   "id" : "7bcea12c-ee1d-49f6-ba45-bbe234cdb7e5",
   "userId" : "1",
   "parkinglotId" : "7625ce40-0992-4ab5-ade6-165e773196ad",
   "carLicenceNumber" : "ZT305535",
+  "payment" : null,
   "checkIn" : 1606521600000,
-  "checkOut" : 1606608000000,
-  "payment" : null
+  "checkOut" : 1606608000000
+}, {
+  "id" : "ae895df6-a3e2-45b7-82f1-75e49b1526a7",
+  "userId" : "1",
+  "parkinglotId" : "0647d41f-0d4d-4c92-9091-534fb1194b83",
+  "carLicenceNumber" : "ZT305535",
+  "payment" : null,
+  "checkIn" : 1606262400000,
+  "checkOut" : 1606348800000
 } ]

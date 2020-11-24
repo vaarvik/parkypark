@@ -3,269 +3,279 @@
   "address" : "21 2nd Street",
   "id" : "1",
   "ownerId" : "89",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Nord Parkering",
   "address" : "Bossekopven 22",
   "id" : "2",
   "ownerId" : "89",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 30.0
+  "price" : 30.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Parkering nærmt Oslo Sentrum",
   "address" : "Holmlia 5f",
   "id" : "3",
   "ownerId" : "89",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Lekker parkering for de rike",
   "address" : "Hudsonsvei 14",
   "id" : "4",
   "ownerId" : "89",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Plass for de som ikke er redd for riper i lakken",
   "address" : "Scrape Street 2",
   "id" : "5",
   "ownerId" : "2",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 15.0
+  "price" : 15.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Lekker Parkeringsplass sentralt i grorud med elbillader",
   "address" : "Grorudalen Badestrand 9f",
   "id" : "6",
   "ownerId" : "2",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 50.0
+  "price" : 50.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Garasjeparkering ved Smibygget 7",
   "address" : "Smibygget 7",
   "id" : "7",
   "ownerId" : "543",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 30.0
+  "price" : 30.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Bleieven 2",
   "address" : "Bleieven 2",
   "id" : "8",
   "ownerId" : "11",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Liten parkeringsplass nærmt Gjeddevannet",
   "address" : "Varden 23",
   "id" : "9",
   "ownerId" : "3543",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 50.0
+  "price" : 50.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Sentral Parkering under tak",
   "address" : "Fyllingsdalen 8b",
   "id" : "10",
   "ownerId" : "643",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 50.0
+  "price" : 50.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Trailer parkeringsplass rett utenfor Bergen Sentrum",
   "address" : "Åsaneveien 6",
   "id" : "11",
   "ownerId" : "634",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 70.0
+  "price" : 70.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Ledig plass i Bjørgebrekka",
   "address" : "Bjørgebrekka 8f",
   "id" : "12",
   "ownerId" : "124",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 80.0
+  "price" : 80.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Beste parkeringen i byn",
   "address" : "Enveimedsentrum 23",
   "id" : "13",
   "ownerId" : "2",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 220.0
+  "price" : 220.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Parkeringplass",
   "address" : "Stiveiene 6",
   "id" : "15",
   "ownerId" : "1132",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 10.0
+  "price" : 10.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Begynner å gå tom for ideer",
   "address" : "Enveistien 9",
   "id" : "16",
   "ownerId" : "2332",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 15.0
+  "price" : 15.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Fin parkeringsplass for alle med bil",
   "address" : "Bjørnegaten 44",
   "id" : "17",
   "ownerId" : "6332",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 19.0
+  "price" : 19.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Knall bra plass å parkere",
   "address" : "Braplass 33",
   "id" : "18",
   "ownerId" : "132",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 25.0
+  "price" : 25.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Dyreste parkeringen du finner på denne siden",
   "address" : "Sentralveien 1",
   "id" : "19",
   "ownerId" : "232",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 500.0
+  "price" : 500.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Praktisk parkering i gyldendal",
   "address" : "gyldendal 8",
   "id" : "20",
   "ownerId" : "372",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 60.0
+  "price" : 60.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Nokså sentral parkering ved Hordvik",
   "address" : "Hordvik 7",
   "id" : "21",
   "ownerId" : "332",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 9.9999999999E10
+  "price" : 9.9999999999E10,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Jonas ",
   "address" : "Pettsonsvei 2",
   "id" : "7a6e81ad-b177-4e4c-9426-a178f7cd2413",
   "ownerId" : "3",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 4.0
+  "price" : 4.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Parkering i Knudsens Vei",
   "address" : "Knudsens Vei 2",
   "id" : "6d941d0b-d44c-4348-9458-d3218039c68e",
   "ownerId" : "1",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Sigurdsvei",
   "address" : "Sigurdsvei 19",
   "id" : "701dcc43-db5d-4ffe-aae0-5d9a9b435379",
   "ownerId" : "",
-  "checkin" : 1606608000000,
-  "checkout" : 1606694400000,
   "image" : null,
   "description" : null,
-  "price" : 20.0
+  "price" : 20.0,
+  "checkin" : 1606608000000,
+  "checkout" : 1606694400000
 }, {
   "name" : "Pedro Pallassio",
   "address" : "Sentrumsveien 19",
   "id" : "802e3dac-cbfe-4f35-8ef9-0b4887189846",
   "ownerId" : "2",
-  "checkin" : 1608163200000,
-  "checkout" : 1608336000000,
   "image" : "https://media-cdn.tripadvisor.com/media/photo-s/19/80/6d/fa/parking-lot.jpg",
   "description" : "En fantastisk romslig og stor parkeringsplass i Sentrumsveien. Sentralt og god beliggenhet.",
-  "price" : 850.0
+  "price" : 850.0,
+  "checkin" : 1608163200000,
+  "checkout" : 1608336000000
 }, {
   "name" : "Gunnarsvei 19",
   "address" : "Gunnarsvei 19, Trondheim",
   "id" : "7625ce40-0992-4ab5-ade6-165e773196ad",
   "ownerId" : "89",
-  "checkin" : 1606435200000,
-  "checkout" : 1606608000000,
   "image" : "https://www.adressa.no/incoming/article22133840.ece/brfxjj/ALTERNATES/w780-square/9622ff1d-6903-46ba-9f16-847a1da55c93",
   "description" : "En veldig fin parkering langs stranda i Trondheim. Gunnarsvei 19.",
-  "price" : 300.0
+  "price" : 300.0,
+  "checkin" : 1606435200000,
+  "checkout" : 1606608000000
 }, {
   "name" : "Sigrid Gjøen",
   "address" : "Bossekopveien 22",
   "id" : "adc95237-db55-495d-a8b9-9abc734c28d7",
   "ownerId" : "2",
-  "checkin" : 1606176000000,
-  "checkout" : 1606262400000,
   "image" : "data:image/jpeg;base64,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",
   "description" : "lol",
-  "price" : 2
+  "price" : 2.0,
+  "checkin" : 1606176000000,
+  "checkout" : 1606262400000
 }, {
   "name" : "loltest",
   "address" : "Bossekopveien 22",
   "id" : "0647d41f-0d4d-4c92-9091-534fb1194b83",
   "ownerId" : "2",
-  "checkin" : 1606176000000,
-  "checkout" : 1606348800000,
   "image" : "https://lh3.googleusercontent.com/-wldCoQZZ438/U_cc8iITSVI/AAAAAAAAMe0/5SZfJpkNTCE/w474-h330-no/bildelink.png",
   "description" : "die",
-  "price" : 666.0
+  "price" : 666.0,
+  "checkin" : 1606176000000,
+  "checkout" : 1606348800000
+}, {
+  "name" : "Testparkering",
+  "address" : "Testen",
+  "id" : "57e0d38f-ca5a-471f-aff2-80d6219c74ff",
+  "ownerId" : "2",
+  "image" : "data:image/jpeg;base64,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",
+  "description" : "test",
+  "price" : 12.0,
+  "checkin" : 1606262400000,
+  "checkout" : 1608163200000
 } ]
