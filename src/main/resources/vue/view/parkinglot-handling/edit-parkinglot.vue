@@ -37,11 +37,11 @@
                             <br>
 
                             <label for="checkin">Check in</label>
-                            <input class="field input" type="date" :min="getToday()" name="checkin" id="checkin" v-model="parkinglot.checkin">
+                            <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkin')" :min="getToday()" name="checkin" id="checkin" :value="getInputDateFormat(new Date(parkinglot.checkin))">
                             <br>
 
                             <label for="checkout">Check out</label>
-                            <input class="field input" type="date" :min="parkinglot.checkin ? parkinglot.checkin : getToday()" name="checkout" id="checkout" v-model="parkinglot.checkout">
+                            <input class="field input" type="date" @change="(e) => getDateInput(e, 'checkout')" :min="parkinglot.checkin ? getInputDateFormat(new Date(parkinglot.checkin)) : getToday()" name="checkout" id="checkout" :value="getInputDateFormat(new Date(parkinglot.checkout))">
                             <br>
 
                             <label for="description">Beskrivelse</label>
@@ -83,6 +83,17 @@
                 .catch(() => alert("Error while fetching parkinglot"));
         },
         methods:{
+            getDateInput(e, prop) {
+                this.parkinglot[prop] = new Date(e.target.value).getTime();
+            },
+            getInputDateFormat(date) {
+                // let today = new Date();
+                let dd = String(date.getDate()).padStart(2, '0');
+                let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = date.getFullYear();
+
+                return `${yyyy}-${mm}-${dd}`;
+            },
             getCookie(cName) {
                 const cookies = document.cookie.split(";"); //split cookies into array
                 let finalCookie = null;

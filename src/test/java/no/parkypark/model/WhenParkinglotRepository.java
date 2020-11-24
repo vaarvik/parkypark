@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ParkinglotRepositoryTest {
+public class WhenParkinglotRepository {
 	private List<Parkinglot> expectedLots;
 	private Parkinglot parkingLot;
 
@@ -32,7 +32,7 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@Test
-	public void addParkinglotTest(@Mock JsonStorage<Parkinglot> storage) {
+	public void addingAParkinglot(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -48,7 +48,7 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@Test
-	public void getAllParkingLotsTest(@Mock JsonStorage<Parkinglot> storage) {
+	public void getsAllParkingLots(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -59,7 +59,7 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@Test
-	public void getParkinglotByIdTest(@Mock JsonStorage<Parkinglot> storage) {
+	public void getsAParkinglotById(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
 		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
@@ -70,7 +70,7 @@ public class ParkinglotRepositoryTest {
 	}
 
 	@Test
-	public void updateParkinglotTest(@Mock JsonStorage<Parkinglot> storage) throws Exception {
+	public void updatesAParkinglot(@Mock JsonStorage<Parkinglot> storage) throws Exception {
 		when(storage.read()).thenReturn(expectedLots);
 
 		// Create the repository
