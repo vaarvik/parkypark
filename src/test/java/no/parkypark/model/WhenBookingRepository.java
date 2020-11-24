@@ -41,6 +41,20 @@ public class WhenBookingRepository {
     public void getsAllBookings(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
         BookingRepository repo = new BookingRepository(storage);
+
+        List<Booking> bookings = repo.getBookingsByUserId("String userId");
+        List<Booking> expected = new ArrayList<Booking>();
+        expected.add(expectedBookings.get(0));
+
+        assertEquals(1, bookings.size());
+        assertEquals(expected, bookings);
+        verify(storage).read();
+    }
+
+    @Test
+    public void getsBookingsByUserId(@Mock JsonStorage<Booking> storage) {
+        when(storage.read()).thenReturn(expectedBookings);
+        BookingRepository repo = new BookingRepository(storage);
         assertEquals(expectedBookings, repo.getAllBookings());
         verify(storage).read();
     }

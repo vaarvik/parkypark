@@ -68,6 +68,21 @@ public class WhenParkinglotRepository {
 	}
 
 	@Test
+	public void getsParkinglotsByOwnerId(@Mock JsonStorage<Parkinglot> storage) {
+		when(storage.read()).thenReturn(expectedLots);
+
+		ParkinglotsRepository repo = new ParkinglotsRepository(storage);
+
+		List<Parkinglot> lots = repo.getParkinglotsByOwnerId("123");
+		List<Parkinglot> expected = new ArrayList<>();
+		expected.add(expectedLots.get(0));
+
+		assertEquals(1, lots.size());
+		assertEquals(expected, lots);
+		verify(storage).read();
+	}
+
+	@Test
 	public void getsAParkinglotById(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
 
