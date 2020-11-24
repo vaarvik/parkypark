@@ -38,7 +38,7 @@
                                 </a>
                             </div>
                         </div>
-                        <img class="summary-list__image" :src="`https://picsum.photos/seed/${booking.parkinglotId}/300/100`" alt="">
+                        <img class="summary-list__image" :src="booking.parkinglot.image ? booking.parkinglot.image : `https://cdna.artstation.com/p/assets/images/images/006/108/866/large/herdian-utama-parkinglot.jpg?1496113668`" alt="">
                     </div>
                 </li>
             </ul>

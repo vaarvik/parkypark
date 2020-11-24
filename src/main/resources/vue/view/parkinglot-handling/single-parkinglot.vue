@@ -23,7 +23,7 @@
                         <p class="entry-header__sub-fact">Tilgjengelig utleieperiode: {{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
                         <p class="entry-info__price">Dagspris: {{ parkinglot.price }}</p>
                     </div>
-                    <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
+                    <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://cdna.artstation.com/p/assets/images/images/006/108/866/large/herdian-utama-parkinglot.jpg?1496113668`" alt="">
                 </div>
                 <br>
                 <form v-if="isRenter()" @submit="onSubmit">

@@ -30,7 +30,7 @@
                                 <p class="summary-info__price">{{ parkinglot.price }}</p>
                             </div>
                         </div>
-                        <img class="summary-list__image" :src="`https://picsum.photos/seed/${parkinglot.id}/300/100`" alt="">
+                        <img class="summary-list__image" :src="parkinglot.image ? parkinglot.image : `https://cdna.artstation.com/p/assets/images/images/006/108/866/large/herdian-utama-parkinglot.jpg?1496113668`" alt="">
                     </a>
                 </li>
             </ul>
