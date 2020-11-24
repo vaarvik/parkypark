@@ -81,7 +81,6 @@
         methods: {
             getDateInput(e, prop) {
                 this.booking[prop] = new Date(e.target.value).getTime();
-                console.log(this.booking);
             },
             getCookie(cName) {
                 const cookies = document.cookie.split(";"); //split cookies into array

@@ -77,7 +77,6 @@
         methods:{
             getDateInput(e, prop) {
                 this.parkinglot[prop] = new Date(e.target.value).getTime();
-                console.log(this.parkinglot);
             },
             getInputDateFormat(date) {
                 // let today = new Date();
