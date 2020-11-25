@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -38,8 +39,9 @@ public class WhenBookingRepository {
     }
 
 
+    //Krav: Booking.TidligereBookinger
     @Test
-    public void getsAllBookings(@Mock JsonStorage<Booking> storage) {
+    public void getsBookingsByUserId(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
         BookingRepository repo = new BookingRepository(storage);
 
@@ -52,9 +54,8 @@ public class WhenBookingRepository {
         verify(storage).read();
     }
 
-    //Krav: Booking.TidligereBookinger
     @Test
-    public void getsBookingsByUserId(@Mock JsonStorage<Booking> storage) {
+    public void getAllBookings(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
         BookingRepository repo = new BookingRepository(storage);
         assertEquals(expectedBookings, repo.getAllBookings());
@@ -67,12 +68,14 @@ public class WhenBookingRepository {
         when(storage.read()).thenReturn(expectedBookings);
 
         BookingRepository repo = new BookingRepository(storage);
+
         Booking booking = new Booking("String userId3", "String parkinglotId3", "String carLicenceNumber3", d1, d2, null);
 
-        expectedBookings.add(booking);
-        storage.write(expectedBookings);
+        Booking result = repo.addBooking(booking);
 
-        assertEquals(expectedBookings, repo.getAllBookings());
+        assertEquals(result, booking);
+
+        assertEquals(3, expectedBookings.size());
         verify(storage).write(expectedBookings);
     }
 }
