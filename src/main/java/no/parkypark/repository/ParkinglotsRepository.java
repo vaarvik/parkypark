@@ -20,11 +20,6 @@ public class ParkinglotsRepository implements IParkinglotsRepository {
     }
 
     @Override
-    public Parkinglot getParkinglot(String name) {
-        return null;
-    }
-
-    @Override
     public Parkinglot getParkinglotById(String id) {
         for (Parkinglot i: this.parkinglots) {
             if(i.getId().equals(id)) {

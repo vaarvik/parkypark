@@ -7,8 +7,6 @@ import java.util.List;
 public interface IParkinglotsRepository {
     List<Parkinglot> getAllParkinglots();
 
-    Parkinglot getParkinglot(String name);
-
     Parkinglot addParkinglot(Parkinglot parkinglot) throws Exception;
 
     Parkinglot getParkinglotById(String id);
