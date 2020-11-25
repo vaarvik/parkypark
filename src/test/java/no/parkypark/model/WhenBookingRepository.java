@@ -37,13 +37,14 @@ public class WhenBookingRepository {
         setUpExpectedParkinglots();
     }
 
+
     @Test
     public void getsAllBookings(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
         BookingRepository repo = new BookingRepository(storage);
 
         List<Booking> bookings = repo.getBookingsByUserId("String userId");
-        List<Booking> expected = new ArrayList<Booking>();
+        List<Booking> expected = new ArrayList<>();
         expected.add(expectedBookings.get(0));
 
         assertEquals(1, bookings.size());
@@ -51,6 +52,7 @@ public class WhenBookingRepository {
         verify(storage).read();
     }
 
+    //Krav: Booking.TidligereBookinger
     @Test
     public void getsBookingsByUserId(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);
@@ -59,6 +61,7 @@ public class WhenBookingRepository {
         verify(storage).read();
     }
 
+    //Krav: Booking.Reservere
     @Test
     public void addsABooking(@Mock JsonStorage<Booking> storage) {
         when(storage.read()).thenReturn(expectedBookings);

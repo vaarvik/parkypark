@@ -42,6 +42,7 @@ public class WhenParkinglotsController {
     private final Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
     private final ParkinglotsRepository repo = mock(ParkinglotsRepository.class); // "mock-maker-inline" must be enabled
 
+    //Krav: Leie.Kart (dog laget som en liste, ikke i kart)
     @Test
     public void fetchAllParkinglots() {
         when(repo.getAllParkinglots()).thenReturn(expectedParkinglots);
@@ -51,6 +52,7 @@ public class WhenParkinglotsController {
         verify(ctx).json(expectedParkinglots);
     }
 
+    //Krav: Leie.Detaljer
     @Test
     public void fetchASingleParkinglot() {
         when(repo.getParkinglotById(ctx.pathParam(":parkinglotid"))).thenReturn(expectedParkinglot);
@@ -60,6 +62,7 @@ public class WhenParkinglotsController {
         verify(ctx).json(expectedParkinglot);
     }
 
+    //Krav: Utleie.MinePlasser
     @Test
     public void fetchAllParkinglotsByUser() {
         when(repo.getParkinglotsByOwnerId(ctx.pathParam(":userid"))).thenReturn(expectedParkinglots);
@@ -69,6 +72,7 @@ public class WhenParkinglotsController {
         verify(ctx).json(expectedParkinglots);
     }
 
+    //Krav: Utleie.Redigering
     @Test
     public void updateAParkinglot() {
         LocalDateTime updatedD1 = LocalDateTime.of(2021, Month.DECEMBER, 12, 19, 5, 40);
@@ -91,6 +95,13 @@ public class WhenParkinglotsController {
         verify(ctx).json(expectedParkinglot);
     }
 
+    //Krav: Utleie.LeggeTil
+    //Krav: Utleie.Tittel
+    //Krav: Utleie.Adresse
+    //Krav: Utleie.SetteTidspunkt
+    //Krav: Utleie.Pris
+    //Krav: Utleie.P-Info
+    //Krav: Utleie.P-Info.Bilder (lastes dog ikke opp)
     @Test
     public void addAParkinglot() {
         when(ctx.bodyAsClass(Parkinglot.class)).thenReturn(expectedParkinglot);

@@ -39,6 +39,7 @@ public class WhenBookingController {
     private final Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
     private final BookingRepository repo = mock(BookingRepository.class); // "mock-maker-inline" must be enabled
 
+    //Krav: Booking.TidligereBookinger
     @Test
     public void fetchAllBookingsByUser() {
         when(repo.getBookingsByUserId(ctx.pathParam(":userid"))).thenReturn(expectedBookings);
@@ -48,6 +49,7 @@ public class WhenBookingController {
         verify(ctx).json(expectedBookings);
     }
 
+    //Krav: Booking.Reservere
     @Test
     public void createsABooking() {
         when(ctx.bodyAsClass(Booking.class)).thenReturn(expectedBooking);

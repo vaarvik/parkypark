@@ -40,6 +40,13 @@ public class WhenParkinglotRepository {
 		setUpExpectedParkinglots();
 	}
 
+	//Krav: Utleie.LeggeTil
+	//Krav: Utleie.Tittel
+	//Krav: Utleie.Adresse
+	//Krav: Utleie.SetteTidspunkt
+	//Krav: Utleie.Pris
+	//Krav: Utleie.P-Info
+	//Krav: Utleie.P-Info.Bilder (lastes dog ikke opp)
 	@Test
 	public void addingAParkinglot(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
@@ -56,6 +63,7 @@ public class WhenParkinglotRepository {
 		verify(storage).write(expectedLots);
 	}
 
+	//Krav: Leie.Kart (dog laget som en liste, ikke i kart)
 	@Test
 	public void getsAllParkingLots(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
@@ -67,6 +75,7 @@ public class WhenParkinglotRepository {
 		assertEquals(expectedLots, actual);
 	}
 
+	//Krav: Utleie.MinePlasser
 	@Test
 	public void getsParkinglotsByOwnerId(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
@@ -82,6 +91,7 @@ public class WhenParkinglotRepository {
 		verify(storage).read();
 	}
 
+	//Krav: Leie.Detaljer
 	@Test
 	public void getsAParkinglotById(@Mock JsonStorage<Parkinglot> storage) {
 		when(storage.read()).thenReturn(expectedLots);
@@ -93,6 +103,7 @@ public class WhenParkinglotRepository {
 		assertEquals(parkingLot, actual);
 	}
 
+	//Krav: Utleie.Redigering
 	@Test
 	public void updatesAParkinglot(@Mock JsonStorage<Parkinglot> storage) throws Exception {
 		when(storage.read()).thenReturn(expectedLots);
