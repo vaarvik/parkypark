@@ -6,7 +6,6 @@ import no.parkypark.utils.JsonDateDeserialize;
 import no.parkypark.utils.JsonDateSerializer;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -48,7 +47,7 @@ public class Parkinglot {
         this.checkout = checkout;
     }
 
-    //used by front-end and bodyAsClass
+    //used by front-end and Jackson
     public Parkinglot() {
         this.id = UUID.randomUUID().toString();
     }
