@@ -1,7 +1,7 @@
 package no.parkypark.repository;
 
 import no.parkypark.model.Booking;
-import no.parkypark.model.IStorage;
+import no.parkypark.utils.IStorage;
 
 import java.util.ArrayList;
 import java.util.List;

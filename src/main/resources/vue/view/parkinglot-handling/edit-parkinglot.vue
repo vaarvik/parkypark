@@ -109,16 +109,19 @@
             },
             onSubmit(event) {
                 event.preventDefault();
-                fetch('/api/parkinglots/:parkinglotid/edit', {
-                    method: 'POST',
-                    body: JSON.stringify(this.parkinglot),
-                })
-                .then((res) => {
-                    alert("Din parkeringsplass er blitt endret!")
-                })
-                .catch((err) => {
-                    alert("Endringen failet.")
-                });;
+                if(this.parkinglot.checkin && this.parkinglot.checkout && this.parkinglot.price && this.parkinglot.address && this.parkinglot.name )
+                    fetch('/api/parkinglots/:parkinglotid/edit', {
+                        method: 'POST',
+                        body: JSON.stringify(this.parkinglot),
+                    })
+                    .then((res) => {
+                        alert("Din parkeringsplass er blitt endret!")
+                    })
+                    .catch((err) => {
+                        alert("Endringen failet.")
+                    });
+                else
+                    alert("Vennligst fyll ut/velg: Startdato, sluttdato, pris, adresse og navn.")
             },
             checkForm:function(e) {
 

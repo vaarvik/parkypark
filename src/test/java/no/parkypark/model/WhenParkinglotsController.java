@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +19,19 @@ import static org.mockito.Mockito.*;
 public class WhenParkinglotsController {
     private List<Parkinglot> expectedParkinglots;
     private Parkinglot expectedParkinglot;
-    ArrayList<Parkinglot> depectedParkinglots = new ArrayList<>();
+    private LocalDateTime d1;
+    private LocalDateTime d2;
+    private String imageUrl;
 
     private void setUpExpectedParkinglots() {
+        imageUrl = "https://placekitten.com/200/300";
+        d1 = LocalDateTime.of(2020, Month.DECEMBER, 12, 19, 5, 40);
+        d2 = LocalDateTime.of(2020, Month.DECEMBER, 22, 19, 4, 40);
+
         expectedParkinglots = new ArrayList<>();
-        expectedParkinglot = new Parkinglot("Flott parkeringplass ved sjøen", "21 2nd Street", "123", 20);
+        expectedParkinglot = new Parkinglot("Flott parkeringplass ved sjøen", "21 2nd Street", "123", 20, imageUrl, "", d1, d2);
         expectedParkinglots.add(expectedParkinglot);
-        expectedParkinglots.add(new Parkinglot("Plass for parkering", "Matrix Street", "456", 30));
+        expectedParkinglots.add(new Parkinglot("Plass for parkering", "Matrix Street", "456", 30, imageUrl, "", d1, d2));
     }
 
     @BeforeEach
@@ -31,8 +39,8 @@ public class WhenParkinglotsController {
         setUpExpectedParkinglots();
     }
 
-    private Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
-    private ParkinglotsRepository repo = mock(ParkinglotsRepository.class); // "mock-maker-inline" must be enabled
+    private final Context ctx = mock(Context.class); // "mock-maker-inline" must be enabled
+    private final ParkinglotsRepository repo = mock(ParkinglotsRepository.class); // "mock-maker-inline" must be enabled
 
     @Test
     public void fetchAllParkinglots() {
@@ -63,8 +71,20 @@ public class WhenParkinglotsController {
 
     @Test
     public void updateAParkinglot() {
+        LocalDateTime updatedD1 = LocalDateTime.of(2021, Month.DECEMBER, 12, 19, 5, 40);
+        LocalDateTime updatedD2 = LocalDateTime.of(2022, Month.DECEMBER, 12, 19, 5, 40);
+
         when(ctx.bodyAsClass(Parkinglot.class)).thenReturn(expectedParkinglot);
-        expectedParkinglot.update(new Parkinglot("NewName", "NewAddress", "13", 2));
+        expectedParkinglot.update(new Parkinglot(
+                "NewName",
+                "NewAddress",
+                "13",
+                2,
+                "https://newimage",
+                "NewDescription",
+                updatedD1,
+                updatedD2
+        ));
 
         ParkinglotsController controller = new ParkinglotsController(repo);
         controller.updateParkinglot(ctx);

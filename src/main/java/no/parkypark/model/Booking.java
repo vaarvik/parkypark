@@ -1,20 +1,31 @@
 package no.parkypark.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import no.parkypark.utils.JsonDateDeserialize;
+import no.parkypark.utils.JsonDateSerializer;
+
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Booking {
-    private String id;
+    private final String id;
     private String userId;
     private String parkinglotId;
     private String carLicenceNumber;
-    private Date checkIn;
-    private Date checkOut;
     private Payment payment;
 
+    @JsonDeserialize(using = JsonDateDeserialize.class)
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDateTime checkIn;
 
-    public Booking(String userId, String parkinglotId, String carLicenceNumber, Date checkIn, Date checkOut, Payment payment) {
+    @JsonDeserialize(using = JsonDateDeserialize.class)
+    @JsonSerialize(using = JsonDateSerializer.class)
+    private LocalDateTime checkOut;
+
+    public Booking(String userId, String parkinglotId, String carLicenceNumber, LocalDateTime checkIn, LocalDateTime checkOut, Payment payment) {
         this.id = UUID.randomUUID().toString();
         this.userId = userId;
         this.parkinglotId = parkinglotId;
@@ -65,19 +76,19 @@ public class Booking {
         this.carLicenceNumber = carLicenceNumber;
     }
 
-    public Date getCheckIn() {
-        return checkIn;
+    public LocalDateTime getCheckIn() {
+        return this.checkIn;
     }
 
-    public void setCheckIn(Date checkIn) {
+    public void setCheckIn(LocalDateTime checkIn) {
         this.checkIn = checkIn;
     }
 
-    public Date getCheckOut() {
-        return checkOut;
+    public LocalDateTime getCheckOut() {
+        return this.checkOut;
     }
 
-    public void setCheckOut(Date checkOut) {
+    public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
     }
 

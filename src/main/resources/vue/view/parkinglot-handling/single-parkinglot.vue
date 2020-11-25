@@ -23,7 +23,7 @@
                         <p class="entry-header__sub-fact">Tilgjengelig utleieperiode: {{ getDateFormat(new Date(parkinglot.checkin)) }} - {{ getDateFormat(new Date(parkinglot.checkout)) }}</p>
                         <p class="entry-info__price">Dagspris: {{ parkinglot.price }}</p>
                     </div>
-                    <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://picsum.photos/seed/${parkinglot.id}/300/300`" alt="">
+                    <img class="entry-info__image" :src="parkinglot.image ? parkinglot.image : `https://cdna.artstation.com/p/assets/images/images/006/108/866/large/herdian-utama-parkinglot.jpg?1496113668`" alt="">
                 </div>
                 <br>
                 <form v-if="isRenter()" @submit="onSubmit">
@@ -114,18 +114,21 @@
             },
             onSubmit(event) {
                 event.preventDefault();
-                fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
-                    method: 'POST',
-                    body: JSON.stringify(this.booking),
-                })
-                .then((res) => {
-                    alert("Her ville en betaling blitt håndtert.");
-                    alert("Din reise er blitt booket!");
-                    window.location = "/";
-                })
-                .catch((err) => {
-                    alert("Booking failet.")
-                });
+                if(this.booking.checkIn && this.booking.checkOut && this.booking.carLicenceNumber)
+                    fetch(`/api/parkinglots/${this.parkinglot.id}/book`, {
+                        method: 'POST',
+                        body: JSON.stringify(this.booking),
+                    })
+                    .then((res) => {
+                        alert("Her ville en betaling blitt håndtert.");
+                        alert("Din reise er blitt booket!");
+                        window.location = "/";
+                    })
+                    .catch((err) => {
+                        alert("Booking failet.")
+                    });
+                else
+                    alert("Vennligst fyll ut/velg: Startdato, sluttdato og registreringsnummer.")
             },
             getDateFormat(date) {
                 return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
